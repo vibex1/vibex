@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tempered Glass Lookup</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 480px;
+        margin: 30px auto;
+        padding: 12px;
+      }
+      h2 {
+        color: #228bee;
+      }
+      input[type="text"] {
+        padding: 6px;
+        width: 70%;
+      }
+      button {
+        padding: 7px 15px;
+        margin-left: 6px;
+      }
+      .result {
+        margin: 14px 0;
+        font-size: 1.1em;
+      }
+      ul {
+        margin-left: 0;
+      }
+      .main-model {
+        font-weight: bold;
+        color: #155a8a;
+      }
+      .models-list {
+        margin-bottom: 16px;
+      }
+      hr {
+        margin: 26px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Tempered Glass Compatibility Lookup</h2>
+    <form id="searchForm">
+      <input type="text" id="searchInput" placeholder="Enter phone model..." />
+      <button type="submit">Search</button>
+    </form>
+    <div class="result" id="result"></div>
+    <hr />
+    <h3>All Main Tempered Glass Models</h3>
+    <div id="modelsList"></div>
+
+    <script>
+      // ---- EDIT THIS DATA ----
+      const temperedGlassData = [
+        {
+          mainModel: "MI A3",
+          models: ["MI A3", "OPPO A1K", "REALME C2"],
+        },
+        {
+          mainModel: "MI NOTE 8",
+          models: ["MI NOTE 8"],
+        },
+        {
+          mainModel: "VIVO Y91",
+          models: [
+            "VIVO Y90",
+            "VIVO Y91",
+            "VIVO Y93",
+            "VIVO Y93S",
+            "VIVIO Y95",
+            "VIVO Y1S",
+            "OPPO A7",
+            "OPPO A7X",
+            "OPPO A12",
+            "OPPO 11K",
+            "OPPO A5S",
+            "REALME 3",
+            "SAMSUNG A10",
+            "SAMSUNG A10S",
+            "SAMSUNG M10",
+            "SAMSUNG M01S",
+            "SAMSUNG M20",
+          ],
+        },
+        {
+          mainModel: "VIVO S1",
+          models: [
+            "SAMSUNG A30",
+            "SAMSUNG A50",
+            "SAMSUNG M30",
+            "SAMSUNG A40S",
+            "SAMSUNG A50S",
+            "SAMSUNG A20",
+            "SAMSUNG M30S",
+            "SAMSUNG M10S",
+            "SAMSUNGA30S",
+            "SAMSUNG M21",
+            "SAMSUNG M31",
+            "SAMSUNG F41",
+            "VIVO U10",
+            "VIVO Y9S",
+            "VIVO Z1X",
+            "VIVO Z5",
+            "VIVO V21",
+            "VIVO V21E 4G",
+            "IQOO NEO",
+            "PRO",
+            "VIVO S1",
+            "VIVO S1 PRO",
+          ],
+        },
+        {
+          mainModel: "MI NOTE 8 PRO",
+          models: [
+            "MI NOTE 8 PRO",
+            "MI NOTE 9 T",
+            "MI NOTE 9 4G",
+            "MI 9 POWER",
+            "POCO M3",
+            "OPPO F11",
+            "OPPO A9",
+            "OPPO RENO ACE",
+            "REALME X2 PRO",
+            "VIVO U20",
+            "VIVO Y19",
+            "ONEPLUS 7T",
+          ],
+        },
+        {
+          mainModel: "MI NOTE 7",
+          models: ["MI NOTE 7", "MI NOTE 7S", "MI NOTE 7 PRO"],
+        },
+        {
+          mainModel: "VIVO Y12",
+          models: [
+            "VIVO Y3",
+            "VIVO Y11",
+            "VIVO Y12",
+            "VIVO Y15",
+            "VIVO Y17",
+            "VIVO U10",
+          ],
+        },
+        {
+          mainModel: "SAMSUNG A14",
+          models: ["SAMSUNG M14", "SAMSUNG F14"],
+        },
+        {
+          mainModel: "SAMSUNG A43",
+          models: ["SAMSUNG A34"],
+        },
+        {
+          mainModel: "SAMSUNG M34",
+          models: ["SAMSUNG M34"],
+        },
+        {
+          mainModel: "MI 7",
+          models: ["MI Y3"],
+        },
+        {
+          mainModel: "MI 8",
+          models: ["MI 8A", "MI 8A DUAL"],
+        },
+        {
+          mainModel: "ONEPLUS 5",
+          models: ["ONEPLUS 5"],
+        },
+        {
+          mainModel: "ONEPLUS 5T",
+          models: ["ONEPLUS 5T"],
+        },
+        {
+          mainModel: "ONEPLUS 6",
+          models: ["ONEPLUS 6"],
+        },
+        {
+          mainModel: "SASMUNG A31",
+          models: [
+            "SAMSUNG A31",
+            "SAMSUNG M32",
+            "SAMSUNG M22",
+            "SAMSUNG F22",
+            "SAMSUNG A22 4G",
+            "SAMSUNG A32 4G",
+            "SAMSUNG A33",
+            "VIVO Y100",
+            "VIVO T2",
+            "IQOO Z7",
+            "IQOO Z7S",
+          ],
+        },
+        {
+          mainModel: "VIVO V20",
+          models: [
+            "OPPO A91",
+            "OPPO F17",
+            "OPPO A73",
+            "OPPO F15",
+            "OPPO RENO 3",
+            "VIVO T1",
+            "VIVO T144W",
+            "IQOO Z644W",
+            "VIVO V20",
+            "VIVO V20 SE",
+            "VIVO V21E",
+            "VIVO V21E 5G",
+            "VIVO V23E",
+            "VIVO Y73",
+            "VIVO Y73S",
+            "VIVO Y75 4G",
+          ],
+        },
+        {
+          mainModel: "VIOV V11 PRO",
+          models: [
+            "REALME X2",
+            "REALME XT",
+            "MI 9",
+            "VIVO V11 PRO",
+            "VIVO Z3",
+            "IQOO",
+          ],
+        },
+        {
+          mainModel: "REALME 10PRO",
+          models: ["RELAME 10 PRO"],
+        },
+        {
+          mainModel: "REALME 5",
+          models: [
+            "VIVO Y01",
+            "VIVO Y02",
+            "VIVO Y02A",
+            "VIVO YO2S",
+            "VIVO Y02T",
+            "VIVO Y3S",
+            "VIVO Y11S",
+            "VIVO Y12S",
+            "VIVO Y12A",
+            "VIVO Y15S",
+            "VIVO Y16",
+            "VIVO Y17S",
+            "VIVOP Y18",
+            "VIVO Y20",
+            "VIVO Y20I",
+            "VIVO Y20G",
+            "VIVO Y20A",
+            "VIVO Y21A",
+            "VIVO Y21S",
+            "VIVO Y21T",
+            "VIVO Y21",
+            "VIVO Y21G",
+            "VIVO Y22",
+            "VIVO Y22S",
+            "VIVO Y28S",
+            "VIVO Y28 5G",
+            "VIVO Y30 5G",
+            "VIVO Y30",
+            "VIVO Y31",
+            "VIVO Y32",
+            "VIVO Y31S 5G",
+            "VIVO Y33S 5G",
+            "VIVO Y33",
+            "VIVO Y33S",
+            "VIVO Y33T",
+            "VIVO Y36",
+            "VIVO Y36I ",
+            "VIVO Y56",
+            "VIVO Y51A",
+            "VIVO Y51",
+            "VIVO Y52 5G",
+            "VIVO Y52S",
+            "VIVO Y53S",
+            "VIVO Y55S 5G",
+            "VIVO Y72 5G",
+            "VIVO Y75 5G",
+            "VIVO Y76 5G",
+            "VIVO Y28 5G",
+            "VIVO Y76S 5G",
+            "VIVO Y77 5G",
+            "VIVO T1 5G",
+            "VIVO T1X",
+            "VIVO T1X 4G",
+            "VIVO T2X",
+            "IQOO Z3",
+            "IQOO Z5X",
+            "IQOO Z6",
+            "IQOO Z6X",
+            "POCO M4 5G",
+            "POCO M5",
+            "MI 10 5G",
+            "MI 11 PRIME 5G",
+          ],
+        },
+      ];
+
+      // Display the list of all main models and compatible phones
+      const modelsDiv = document.getElementById("modelsList");
+      modelsDiv.innerHTML = temperedGlassData
+        .map(
+          (item) =>
+            `<div class="models-list">
+        <span class="main-model">${item.mainModel}</span>
+        <ul>
+          ${item.models.map((m) => `<li>${m}</li>`).join("")}
+        </ul>
+      </div>`
+        )
+        .join("");
+
+      // Search function
+      document.getElementById("searchForm").onsubmit = function (e) {
+        e.preventDefault();
+        const query = document
+          .getElementById("searchInput")
+          .value.trim()
+          .toLowerCase();
+
+        let found = "";
+        for (let item of temperedGlassData) {
+          if (item.models.some((phone) => phone.toLowerCase() === query)) {
+            found = item.mainModel;
+            break;
+          }
+        }
+        document.getElementById("result").textContent = found
+          ? `Main Tempered Glass Model: ${found}`
+          : "No main model found for this phone model.";
+      };
+    </script>
+  </body>
+</html>
