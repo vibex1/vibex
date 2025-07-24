@@ -39,12 +39,29 @@
       hr {
         margin: 26px 0;
       }
+      #suggestions {
+        background: #fff;
+        border: 1px solid #ccc;
+        position: absolute;
+        maxheight: 150px;
+        overflow-y: auto;
+        width: 70%;
+        z-index: 99;
+        box-sizing: border-box;
+      }
+      .suggestion item:hover {
+        background-color: #f0f0f0;
+      }
+      form {
+        position: relative;
+      }
     </style>
   </head>
   <body>
     <h2>Tempered Glass Compatibility Lookup</h2>
-    <form id="searchForm">
+    <form id="searchForm" autocomplete="off">
       <input type="text" id="searchInput" placeholder="Enter phone model..." />
+      <div id="suggestions" style="display: none"></div>
       <button type="submit">Search</button>
     </form>
     <div class="result" id="result"></div>
@@ -723,6 +740,7 @@
             "SAMSUNG F62",
             "SAMSUNG A71",
             "SAMSUNG NOTE10LITE",
+            "MI NOTE12PRO",
           ],
         },
         {
@@ -813,8 +831,8 @@
           models: ["GOOGLE PIXEL8A"],
         },
         {
-          mainModel: "NOTHING CMFP1",
-          models: ["NOTHING CMFP1", "NOTHING CMFP2", "PIXEL 8PRO"],
+          mainModel: "NOTHING CMF1",
+          models: ["NOTHING CMF1", "NOTHING CMF2", "PIXEL 8PRO"],
         },
         {
           mainModel: "IPHONE 6",
@@ -863,7 +881,7 @@
             "MI NOTE12R",
             "MI NOTE13R",
             "POCO M64G",
-            "POCO M6PRO5G",
+            "POCO M6PRO",
           ],
         },
         {
@@ -941,7 +959,384 @@
             "MI 13R",
           ],
         },
+        {
+          mainModel: "SAMSUNG A21",
+          models: ["SMASUNG A21", "SAMSUNG A21S"],
+        },
+        {
+          mainModel: "SAMSUNG A35",
+          models: ["SAMSUNG A55", "SAMSUNG A35"],
+        },
+        {
+          mainModel: "OPPO RENO13",
+          models: ["OPPO RENO13"],
+        },
+        {
+          mainModel: "SAMSUNG A26",
+          models: ["SAMSUNG A16", "SAMSUNG A26"],
+        },
+        {
+          mainModel: "NOTHING 1",
+          models: ["NOTHING 1"],
+        },
+        {
+          mainModel: "SAMSUNG S24PLUS",
+          models: ["SAMSUNG S24PLUS"],
+        },
+        {
+          mainModel: "NOTHING 3A",
+          models: ["NOTHING 3A", "NOTHING 3APRO"],
+        },
+        {
+          mainModel: "OPPO FINDX8",
+          models: ["OPPO FINDX8"],
+        },
+        {
+          mainModel: "VIVO Y200",
+          models: [
+            "VIVO Y200",
+            "VIVO V29E",
+            "POCO F5",
+            "POCO X5PRO",
+            "IQOO 7",
+            "IQOO NEO5",
+            "IQOO NEO5S",
+            "IQOO NEO6",
+            "IQOO NEO6SE",
+            "VIVO V27E",
+          ],
+        },
+        {
+          mainModel: "POCO C71",
+          models: ["POCO C71", "MI A5"],
+        },
+        {
+          mainModel: "POCO X7PRO",
+          models: ["POCOC X7PRO"],
+        },
+        {
+          mainModel: "MI 11LITE",
+          models: [
+            "MI 11LITE",
+            "OPPO RENO2",
+            "OPPO A72",
+            "OPPO A92",
+            "REALME 6",
+            "REALME 7",
+            "REALME 6I",
+            "REALME X7PRO",
+            "REALME NARZO20PRO",
+            "REALME NARZO30PRO",
+            "ONEPLUS 8T",
+            "ONEPLUS 9",
+            "ONEPLUS 9R",
+            "MI 12LITE",
+          ],
+        },
+        {
+          mainModel: "IQOO 12",
+          models: [
+            "IQOO NEO7",
+            "IQOO NEO7SE",
+            "IQOO NEO7PRO",
+            "IQOO NEO8",
+            "IQOO NEO8PRO",
+            "IQOO 9",
+            "IQOO 10",
+            "IQOO 11",
+            "IQOO1S",
+            "IQOO 12",
+            "IQOO Z9",
+            "IQOOZ9TURBO",
+          ],
+        },
+        {
+          mainModel: "IQOO 13",
+          models: ["IQOO 13"],
+        },
+        {
+          mainModel: "IQOO NEO10",
+          models: ["IQOO NEO10"],
+        },
+        {
+          mainModel: "PIXEL 9",
+          models: ["PIXEL9", "PIXEL 9PRO"],
+        },
+        {
+          mainModel: "PIXEL 9A",
+          models: ["PIXEL 9A"],
+        },
+        {
+          mainModel: "MOTO GT30PRO",
+          models: ["MOTO GT30PRO"],
+        },
+        {
+          mainModel: "SMASUNG S25",
+          models: ["SMASUNG S25"],
+        },
+        {
+          mainModel: "SAMSUNG S25ULTRA",
+          models: ["SAMSUNG S25ULTRA"],
+        },
+        {
+          mainModel: " SAMSUNG S25PLUS",
+          models: ["SAMSUNG S25PLUS"],
+        },
+        {
+          mainModel: "SAMSUNG S25FE",
+          models: ["SMASUNG S25FE"],
+        },
+        {
+          mainModel: "SAMSUNG M56",
+          models: ["SAMSUNG M56"],
+        },
+        {
+          mainModel: "ONEPLUS 13T",
+          models: ["ONEPLUS 13T"],
+        },
+        {
+          mainModel: "ONEPLUS 13R",
+          models: ["ONEPLUS 13R", "REALME NEO7"],
+        },
+        {
+          mainModel: "IPHONE 14PROMAX",
+          models: ["IPHONE 14PROMAX"],
+        },
+        {
+          mainModel: "IPHONE 16PRO",
+          models: ["IPHONE 16PRO"],
+        },
+        {
+          mainModel: "IPHONE16PROMAX",
+          models: ["IPHONE 16PROMAX"],
+        },
+        {
+          mainModel: "MOTO EDGE60STYLUS",
+          models: ["MOTO EDGE60STYLUS"],
+        },
+        {
+          mainModel: "MOTO G84",
+          models: [
+            "MOTO G84",
+            "VIVO V50",
+            "VIVO X60",
+            "VIVO X70",
+            "IQOO 5",
+            "IQOO 8",
+            "OPPO RENO7PRO",
+            "MI 11LITE",
+          ],
+        },
+        {
+          mainModel: "MOTTO G04",
+          models: ["MOTTO G04", "MOTTO G24", "MOTTO G24POWER"],
+        },
+        {
+          mainModel: "MOTTO G60",
+          models: ["MOTTO G60", "MOTTO G60S", "MOTTO G51", "MOTTO G40FUSION"],
+        },
+        {
+          mainModel: "MOTTO G52",
+          models: [
+            "MOTTO G52",
+            "MOTTO G82",
+            "MOTTO G71S",
+            "MOTTO G72",
+            "MOTTO EDGE30",
+          ],
+        },
+        {
+          mainModel: "MOTTO EDGE50NEO",
+          models: ["MOTTO EDGE50NEO"],
+        },
+        {
+          mainModel: "MOTTO G13",
+          models: [
+            "MOTTO G13",
+            "MOTTO G14",
+            "MOTTO G23",
+            "MOTTO G32",
+            "MOTTO G34",
+            "MOTTO G45",
+            "MOTTO G53",
+            "MOTTO G54",
+            "MOTTO G55",
+            "MOTTO G62",
+            "MOTTO G64",
+            "MOTTO G73",
+          ],
+        },
+        {
+          mainModel: "MOTTO G31",
+          models: ["MOTTO G31", "MOTTO G41", "MOTTO G42", "MOTTO G71"],
+        },
+        {
+          mainModel: "MOTTO G35",
+          models: ["MOTTO G35"],
+        },
+        {
+          mainModel: "VIVO Y39",
+          models: ["VIVO Y39"],
+        },
+        {
+          mainModel: "VIVO Y19S",
+          models: ["VIVO Y19S"],
+        },
+        {
+          mainModel: "VIVO Y19E",
+          models: ["VIVO Y19E"],
+        },
+        {
+          mainModel: "OPPO F3",
+          models: ["OPPO F3"],
+        },
+        {
+          mainModel: "OPPO K13",
+          models: ["OPPO K13"],
+        },
+        {
+          mainModel: "OPPO RENO14",
+          models: ["OPPO RENO14"],
+        },
+        {
+          mainModel: "OPPO F29",
+          models: ["OPPO F29"],
+        },
+        {
+          mainModel: "REALME GT7",
+          models: ["REALME NEO7", "RELAME GT7", "REALME GT7T"],
+        },
+        {
+          mainModel: "OPPO A5PRO",
+          models: ["OPPO A5PRO"],
+        },
+        {
+          mainModel: "REALME 14X",
+          models: ["REALME 14X"],
+        },
+        {
+          mainModel: "REALME 14T",
+          models: ["REALME 14T"],
+        },
+        {
+          mainModel: "REALME 14PRO",
+          models: ["REALME 14PRO"],
+        },
+        {
+          mainModel: "OPPO RENO14PRO",
+          models: ["OPPO RENO14PRO"],
+        },
+        {
+          mainModel: "SAMSUNG M36",
+          models: ["SAMSUNG M36"],
+        },
+        {
+          mainModel: "VIVO X200FE",
+          models: ["VIVO X200FE"],
+        },
+        {
+          mainModel: "POCO F7",
+          models: ["POCO F7"],
+        },
+        {
+          mainModel: "NOTHING 3",
+          models: ["NOTHING 3"],
+        },
+        {
+          mainModel: "OPPO K13X",
+          models: ["OPPIO K13X", " OPPO A5X"],
+        },
+        {
+          mainModel: "ONEPLUS NORD5",
+          models: ["ONEPLUS NORD5"],
+        },
+        {
+          mainModel: "ONEPLUS NORDCE5",
+          models: ["ONEPLUS NORDCE5"],
+        },
       ];
+      // --- put this at the top if not already present ---
+      const allModels = [];
+      temperedGlassData.forEach((item) => {
+        item.models.forEach((m) => {
+          if (!allModels.includes(m)) allModels.push(m);
+        });
+      });
+
+      // Autocomplete and Suggestion Logic
+      const searchInput = document.getElementById("searchInput");
+      const suggestionsDiv = document.getElementById("suggestions");
+      let selectedModel = null;
+
+      // Listen for user input to show suggestions
+      searchInput.addEventListener("input", function () {
+        const val = this.value.trim().toLowerCase();
+        suggestionsDiv.innerHTML = "";
+        selectedModel = null;
+
+        if (val.length === 0) return;
+
+        const matchedModels = allModels.filter((m) =>
+          normalize(m).includes(normalize(val))
+        );
+        if (matchedModels.length === 0) return;
+
+        suggestionsDiv.style.display = "block";
+        suggestionsDiv.innerHTML = matchedModels
+          .map(
+            (m) =>
+              `<div class="suggestion-item"
+         style="padding:5px;cursor:pointer;"
+         onclick="selectSuggestion('${m.replace(/'/g, "\\'")}')">${m}</div>`
+          )
+          .join("");
+      });
+
+      // When user clicks a suggestion
+      window.selectSuggestion = function (modelName) {
+        searchInput.value = modelName;
+        suggestionsDiv.innerHTML = "";
+        suggestionsDiv.style.display = "none";
+        selectedModel = modelName;
+        showMainModels(modelName);
+      };
+
+      // Hide suggestions when clicking outside
+      document.body.addEventListener("click", function (e) {
+        if (e.target !== searchInput) {
+          suggestionsDiv.innerHTML = "";
+          suggestionsDiv.style.display = "none";
+        }
+      });
+      function normalize(text) {
+        return text.replace(/\s+/g, "").toLowerCase();
+      }
+
+      // Show results for the exact chosen model
+      function showMainModels(modelName) {
+        const matches = temperedGlassData.filter((item) =>
+          item.models.some(
+            (phone) => phone.toLowerCase() === modelName.toLowerCase()
+          )
+        );
+        const resultDiv = document.getElementById("result");
+        if (matches.length === 0) {
+          resultDiv.textContent = "No main model found for this phone model.";
+        } else {
+          resultDiv.innerHTML =
+            "Main Tempered Glass Models: <ul>" +
+            matches.map((item) => `<li>${item.mainModel}</li>`).join("") +
+            "</ul>";
+        }
+      }
+
+      // (Optional) Prevent form submit default behavior
+      document.getElementById("searchForm").onsubmit = function (e) {
+        e.preventDefault();
+        let modelName = searchInput.value.trim();
+        if (!modelName) return;
+        showMainModels(modelName);
+      };
 
       // Display the list of all main models and compatible phones
       const modelsDiv = document.getElementById("modelsList");
@@ -966,7 +1361,7 @@
           .toLowerCase();
         // Find ALL main models that include the searched phone model
         const matches = temperedGlassData.filter((item) =>
-          item.models.some((phone) => phone.toLowerCase() === query)
+          item.models.some((phone) => normalize(phone) === normalize(modelname))
         );
 
         const resultDiv = document.getElementById("result");
