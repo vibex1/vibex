@@ -1274,7 +1274,13 @@
         suggestionsDiv.innerHTML = "";
         selectedModel = null;
 
-        if (val.length === 0) return;
+        if (val.length === 0) return; {
+    document.getElementById('result').innerHTML = '';
+    return;
+  } else {
+    // Optional: also clear result as user types (unless a model is chosen)
+    document.getElementById('result').innerHTML = '';
+  }
 
         const matchedModels = allModels.filter((m) =>
           normalize(m).includes(normalize(val))
