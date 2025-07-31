@@ -101,10 +101,6 @@ const temperedGlassData = [
     models: ["SAMSUNG A34"],
   },
   {
-    mainModel: "SAMSUNG M34",
-    models: ["SAMSUNG M34"],
-  },
-  {
     mainModel: "MI 7",
     models: ["MI Y3", "MI 7"],
   },
@@ -166,12 +162,9 @@ const temperedGlassData = [
     models: [
       "REALME X2",
       "REALME XT",
-      "MI 9",
       "VIVO V11PRO",
       "VIVO Z3",
       "IQOO",
-      "MI 9PRIME",
-      "POCO M2",
     ],
   },
   {
@@ -1297,10 +1290,14 @@ const temperedGlassData = [
   },
   {
     mainModel: "SAMSUNG A20S",
-    models: ["SAMSUNG A20S"],
+    models: ["SAMSUNG A20S","MI 9","MI 9PRIME","POCO M2"],
   },
   {
     mainModel: "SAMSUNG A2CORE",
     models: ["SAMSUNG A2CORE", "J2CORE"],
+  },
+  {
+    mainModel: "SAMSUNG J6",
+    models: ["SAMSUNG J6","SAMSUNG A6"]
   },
 ];
