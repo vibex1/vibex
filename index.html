@@ -21,6 +21,7 @@
       button {
         padding: 7px 15px;
         margin: 6px 4px;
+        cursor: pointer;
       }
       .result {
         margin: 14px 0;
@@ -62,9 +63,57 @@
       .nav-btn {
         font-size: 1.1em;
       }
+      /* Design selections gallery style */
+      #designButtons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      #designGallery {
+        display: none;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 20px;
+      }
+      #designGallery img {
+        width: 120px;
+        height: 140px;
+        object-fit: cover;
+        border: 1px solid #bbb;
+        margin: 6px;
+        border-radius: 7px;
+        cursor: pointer;
+      }
+      /* Modal overlay */
+      #imageModal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        flex-direction: column;
+      }
+      #modalImage {
+        max-width: 90vw;
+        max-height: 80vh;
+        border-radius: 8px;
+        box-shadow: 0 0 15px #000;
+      }
+      #imageModal > div {
+        margin-top: 16px;
+      }
     </style>
   </head>
   <body style="min-height: 100vh; margin: 0; padding: 0">
+    <!-- Home Menu -->
     <div
       id="homeMenu"
       style="display: flex; flex-direction: column; height: 100vh"
@@ -112,6 +161,7 @@
       </div>
     </div>
 
+    <!-- Tempered Glass Page -->
     <div id="temperedGlassPage" class="hidden">
       <button onclick="goHome()" style="margin-bottom: 16px" type="button">
         Back to Home
@@ -132,31 +182,14 @@
       <div id="modelsList"></div>
     </div>
 
+    <!-- Design Selections Page -->
     <div id="designSelectionsPage" class="hidden">
       <button onclick="goHome()" style="margin-bottom: 16px" type="button">
         Back to Home
       </button>
       <h2>Design Selections</h2>
-      <div
-        id="designButtons"
-        style="
-          display: flex;
-          flex-wrap: wrap;
-          gap: 18px;
-          justify-content: center;
-          margin-bottom: 20px;
-        "
-      ></div>
-      <div
-        id="designGallery"
-        style="
-          display: none;
-          flex-wrap: wrap;
-          gap: 10px;
-          justify-content: center;
-          margin-top: 20px;
-        "
-      ></div>
+      <div id="designButtons"></div>
+      <div id="designGallery"></div>
       <button
         id="backToDesigns"
         type="button"
@@ -165,16 +198,39 @@
       >
         Back to Design Choices
       </button>
+
+      <!-- Image Modal Overlay -->
+      <div id="imageModal">
+        <img id="modalImage" src="" alt="Full Design" />
+        <div>
+          <button
+            id="printImageBtn"
+            type="button"
+            style="margin-right: 24px; padding: 10px 20px; font-size: 1em"
+          >
+            Print It
+          </button>
+          <button
+            id="closeModalBtn"
+            type="button"
+            style="padding: 10px 20px; font-size: 1em"
+          >
+            Close
+          </button>
+        </div>
+      </div>
     </div>
 
+    <!-- Contact Us placeholder -->
     <div id="contactUsPage" class="hidden">
       <button onclick="goHome()" style="margin-bottom: 16px" type="button">
         Back to Home
       </button>
       <h2>Contact Us</h2>
-      <p>Contact information coming soon...</p>
+      <p>Redirecting to WhatsApp Business...</p>
     </div>
 
+    <!-- Back Cases placeholder -->
     <div id="backCasesPage" class="hidden">
       <button onclick="goHome()" style="margin-bottom: 16px" type="button">
         Back to Home
@@ -183,10 +239,12 @@
       <p>Back cases lookup or sales page coming soon...</p>
     </div>
 
+    <!-- Load your data.js -->
     <script src="data.js"></script>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        // Navigation helpers
         function showPage(pageId) {
           [
             "homeMenu",
@@ -210,12 +268,18 @@
           );
           document.getElementById("homeMenu").classList.remove("hidden");
         };
+
+        // Contact Us opens WhatsApp Business chat in new tab
+        document.getElementById("btnContact").onclick = function () {
+          const whatsappNumber = "1234567890"; // <-- Replace with your WhatsApp number without '+' sign
+          const whatsappUrl = `https://wa.me/${whatsappNumber}`;
+          window.open(whatsappUrl, "_blank");
+          goHome();
+        };
+
         // Button actions
         document.getElementById("btnDesign").onclick = function () {
           showPage("designSelectionsPage");
-        };
-        document.getElementById("btnContact").onclick = function () {
-          showPage("contactUsPage");
         };
         document.getElementById("btnTemperedGlass").onclick = function () {
           showPage("temperedGlassPage");
@@ -223,6 +287,8 @@
         document.getElementById("btnBackCases").onclick = function () {
           showPage("backCasesPage");
         };
+
+        // Tempered Glass Lookup existing code...
 
         function normalize(text) {
           return text.replace(/\s+/g, "").toLowerCase();
@@ -239,7 +305,7 @@
         const suggestionsDiv = document.getElementById("suggestions");
         let selectedModel = null;
 
-        searchInput &&
+        if (searchInput) {
           searchInput.addEventListener("input", function () {
             const val = this.value;
             suggestionsDiv.innerHTML = "";
@@ -264,11 +330,15 @@
               .map(
                 (m) =>
                   `<div class="suggestion-item"
-             style="padding:5px;cursor:pointer;"
-             onclick="selectSuggestion('${m.replace(/'/g, "\\'")}')">${m}</div>`
+                style="padding:5px;cursor:pointer;"
+                onclick="selectSuggestion('${m.replace(
+                  /'/g,
+                  "\\'"
+                )}')">${m}</div>`
               )
               .join("");
           });
+        }
 
         window.selectSuggestion = function (modelName) {
           searchInput.value = modelName;
@@ -302,13 +372,14 @@
           }
         }
 
-        document.getElementById("searchForm") &&
-          (document.getElementById("searchForm").onsubmit = function (e) {
+        if (document.getElementById("searchForm")) {
+          document.getElementById("searchForm").onsubmit = function (e) {
             e.preventDefault();
             let modelName = searchInput.value.trim();
             if (!modelName) return;
             showMainModels(modelName);
-          });
+          };
+        }
 
         const modelsDiv = document.getElementById("modelsList");
         if (modelsDiv)
@@ -316,143 +387,200 @@
             .map(
               (item) =>
                 `<div class="models-list">
-        <span class="main-model">${item.mainModel}</span>
-        <ul>
-          ${item.models.map((m) => `<li>${m}</li>`).join("")}
-        </ul>
-      </div>`
+            <span class="main-model">${item.mainModel}</span>
+            <ul>
+              ${item.models.map((m) => `<li>${m}</li>`).join("")}
+            </ul>
+          </div>`
             )
             .join("");
+
+        // --- Design Selections Gallery Setup ---
+        const designNames = [
+          "ANIME",
+          "PINTRESTY",
+          "SOFT QUOTES",
+          "HARD QUOTES",
+          "SPORTS PLAYERS",
+          "SPORTS",
+          "SCENERY",
+          "CARS",
+          "ALL MIX=1",
+          "ALL MIX=2",
+          "LUXURY",
+          "ACTORS",
+        ];
+
+        const designImages = {
+          ANIME: [
+            "images/V=A=1.jpeg",
+            "images/V=A=2.jpeg",
+            "images/V=A=3.jpeg",
+            "images/V=A=4.jpeg",
+            "images/V=A=5.jpeg",
+            "images/V=A=6.jpeg",
+            "images/V=A=7.jpeg",
+            "images/V=A=8.jpeg",
+            "images/V=A=9.jpeg",
+            "images/V=A=10.jpeg",
+            "images/V=A=11.jpeg",
+            "images/V=A=12.jpeg",
+            "images/V=A=13.jpeg",
+            "images/V=A=14.jpeg",
+            "images/V=A=15.jpeg",
+            "images/V=A=16.jpeg",
+            "images/V=A=17.jpeg",
+            "images/V=A=18.jpeg",
+            "images/V=A=19.jpeg",
+            "images/V=A=20.jpeg",
+            "images/V=A=21.jpeg",
+          ],
+          PINTRESTY: [
+            "images/V=P=1.jpeg",
+            "images/V=P=2.jpeg",
+            "images/V=P=3.jpeg",
+            "images/V=P=4.jpeg",
+            "images/V=P=5.jpeg",
+            "images/V=P=6.jpeg",
+            "images/V=P=7.jpeg",
+            "images/V=P=8.jpeg",
+            "images/V=P=9.jpeg",
+            "images/V=P=10.jpeg",
+            "images/V=P=11.jpeg",
+            "images/V=P=12.jpeg",
+            "images/V=P=13.jpeg",
+            "images/V=P=14.jpeg",
+            "images/V=P=15.jpeg",
+            "images/V=P=16.jpeg",
+            "images/V=P=17.jpeg",
+            "images/V=P=18.jpeg",
+            "images/V=P=19.jpeg",
+            "images/V=P=20.jpeg",
+            "images/V=P=21.jpeg",
+            "images/V=P=22.jpeg",
+            "images/V=P=23.jpeg",
+            "images/V=P=24.jpeg",
+            "images/V=P=25.jpeg",
+            "images/V=P=26.jpeg",
+            "images/V=P=27.jpeg",
+            "images/V=P=28.jpeg",
+            "images/V=P=29.jpeg",
+            "images/V=P=30.jpeg",
+            "images/V=P=31.jpeg",
+            "images/V=P=32.jpeg",
+            "images/V=P=33.jpeg",
+            "images/V=P=34.jpeg",
+          ],
+          // add other categories as empty arrays or with images similarly
+          "SOFT QUOTES": [],
+          "HARD QUOTES": [],
+          "SPORTS PLAYERS": [],
+          SPORTS: [],
+          SCENERY: [],
+          CARS: [],
+          "ALL MIX=1": [],
+          "ALL MIX=2": [],
+          LUXURY: [],
+          ACTORS: [],
+        };
+
+        window.showDesignButtons = function () {
+          const btns = designNames
+            .map(
+              (name) =>
+                `<button type="button" class="nav-btn" style="margin:10px 12px; min-width:120px; min-height:54px; font-size:1.1em;" onclick="showDesignGallery('${name}')">${name}</button>`
+            )
+            .join("");
+          document.getElementById("designButtons").innerHTML = btns;
+          document.getElementById("designButtons").style.display = "flex";
+          document.getElementById("designGallery").style.display = "none";
+          document.getElementById("backToDesigns").style.display = "none";
+        };
+
+        window.showDesignGallery = function (design) {
+          const gallery = document.getElementById("designGallery");
+          const images = designImages[design] || [];
+          gallery.innerHTML =
+            `<h3 style="width:100%; text-align:center;">${design} Designs</h3>` +
+            (images.length
+              ? images
+                  .map(
+                    (src) =>
+                      `<img src="${src}" alt="${design}" style="cursor:pointer;" onclick="openImageModal('${src}')" />`
+                  )
+                  .join("")
+              : "<p>No images yet for this design.</p>");
+          document.getElementById("designButtons").style.display = "none";
+          gallery.style.display = "flex";
+          document.getElementById("backToDesigns").style.display =
+            "inline-block";
+        };
+
+        // Modal control functions
+        window.openImageModal = function (imageSrc) {
+          const modal = document.getElementById("imageModal");
+          const modalImage = document.getElementById("modalImage");
+          modalImage.src = imageSrc;
+          modal.style.display = "flex";
+          document.body.style.overflow = "hidden";
+        };
+
+        document.getElementById("closeModalBtn").onclick = function () {
+          const modal = document.getElementById("imageModal");
+          modal.style.display = "none";
+          document.body.style.overflow = "";
+        };
+
+        document.getElementById("printImageBtn").onclick = function () {
+          const imgSrc = document.getElementById("modalImage").src;
+
+          // Open WhatsApp chat with image URL as text
+          const whatsappNumber = "1234567890"; // <-- Replace with your WhatsApp number without '+'
+          const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+            imgSrc
+          )}`;
+          window.open(whatsappUrl, "_blank");
+
+          // Open print dialog for the image
+          printSingleImage(imgSrc);
+        };
+
+        function printSingleImage(src) {
+          const win = window.open("");
+          win.document.write(`
+          <html>
+            <head><title>Print Image</title></head>
+            <body style="margin:0; padding:0; text-align:center;">
+              <img src="${src}" style="max-width:100%; height:auto;" />
+            </body>
+          </html>
+        `);
+          win.document.close();
+          win.focus();
+          win.print();
+          win.close();
+        }
+
+        // Show design buttons when Design Selections page is shown
+        if (document.getElementById("designSelectionsPage")) {
+          const observer = new MutationObserver(function () {
+            if (
+              !document
+                .getElementById("designSelectionsPage")
+                .classList.contains("hidden")
+            ) {
+              showDesignButtons();
+            }
+          });
+          observer.observe(document.getElementById("designSelectionsPage"), {
+            attributes: true,
+            attributeFilter: ["class"],
+          });
+        }
+
+        // Show home menu initially
         goHome();
       });
-      // --- Design Selections Gallery Setup ---
-      const designNames = [
-        "ANIME",
-        "PINTRESTY",
-        "SOFT QUOTES",
-        "HARD QUOTES",
-        "SPORTS PLAYERS",
-        "SPORTS",
-        "SCENERY",
-        "CARS",
-        "ALL MIX=1",
-        "ALL MIX=2",
-        "LUXURY",
-        "ACTORS",
-      ];
-
-      // For each design category, provide an array of image URLs/paths (replace with your real filenames or links)
-      const designImages = {
-        ANIME: [
-          "images/V=A=1.jpeg",
-          "images/V=A=2.jpeg",
-          "images/V=A=3.jpeg",
-          "images/V=A=4.jpeg",
-          "images/V=A=5.jpeg",
-          "images/V=A=6.jpeg",
-          "images/V=A=7.jpeg",
-          "images/V=A=8.jpeg",
-          "images/V=A=9.jpeg",
-          "images/V=A=10.jpeg",
-          "images/V=A=11.jpeg",
-          "images/V=A=12.jpeg",
-          "images/V=A=13.jpeg",
-          "images/V=A=14.jpeg",
-          "images/V=A=15.jpeg",
-          "images/V=A=16.jpeg",
-          "images/V=A=17.jpeg",
-          "images/V=A=18.jpeg",
-          "images/V=A=19.jpeg",
-          "images/V=A=20.jpeg",
-          "images/V=A=21.jpeg",
-        ],
-        PINTRESTY: [
-          "images/V=P=1.jpeg",
-          "images/V=P=2.jpeg",
-          "images/V=P=3.jpeg",
-          "images/V=P=4.jpeg",
-          "images/V=P=5.jpeg",
-          "images/V=P=6.jpeg",
-          "images/V=P=7.jpeg",
-          "images/V=P=8.jpeg",
-          "images/V=P=9.jpeg",
-          "images/V=P=10.jpeg",
-          "images/V=P=11.jpeg",
-          "images/V=P=12.jpeg",
-          "images/V=P=13.jpeg",
-          "images/V=P=14.jpeg",
-          "images/V=P=15.jpeg",
-          "images/V=P=16.jpeg",
-          "images/V=P=17.jpeg",
-          "images/V=P=18.jpeg",
-          "images/V=P=19.jpeg",
-          "images/V=P=20.jpeg",
-          "images/V=P=21.jpeg",
-          "images/V=P=22.jpeg",
-          "images/V=P=23.jpeg",
-          "images/V=P=24.jpeg",
-          "images/V=P=25.jpeg",
-          "images/V=P=26.jpeg",
-          "images/V=P=27.jpeg",
-          "images/V=P=28.jpeg",
-          "images/V=P=29.jpeg",
-          "images/V=P=30.jpeg",
-          "images/V=P=31.jpeg",
-          "images/V=P=32.jpeg",
-          "images/V=P=33.jpeg",
-          "images/V=P=34.jpeg",
-        ],
-      };
-
-      // Helper to render the 10 design buttons
-      window.showDesignButtons = function () {
-        const btns = designNames
-          .map(
-            (name) =>
-              `<button type="button" class="nav-btn" style="margin:10px 12px; min-width:120px; min-height:54px; font-size:1.1em;" onclick="showDesignGallery('${name}')">${name}</button>`
-          )
-          .join("");
-        document.getElementById("designButtons").innerHTML = btns;
-        document.getElementById("designButtons").style.display = "flex";
-        document.getElementById("designGallery").style.display = "none";
-        document.getElementById("backToDesigns").style.display = "none";
-      };
-      // Helper to show images for a selected design type
-      window.showDesignGallery = function (design) {
-        const gallery = document.getElementById("designGallery");
-        const images = designImages[design] || [];
-        gallery.innerHTML =
-          `<h3 style="width:100%; text-align:center;">${design} Designs</h3>` +
-          (images.length
-            ? images
-                .map(
-                  (src) =>
-                    `<img src="${src}" alt="${design}" style="width:120px; height:140px; object-fit:cover; border:1px solid #bbb; margin:6px; border-radius:7px;" />`
-                )
-                .join("")
-            : "<p>No images yet for this design.</p>");
-        document.getElementById("designButtons").style.display = "none";
-        gallery.style.display = "flex";
-        document.getElementById("backToDesigns").style.display = "inline-block";
-      };
-
-      // Ensure the buttons render when Design Selections page opens
-      if (document.getElementById("designSelectionsPage")) {
-        // When showing the page, always show button set by default
-        const observer = new MutationObserver(function (muts, obs) {
-          if (
-            !document
-              .getElementById("designSelectionsPage")
-              .classList.contains("hidden")
-          ) {
-            showDesignButtons();
-          }
-        });
-        observer.observe(document.getElementById("designSelectionsPage"), {
-          attributes: true,
-          attributeFilter: ["class"],
-        });
-      }
     </script>
   </body>
 </html>
