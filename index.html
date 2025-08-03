@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tempered Glass Lookup</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 480px;
+        margin: 30px auto;
+        padding: 12px;
+      }
+      h2 {
+        color: #228bee;
+      }
+      input[type="text"] {
+        padding: 6px;
+        width: 70%;
+      }
+      button {
+        padding: 7px 15px;
+        margin: 6px 4px;
+      }
+      .result {
+        margin: 14px 0;
+        font-size: 1.1em;
+      }
+      ul {
+        margin-left: 0;
+      }
+      .main-model {
+        font-weight: bold;
+        color: #155a8a;
+      }
+      .models-list {
+        margin-bottom: 16px;
+      }
+      hr {
+        margin: 26px 0;
+      }
+      #suggestions {
+        background: #fff;
+        border: 1px solid #ccc;
+        position: absolute;
+        max-height: 150px;
+        overflow-y: auto;
+        width: 70%;
+        z-index: 99;
+        box-sizing: border-box;
+        display: none;
+      }
+      .suggestion-item:hover {
+        background-color: #f0f0f0;
+      }
+      form {
+        position: relative;
+      }
+      .hidden {
+        display: none !important;
+      }
+      .nav-btn {
+        font-size: 1.1em;
+      }
+    </style>
+  </head>
+  <body style="min-height: 100vh; margin: 0; padding: 0">
+    <div
+      id="homeMenu"
+      style="display: flex; flex-direction: column; height: 100vh"
+    >
+      <div
+        style="
+          flex: 8;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          background: #f7fafc;
+        "
+      >
+        <h2 style="margin-bottom: 28px; letter-spacing: 2px">Customers</h2>
+        <div style="display: flex; gap: 24px">
+          <button type="button" id="btnDesign" class="nav-btn">
+            Design Selections
+          </button>
+          <button type="button" id="btnContact" class="nav-btn">
+            Contact Us
+          </button>
+        </div>
+      </div>
+
+      <div
+        style="
+          flex: 2;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          background: #e9f1fb;
+        "
+      >
+        <h2 style="margin-bottom: 18px; letter-spacing: 2px">Staff</h2>
+        <div style="display: flex; gap: 24px">
+          <button type="button" id="btnTemperedGlass" class="nav-btn">
+            Tempered Glass
+          </button>
+          <button type="button" id="btnBackCases" class="nav-btn">
+            Back Cases
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="temperedGlassPage" class="hidden">
+      <button onclick="goHome()" style="margin-bottom: 16px" type="button">
+        Back to Home
+      </button>
+      <h2>Tempered Glass Compatibility Lookup</h2>
+      <form id="searchForm" autocomplete="off">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Enter phone model..."
+        />
+        <div id="suggestions"></div>
+        <button type="submit">Search</button>
+      </form>
+      <div class="result" id="result"></div>
+      <hr />
+      <h3>All Main Tempered Glass Models</h3>
+      <div id="modelsList"></div>
+    </div>
+
+    <div id="designSelectionsPage" class="hidden">
+      <button onclick="goHome()" style="margin-bottom: 16px" type="button">
+        Back to Home
+      </button>
+      <h2>Design Selections</h2>
+      <div
+        id="designButtons"
+        style="
+          display: flex;
+          flex-wrap: wrap;
+          gap: 18px;
+          justify-content: center;
+          margin-bottom: 20px;
+        "
+      ></div>
+      <div
+        id="designGallery"
+        style="
+          display: none;
+          flex-wrap: wrap;
+          gap: 10px;
+          justify-content: center;
+          margin-top: 20px;
+        "
+      ></div>
+      <button
+        id="backToDesigns"
+        type="button"
+        style="display: none; margin: 18px auto"
+        onclick="showDesignButtons()"
+      >
+        Back to Design Choices
+      </button>
+    </div>
+
+    <div id="contactUsPage" class="hidden">
+      <button onclick="goHome()" style="margin-bottom: 16px" type="button">
+        Back to Home
+      </button>
+      <h2>Contact Us</h2>
+      <p>Contact information coming soon...</p>
+    </div>
+
+    <div id="backCasesPage" class="hidden">
+      <button onclick="goHome()" style="margin-bottom: 16px" type="button">
+        Back to Home
+      </button>
+      <h2>Back Cases</h2>
+      <p>Back cases lookup or sales page coming soon...</p>
+    </div>
+
+    <script src="data.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        function showPage(pageId) {
+          [
+            "homeMenu",
+            "temperedGlassPage",
+            "designSelectionsPage",
+            "contactUsPage",
+            "backCasesPage",
+          ].forEach((id) =>
+            document.getElementById(id).classList.add("hidden")
+          );
+          document.getElementById(pageId).classList.remove("hidden");
+        }
+        window.goHome = function () {
+          [
+            "temperedGlassPage",
+            "designSelectionsPage",
+            "contactUsPage",
+            "backCasesPage",
+          ].forEach((id) =>
+            document.getElementById(id).classList.add("hidden")
+          );
+          document.getElementById("homeMenu").classList.remove("hidden");
+        };
+        // Button actions
+        document.getElementById("btnDesign").onclick = function () {
+          showPage("designSelectionsPage");
+        };
+        document.getElementById("btnContact").onclick = function () {
+          showPage("contactUsPage");
+        };
+        document.getElementById("btnTemperedGlass").onclick = function () {
+          showPage("temperedGlassPage");
+        };
+        document.getElementById("btnBackCases").onclick = function () {
+          showPage("backCasesPage");
+        };
+
+        function normalize(text) {
+          return text.replace(/\s+/g, "").toLowerCase();
+        }
+
+        const allModels = [];
+        temperedGlassData.forEach((item) => {
+          item.models.forEach((m) => {
+            if (m && !allModels.includes(m)) allModels.push(m);
+          });
+        });
+
+        const searchInput = document.getElementById("searchInput");
+        const suggestionsDiv = document.getElementById("suggestions");
+        let selectedModel = null;
+
+        searchInput &&
+          searchInput.addEventListener("input", function () {
+            const val = this.value;
+            suggestionsDiv.innerHTML = "";
+            selectedModel = null;
+
+            document.getElementById("result").innerHTML = "";
+
+            if (val.trim().length === 0) {
+              suggestionsDiv.style.display = "none";
+              return;
+            }
+            const matchedModels = allModels.filter((m) =>
+              normalize(m).includes(normalize(val))
+            );
+            if (matchedModels.length === 0) {
+              suggestionsDiv.style.display = "none";
+              return;
+            }
+
+            suggestionsDiv.style.display = "block";
+            suggestionsDiv.innerHTML = matchedModels
+              .map(
+                (m) =>
+                  `<div class="suggestion-item"
+             style="padding:5px;cursor:pointer;"
+             onclick="selectSuggestion('${m.replace(/'/g, "\\'")}')">${m}</div>`
+              )
+              .join("");
+          });
+
+        window.selectSuggestion = function (modelName) {
+          searchInput.value = modelName;
+          suggestionsDiv.innerHTML = "";
+          suggestionsDiv.style.display = "none";
+          selectedModel = modelName;
+          showMainModels(modelName);
+        };
+
+        document.body.addEventListener("click", function (e) {
+          if (e.target !== searchInput) {
+            suggestionsDiv.innerHTML = "";
+            suggestionsDiv.style.display = "none";
+          }
+        });
+
+        function showMainModels(modelName) {
+          const matches = temperedGlassData.filter((item) =>
+            item.models.some(
+              (phone) => normalize(phone) === normalize(modelName)
+            )
+          );
+          const resultDiv = document.getElementById("result");
+          if (matches.length === 0) {
+            resultDiv.textContent = "No main model found for this phone model.";
+          } else {
+            resultDiv.innerHTML =
+              "Main Tempered Glass Models: <ul>" +
+              matches.map((item) => `<li>${item.mainModel}</li>`).join("") +
+              "</ul>";
+          }
+        }
+
+        document.getElementById("searchForm") &&
+          (document.getElementById("searchForm").onsubmit = function (e) {
+            e.preventDefault();
+            let modelName = searchInput.value.trim();
+            if (!modelName) return;
+            showMainModels(modelName);
+          });
+
+        const modelsDiv = document.getElementById("modelsList");
+        if (modelsDiv)
+          modelsDiv.innerHTML = temperedGlassData
+            .map(
+              (item) =>
+                `<div class="models-list">
+        <span class="main-model">${item.mainModel}</span>
+        <ul>
+          ${item.models.map((m) => `<li>${m}</li>`).join("")}
+        </ul>
+      </div>`
+            )
+            .join("");
+        goHome();
+      });
+      // --- Design Selections Gallery Setup ---
+      const designNames = [
+        "ANIME",
+        "PINTRESTY",
+        "SOFT QUOTES",
+        "HARD QUOTES",
+        "SPORTS PLAYERS",
+        "SPORTS",
+        "SCENERY",
+        "CARS",
+        "ALL MIX=1",
+        "ALL MIX=2",
+        "LUXURY",
+        "ACTORS",
+      ];
+
+      // For each design category, provide an array of image URLs/paths (replace with your real filenames or links)
+      const designImages = {
+        ANIME: [
+          "images/V=A=1.jpeg",
+          "images/V=A=2.jpeg",
+          "images/V=A=3.jpeg",
+          "images/V=A=4.jpeg",
+          "images/V=A=5.jpeg",
+          "images/V=A=6.jpeg",
+          "images/V=A=7.jpeg",
+          "images/V=A=8.jpeg",
+          "images/V=A=9.jpeg",
+          "images/V=A=10.jpeg",
+          "images/V=A=11.jpeg",
+          "images/V=A=12.jpeg",
+          "images/V=A=13.jpeg",
+          "images/V=A=14.jpeg",
+          "images/V=A=15.jpeg",
+          "images/V=A=16.jpeg",
+          "images/V=A=17.jpeg",
+          "images/V=A=18.jpeg",
+          "images/V=A=19.jpeg",
+          "images/V=A=20.jpeg",
+          "images/V=A=21.jpeg",
+        ],
+        PINTRESTY: [
+          "images/V=p=1.jpeg",
+          "images/V=P=2.jpeg",
+          "images/V=P=3.jpeg",
+          "images/V=P=4.jpeg",
+          "images/V=P=5.jpeg",
+          "images/V=P=6.jpeg",
+          "images/V=P=7.jpeg",
+          "images/V=P=8.jpeg",
+          "images/V=P=9.jpeg",
+          "images/V=P=10.jpeg",
+          "images/V=P=11.jpeg",
+          "images/V=P=12.jpeg",
+          "images/V=P=13.jpeg",
+          "images/V=p=14.jpeg",
+          "images/V=P=15.jpeg",
+          "images/V=P=16.jpeg",
+          "images/V=P=17.jpeg",
+          "images/V=P=18.jpeg",
+          "images/V=P=19.jpeg",
+          "images/V=P=20.jpeg",
+          "images/V=P=21.jpeg",
+          "images/V=P=22.jpeg",
+          "images/V=P=23.jpeg",
+          "images/V=P=24.jpeg",
+          "images/V=P=25.jpeg",
+          "images/V=P=26.jpeg",
+          "images/V=P=27.jpeg",
+          "images/V=P=28.jpeg",
+          "images/V=P=29.jpeg",
+          "images/V=P=30.jpeg",
+          "images/V=P=31.jpeg",
+          "images/V=P=32.jpeg",
+          "images/V=P=33.jpeg",
+          "images/V=P=34.jpeg",
+        ],
+      };
+
+      // Helper to render the 10 design buttons
+      window.showDesignButtons = function () {
+        const btns = designNames
+          .map(
+            (name) =>
+              `<button type="button" class="nav-btn" style="margin:10px 12px; min-width:120px; min-height:54px; font-size:1.1em;" onclick="showDesignGallery('${name}')">${name}</button>`
+          )
+          .join("");
+        document.getElementById("designButtons").innerHTML = btns;
+        document.getElementById("designButtons").style.display = "flex";
+        document.getElementById("designGallery").style.display = "none";
+        document.getElementById("backToDesigns").style.display = "none";
+      };
+      // Helper to show images for a selected design type
+      window.showDesignGallery = function (design) {
+        const gallery = document.getElementById("designGallery");
+        const images = designImages[design] || [];
+        gallery.innerHTML =
+          `<h3 style="width:100%; text-align:center;">${design} Designs</h3>` +
+          (images.length
+            ? images
+                .map(
+                  (src) =>
+                    `<img src="${src}" alt="${design}" style="width:120px; height:140px; object-fit:cover; border:1px solid #bbb; margin:6px; border-radius:7px;" />`
+                )
+                .join("")
+            : "<p>No images yet for this design.</p>");
+        document.getElementById("designButtons").style.display = "none";
+        gallery.style.display = "flex";
+        document.getElementById("backToDesigns").style.display = "inline-block";
+      };
+
+      // Ensure the buttons render when Design Selections page opens
+      if (document.getElementById("designSelectionsPage")) {
+        // When showing the page, always show button set by default
+        const observer = new MutationObserver(function (muts, obs) {
+          if (
+            !document
+              .getElementById("designSelectionsPage")
+              .classList.contains("hidden")
+          ) {
+            showDesignButtons();
+          }
+        });
+        observer.observe(document.getElementById("designSelectionsPage"), {
+          attributes: true,
+          attributeFilter: ["class"],
+        });
+      }
+    </script>
+  </body>
+</html>
