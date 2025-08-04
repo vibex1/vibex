@@ -50,14 +50,18 @@ const temperedGlassData = [
       "VIVO U10",
       "VIVO Y9S",
       "VIVO Z1X",
-      "VIVO Z5",
+      "IQOO Z5",
       "VIVO V21",
       "VIVO V21E4G",
       "IQOO NEO",
       "IQOO PRO",
       "VIVO S1",
       "VIVO S1PRO",
-      "SAMSUNGM21S",
+      "SAMSUNG M21S",
+      "VIVO V25",
+      "VIVO V25E",
+      "VIVO T1PRO",
+      "IQOO Z6PRO",
     ],
   },
   {
@@ -159,13 +163,7 @@ const temperedGlassData = [
   },
   {
     mainModel: "VIOV V11PRO",
-    models: [
-      "REALME X2",
-      "REALME XT",
-      "VIVO V11PRO",
-      "VIVO Z3",
-      "IQOO",
-    ],
+    models: ["REALME X2", "REALME XT", "VIVO V11PRO", "VIVO Z3", "IQOO"],
   },
   {
     mainModel: "REALME 10PRO",
@@ -186,7 +184,7 @@ const temperedGlassData = [
       "VIVO Y15S",
       "VIVO Y16",
       "VIVO Y17S",
-      "VIVOP Y18",
+      "VIVO Y18",
       "VIVO Y20",
       "VIVO Y20I",
       "VIVO Y20G",
@@ -320,6 +318,13 @@ const temperedGlassData = [
       "OPPO A77S",
       "OPPO A785G",
       "OPPO K105G",
+      "VIVO Y03",
+      "VIVO Y35",
+      "VIVO Y37",
+      "VIVO Y55",
+      "VIVO T3LITE",
+      "IQOO Z6LITE",
+      "IQOO Z9LITE",
     ],
   },
   {
@@ -579,6 +584,8 @@ const temperedGlassData = [
       "OPPO F27",
       "REALME NARZO70",
       "OPPO RENO12F",
+      "ONEPLUS NORD4",
+      "ONEPLUS NORDCE4LITE",
     ],
   },
   {
@@ -729,6 +736,7 @@ const temperedGlassData = [
       "MOTO G35",
       "REALME 13",
       "REALME NARZO70X",
+      "VIVO Y37PRO",
     ],
   },
   {
@@ -979,6 +987,7 @@ const temperedGlassData = [
       "REALME NARZON63",
       "MI 13R",
       "REALME NARZON61",
+      "SAMSUNG F06",
     ],
   },
   {
@@ -1286,7 +1295,7 @@ const temperedGlassData = [
   },
   {
     mainModel: "SAMSUNG A20S",
-    models: ["SAMSUNG A20S","MI 9PRIME","POCO M2"],
+    models: ["SAMSUNG A20S", "MI 9PRIME", "POCO M2"],
   },
   {
     mainModel: "SAMSUNG A2CORE",
@@ -1294,14 +1303,14 @@ const temperedGlassData = [
   },
   {
     mainModel: "SAMSUNG J6",
-    models: ["SAMSUNG J6","SAMSUNG A6"]
+    models: ["SAMSUNG J6", "SAMSUNG A6"],
   },
   {
     mainModel: "MI 9A",
-    models: ["MI 9A"]
+    models: ["MI 9A"],
   },
   {
     mainModel: "IPHONE 12MINI",
-    models: ["IPHONE 12MINI"]
+    models: ["IPHONE 12MINI"],
   },
 ];
