@@ -40,7 +40,8 @@
       hr {
         margin: 26px 0;
       }
-      #suggestions {
+      #suggestions,
+      #ipakSuggestions {
         background: #fff;
         border: 1px solid #ccc;
         position: absolute;
@@ -63,7 +64,6 @@
       .nav-btn {
         font-size: 1.1em;
       }
-      /* Design selections gallery style */
       #designButtons {
         display: flex;
         flex-wrap: wrap;
@@ -87,7 +87,6 @@
         border-radius: 7px;
         cursor: pointer;
       }
-      /* Modal overlay */
       #imageModal {
         display: none;
         position: fixed;
@@ -109,6 +108,20 @@
       }
       #imageModal > div {
         margin-top: 16px;
+      }
+      .ipak-table td,
+      .ipak-table th {
+        padding: 6px 10px;
+        border: 1px solid #ccc;
+      }
+      .ipak-table {
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        width: 100%;
+        max-width: 360px;
+      }
+      .ipak-table input[type="number"] {
+        width: 54px;
       }
     </style>
   </head>
@@ -138,7 +151,6 @@
           </button>
         </div>
       </div>
-
       <div
         style="
           flex: 2;
@@ -198,8 +210,6 @@
       >
         Back to Design Choices
       </button>
-
-      <!-- Image Modal Overlay -->
       <div id="imageModal">
         <img id="modalImage" src="" alt="Full Design" />
         <div>
@@ -230,7 +240,89 @@
       <p>Redirecting to WhatsApp Business...</p>
     </div>
 
-    <!-- Back Cases placeholder -->
+    <!-- Back Cases MENU page -->
+    <div id="backCasesMenuPage" class="hidden">
+      <button onclick="goHome()" style="margin-bottom: 16px" type="button">
+        Back to Home
+      </button>
+      <h2>Back Cases</h2>
+      <div
+        style="
+          display: flex;
+          flex-wrap: wrap;
+          gap: 18px;
+          justify-content: center;
+        "
+      >
+        <button id="btnIpakyCases" type="button" class="nav-btn">
+          IPK Cases
+        </button>
+        <button id="btnVibexCases" type="button" class="nav-btn">
+          Vibex Cases
+        </button>
+        <button id="btnDoyersCases" type="button" class="nav-btn">
+          Doyers Cases
+        </button>
+        <button id="btnPremiumCases" type="button" class="nav-btn">
+          Premium Cases
+        </button>
+      </div>
+    </div>
+
+    <!-- IPKY CASES FULL LOGIC PAGE -->
+    <div id="ipakyCasesPage" class="hidden">
+      <button
+        onclick="showPage('backCasesMenuPage')"
+        style="margin-bottom: 16px"
+        type="button"
+      >
+        Back to Back Cases
+      </button>
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
+        <h2 style="margin-bottom: 0">IPK Cases</h2>
+        <button
+          id="ipakStockBtn"
+          type="button"
+          class="nav-btn"
+          style="font-size: 1em"
+        >
+          Stock Checking
+        </button>
+      </div>
+      <form id="ipakSearchForm" autocomplete="off" style="margin-top: 18px">
+        <input type="text" id="ipakSearchInput" placeholder="Enter model..." />
+        <div id="ipakSuggestions"></div>
+        <button type="submit">Search</button>
+      </form>
+      <div class="result" id="ipakResult"></div>
+      <hr />
+      <!-- Stock Checking Section -->
+      <div id="ipakStockSection" class="hidden" style="margin-top: 24px">
+        <h3>Edit Stock - Enter Available Quantity (5 required per model)</h3>
+        <div id="ipakStockList"></div>
+        <button type="button" id="ipakOrderBtn" style="margin-top: 18px">
+          Get Final Order List
+        </button>
+      </div>
+      <div id="ipakOrderSummary" class="hidden" style="margin-top: 24px">
+        <h3>Required Order List</h3>
+        <div id="ipakOrderTable"></div>
+        <button
+          type="button"
+          onclick="showPage('backCasesMenuPage')"
+          style="margin-top: 18px"
+        >
+          Back to Back Cases
+        </button>
+      </div>
+    </div>
+
     <div id="backCasesPage" class="hidden">
       <button onclick="goHome()" style="margin-bottom: 16px" type="button">
         Back to Home
@@ -239,12 +331,451 @@
       <p>Back cases lookup or sales page coming soon...</p>
     </div>
 
-    <!-- Load your data.js -->
     <script src="data.js"></script>
-
     <script>
+      // IPAKY CASES DATA
+      const ipakyCasesData = [
+        { mainModel: "ONEPLUS 5", models: ["ONEPLUS 5"] },
+        { mainModel: "ONEPLUS 7", models: ["ONEPLUS 7", "ONEPLUS 6T"] },
+        { mainModel: "ONEPLUS 6", models: ["ONEPLUS 6"] },
+        {
+          mainModel: "ONEPLUS 5T",
+          models: ["ONEPLUS 5T"],
+        },
+        {
+          mainModel: "ONEPLUS 7PRO",
+          models: ["ONEPLUS 7PRO"],
+        },
+        {
+          mainModel: "ONEPLUS 7T",
+          models: ["ONEPLUS 7T"],
+        },
+        {
+          mainModel: "ONEPLUS 8",
+          models: ["ONEPLUS 8"],
+        },
+        {
+          mainModel: "OMEPLUS 8PRO",
+          models: ["ONEPLUS 8PRO"],
+        },
+        {
+          mainModel: "ONEPLUS 9R",
+          models: ["ONEPLUS 9R", "ONEPLUS 8T"],
+        },
+        {
+          mainModel: "ONEPLUS 9",
+          models: ["ONEPLUS 9"],
+        },
+        {
+          mainModel: "ONEPLUS 9PRO",
+          models: ["ONEPLUS 9PRO"],
+        },
+        {
+          mainModel: "ONEPLUS 9RT",
+          models: ["ONEPLUS 9RT"],
+        },
+        {
+          mainModel: "ONEPLUS 10PRO",
+          models: ["ONEPLUS 10PRO"],
+        },
+        {
+          mainModel: "ONEPLUS 10T",
+          models: ["ONEPLUS 10T"],
+        },
+        {
+          mainModel: "ONEPLUS 10R",
+          models: ["ONEPLUS 10R"],
+        },
+        {
+          mainModel: "ONEPLUS NORDCE4",
+          models: ["ONEPLUS NORDCE4"],
+        },
+        {
+          mainModel: "ONEPLUS NORD4",
+          models: ["ONEPLUS NORD4"],
+        },
+        {
+          mainModel: "ONEPLUS NORDCE4LITE",
+          models: ["ONEPLUS NORDCE4LITE"],
+        },
+        {
+          mainModel: "ONEPLUS NORD",
+          models: ["ONEPLUS NORD"],
+        },
+        {
+          mainModel: "OMEPLUS NORD2",
+          models: ["ONEPLUS NORD2"],
+        },
+        {
+          mainModel: "ONEPLUS NORD2T",
+          models: ["ONEPLUS NORD2T"],
+        },
+        {
+          mainModel: "ONEPLUS NORD3",
+          models: ["ONEPLUS NORD3"],
+        },
+        {
+          mainModel: "ONEPLUS NORDCE3",
+          models: ["ONEPLUS NORDCE3"],
+        },
+        {
+          mainModel: "ONEPLUS NORDCE3LITE",
+          models: ["ONEPLUS NORDCE3LITE"],
+        },
+        {
+          mainModel: "ONEPLUS NORDCE2",
+          models: ["ONEPLUS NORDCE2"],
+        },
+        {
+          mainModel: "ONEPLUS NORDCE2LITE",
+          models: ["ONEPLUS NORDCE2LITE", "REALME 95G", "REALME 9PRO5G"],
+        },
+        {
+          mainModel: "ONEPLUS NORDCE5G",
+          models: ["ONEPLUS NORDCE5G"],
+        },
+        {
+          mainModel: "ONEPLUS 12",
+          models: ["ONEPLUS 12"],
+        },
+        {
+          mainModel: "ONEPLUS 13",
+          models: ["ONEPLUS 13"],
+        },
+        {
+          mainModel: "ONEPLUS 13R",
+          models: ["ONEPLUS 13R"],
+        },
+        {
+          mainModel: "ONEPLUS 11",
+          models: ["ONEPLUS 11"],
+        },
+        {
+          mainModel: "ONEPLUS 11R",
+          models: ["ONEPLUS 11R"],
+        },
+        {
+          mainModel: "ONEPLUS 12R",
+          models: ["ONEPLUS 12R"],
+        },
+        {
+          mainModel: "SAMSUNG J2",
+          models: ["SAMSUNG J2"],
+        },
+        {
+          mainModel: "SAMSUNG J4",
+          models: ["SAMSUNG J4"],
+        },
+        {
+          mainModel: "SAMSUNG J4PLUS",
+          models: ["SMASUNG J4PLUS "],
+        },
+        {
+          mainModel: "SAMSUNG J8",
+          models: ["SAMSUNG J8"],
+        },
+        {
+          mainModel: "SAMSUNG J5",
+          models: ["SAMSUNG J5"],
+        },
+        {
+          mainModel: "SAMSUNG J5PRIME",
+          models: ["SAMSUNG J5PRIME"],
+        },
+        {
+          mainModel: "SAMSUNG J6",
+          models: ["SAMSUNG J6"],
+        },
+        {
+          mainModel: "SAMSUG J6PLUS",
+          models: ["SAMSUNG J6PLUS"],
+        },
+        {
+          mainModel: "SAMSUNG J7",
+          models: ["SAMSUNG J7"],
+        },
+        {
+          mainModel: "SAMSUNG J7PRIME",
+          models: ["SAMSUNG J7PRIME"],
+        },
+        {
+          mainModel: "SAMSUNG J7MAX",
+          models: ["SAMSUNG J7MAX"],
+        },
+        {
+          mainModel: "SAMSUNG J7PRO",
+          models: ["SAMSUNG J7PRO"],
+        },
+        {
+          mainModel: "SAMSUNG A01",
+          models: ["SAMSUNG A01"],
+        },
+        {
+          mainModel: "SAMSUNG A01CORE",
+          models: ["SAMSUNG A01CORE", "SAMSUNG M01CORE"],
+        },
+        {
+          mainModel: "SAMSUNG A02",
+          models: ["SAMSUNG A02", "SAMSUNG M02"],
+        },
+        {
+          mainModel: "SAMSUNG A2CORE",
+          models: ["SAMSUNG A2CORE"],
+        },
+        {
+          mainModel: "SAMSUNG A03S",
+          models: ["SAMSUNG A03S", "SAMSUNG A02S"],
+        },
+        {
+          mainModel: "SAMSUNG A03",
+          models: ["SAMSUNG A03"],
+        },
+        {
+          mainModel: "SAMSUNG A03CORE",
+          models: ["SAMSUNG A03CORE"],
+        },
+        {
+          mainModel: "SAMSUNG A04",
+          models: ["SAMSUNG A04", "SAMSUNG M135G"],
+        },
+        {
+          mainModel: "SAMSUNG A04S",
+          models: ["SAMSUNG A04S", "SAMSUNG A135G"],
+        },
+        {
+          mainModel: "SAMSUNG A04E",
+          models: ["SAMSUNG A04E", "SAMSUNG F04", "SAMSUNG M04"],
+        },
+        {
+          mainModel: "SAMSUNG A718",
+          models: ["SAMSUNG A718"],
+        },
+        {
+          mainModel: "SAMSUNG A05S",
+          models: ["SAMSUNG A05S"],
+        },
+        {
+          mainModel: "SAMSUNG A054G",
+          models: ["SAMSUNG A05", "SAMSUNG MO54G", "SAMSUNG F044G"],
+        },
+        {
+          mainModel: "SAMSUNG A710",
+          models: ["SAMSUNG A710"],
+        },
+        {
+          mainModel: "SAMSUNG A10",
+          models: ["SAMSUNG A10", "SAMSUNG M10"],
+        },
+        {
+          mainModel: "SAMSUNG A10S",
+          models: ["SAMSUNG A10S", "SAMSUNG M01S"],
+        },
+        {
+          mainModel: "SAMSUNG A11",
+          models: ["SAMSUNG A11", "SAMSUNG M11"],
+        },
+        {
+          mainModel: "SAMSUNG A12",
+          models: ["SAMSUNG A12", "SAMSUNG F12", "SAMSUNG M12"],
+        },
+        {
+          mainModel: "SAMSUNG A14",
+          models: ["SAMSUNG A14"],
+        },
+        {
+          mainModel: "SAMSUING A15",
+          models: ["SAMSUNG A15"],
+        },
+        {
+          mainModel: "SAMSUNG A16",
+          models: ["SASMUNG A16"],
+        },
+        {
+          mainModel: "SAMSUNG A20",
+          models: ["SAMSUNG A20", "SAMSUNG A30", "SAMSUNG M10S"],
+        },
+        {
+          mainModel: "SAMSUNG A20S",
+          models: ["SAMSUNG A20S"],
+        },
+        {
+          showMainModels: "SAMSUNG A21",
+          models: ["SAMSUNG A21"],
+        },
+        {
+          mainModel: "SAMSUNG A21S",
+          models: ["SAMSUNG A21S"],
+        },
+        {
+          mainModel: "SAMSUNG A224G",
+          models: ["SAMSUNG A224G", "SAMSUNG M324G"],
+        },
+        {
+          mainModel: "SAMSUNG A225G",
+          models: ["SASMUNG A225G", "SAMSUNG F425G", "SAMSUNG A22S5G"],
+        },
+        {
+          mainModel: "SAMSUNG A134G",
+          models: ["SAMSUNG A134G", "SAMSUNG A325G", "SAMSUNG M325G"],
+        },
+        {
+          mainModel: "SAMSUNG A23",
+          models: ["SAMSUNG A23"],
+        },
+        {
+          mainModel: "SAMSUNG 25",
+          models: ["SASMUNG A25"],
+        },
+        {
+          mainModel: "SAMSUNG A244G",
+          models: ["SAMSUNG A244G"],
+        },
+        {
+          mainModel: "SAMSUNG A31",
+          models: ["SAMSUNG A31"],
+        },
+        {
+          mainModel: "SASMUNG A324G",
+          models: ["SAMSUNG A324G"],
+        },
+        {
+          mainModel: "SAMSUNG 335G",
+          models: ["SAMSUNG A335G"],
+        },
+        {
+          mainModel: "SAMSUNG A34",
+          models: ["SAMSUNG A34"],
+        },
+        {
+          mainModel: "SAMSUNG A35",
+          models: ["SAMSUNG A35"],
+        },
+        {
+          mainModel: "SAMSMUNG A26",
+          models: ["SAMSUNG A26"],
+        },
+        {
+          mainModel: "SAMSUNG A50",
+          models: ["SAMSUNG A50", "SAMSUNG A50S", "SAMSUNG A30S"],
+        },
+        {
+          mainModel: "SAMSUUNG A51",
+          models: ["SAMSUNG A51"],
+        },
+        {
+          mainModel: "SAMSUNG A52",
+          models: ["SAMSUNG A52", "SAMSUNG A52S"],
+        },
+        {
+          mainModel: "SAMSUNG A70",
+          models: ["SAMSUNG A70", "SAMSUNG A70S"],
+        },
+        {
+          mainModel: "SAMSUNG A54",
+          models: ["SAMSUNG A54"],
+        },
+        {
+          mainModel: "SAMSUNG A55",
+          models: ["SASMUNG A55"],
+        },
+        {
+          mainModel: "SAMSUNG A56",
+          models: ["SAMSUNG A56"],
+        },
+        {
+          mainModel: "SAMSUNG A53",
+          models: ["AMSUNG A53"],
+        },
+        {
+          mainModel: "SAMSUNG A71",
+          models: ["SAMSUNG A71"],
+        },
+        {
+          mainModel: "SAMSUNG A72",
+          models: ["SAMSUNG A72"],
+        },
+        {
+          mainModel: "SAMSUNG A73",
+          models: ["SAMSUNG A73"],
+        },
+        {
+          mainModel: "SAMSUNG F23",
+          models: ["SAMSUNG F23", "SAMSUNG M23", "SAMSUNG F134G"],
+        },
+        {
+          mainModel: "SAMSUNG F135G",
+          models: ["SAMSUNG F135G", "SAMSUNG M134G"],
+        },
+        {
+          mainModel: "SASUNG F14",
+          models: ["SAMSUNG F14"],
+        },
+        {
+          mainModel: "SAMSUNG F15",
+          models: ["SAMSUNG F15", "SAMSUNG M15"],
+        },
+        {
+          mainModel: "SAMSUNG M01",
+          models: ["SAMSUNG M01"],
+        },
+        {
+          mainModel: "SAMSUNG M135G",
+          models: ["SAMSUNG M135G", "SAMSUNG A04"],
+        },
+        {
+          mainModel: "SAMSUNG M14",
+          models: ["SAMSUNG M14"],
+        },
+        {
+          mainModel: "SAMSUNG M20",
+          models: ["SAMSUNG M20"],
+        },
+        {
+          mainModel: "SAMSUNG M21",
+          models: ["SAMSUNG M21", "SAMSUNG M30S", "SAMSUNG F41"],
+        },
+        {
+          mainModel: "SAMSUNG M30",
+          models: ["SAMSUNG M30", "SAMSUNG A40S"],
+        },
+        {
+          mainModel: "SAMSUNG M31",
+          models: ["SAMSUNG M31", "SAMSIUNG M21S", "SAMSUNG M31PRIME"],
+        },
+        {
+          mainModel: "SAMSUNG M31S",
+          models: ["SAMSUNG M31S"],
+        },
+        {
+          mainModel: "SAMSUNG M33",
+          models: ["SAMSUNG M33"],
+        },
+        {
+          mainModel: "SAMSUNG M34",
+          models: ["SAMSUNG M34", "SAMSUNG F34"],
+        },
+        {
+          mainModel: "SAMSUNG M35",
+          models: ["SAMSUNG M35"],
+        },
+        {
+          mainModel: "SAMSUNG MM51",
+          models: ["SAMSUNG M51"],
+        },
+        {
+          mainModel: "SAMSUNG M52",
+          models: ["SAMSUNG M52"],
+        },
+        {
+          mainModel: "SAMSUNG 53",
+          models: ["SAMSUBNG M53"],
+        },
+        {
+          mainModel: "SAMSUNG M55",
+          models: ["SAMSUNG M55", "SAMSUNG F55"],
+        },
+      ];
       document.addEventListener("DOMContentLoaded", function () {
-        // Navigation helpers
         function showPage(pageId) {
           [
             "homeMenu",
@@ -252,9 +783,12 @@
             "designSelectionsPage",
             "contactUsPage",
             "backCasesPage",
-          ].forEach((id) =>
-            document.getElementById(id).classList.add("hidden")
-          );
+            "backCasesMenuPage",
+            "ipakyCasesPage",
+          ].forEach((id) => {
+            var el = document.getElementById(id);
+            if (el) el.classList.add("hidden");
+          });
           document.getElementById(pageId).classList.remove("hidden");
         }
         window.goHome = function () {
@@ -263,56 +797,53 @@
             "designSelectionsPage",
             "contactUsPage",
             "backCasesPage",
-          ].forEach((id) =>
-            document.getElementById(id).classList.add("hidden")
-          );
+            "backCasesMenuPage",
+            "ipakyCasesPage",
+          ].forEach((id) => {
+            var el = document.getElementById(id);
+            if (el) el.classList.add("hidden");
+          });
           document.getElementById("homeMenu").classList.remove("hidden");
         };
-
-        // Contact Us opens WhatsApp Business chat in new tab
-        document.getElementById("btnContact").onclick = function () {
-          const whatsappNumber = "1234567890"; // <-- Replace with your WhatsApp number without '+' sign
-          const whatsappUrl = `https://wa.me/${whatsappNumber}`;
-          window.open(whatsappUrl, "_blank");
-          goHome();
+        // Home/Staff navigation
+        document.getElementById("btnBackCases").onclick = function () {
+          showPage("backCasesMenuPage");
         };
-
-        // Button actions
+        document.getElementById("btnIpakyCases").onclick = function () {
+          showPage("ipakyCasesPage");
+          resetIpak();
+        };
         document.getElementById("btnDesign").onclick = function () {
           showPage("designSelectionsPage");
         };
         document.getElementById("btnTemperedGlass").onclick = function () {
           showPage("temperedGlassPage");
         };
-        document.getElementById("btnBackCases").onclick = function () {
-          showPage("backCasesPage");
+        document.getElementById("btnContact").onclick = function () {
+          const whatsappNumber = "8553855378";
+          window.open(`https://wa.me/${whatsappNumber}`, "_blank");
+          goHome();
         };
 
-        // Tempered Glass Lookup existing code...
-
+        // Tempered Glass Search (unchanged)
         function normalize(text) {
           return text.replace(/\s+/g, "").toLowerCase();
         }
-
         const allModels = [];
         temperedGlassData.forEach((item) => {
           item.models.forEach((m) => {
             if (m && !allModels.includes(m)) allModels.push(m);
           });
         });
-
         const searchInput = document.getElementById("searchInput");
         const suggestionsDiv = document.getElementById("suggestions");
         let selectedModel = null;
-
         if (searchInput) {
           searchInput.addEventListener("input", function () {
             const val = this.value;
             suggestionsDiv.innerHTML = "";
             selectedModel = null;
-
             document.getElementById("result").innerHTML = "";
-
             if (val.trim().length === 0) {
               suggestionsDiv.style.display = "none";
               return;
@@ -324,22 +855,18 @@
               suggestionsDiv.style.display = "none";
               return;
             }
-
             suggestionsDiv.style.display = "block";
             suggestionsDiv.innerHTML = matchedModels
               .map(
                 (m) =>
-                  `<div class="suggestion-item"
-                style="padding:5px;cursor:pointer;"
-                onclick="selectSuggestion('${m.replace(
-                  /'/g,
-                  "\\'"
-                )}')">${m}</div>`
+                  `<div class="suggestion-item" style="padding:5px;cursor:pointer;" onclick="selectSuggestion('${m.replace(
+                    /'/g,
+                    "\\'"
+                  )}')">${m}</div>`
               )
               .join("");
           });
         }
-
         window.selectSuggestion = function (modelName) {
           searchInput.value = modelName;
           suggestionsDiv.innerHTML = "";
@@ -347,14 +874,12 @@
           selectedModel = modelName;
           showMainModels(modelName);
         };
-
         document.body.addEventListener("click", function (e) {
           if (e.target !== searchInput) {
             suggestionsDiv.innerHTML = "";
             suggestionsDiv.style.display = "none";
           }
         });
-
         function showMainModels(modelName) {
           const matches = temperedGlassData.filter((item) =>
             item.models.some(
@@ -371,7 +896,6 @@
               "</ul>";
           }
         }
-
         if (document.getElementById("searchForm")) {
           document.getElementById("searchForm").onsubmit = function (e) {
             e.preventDefault();
@@ -380,18 +904,15 @@
             showMainModels(modelName);
           };
         }
-
         const modelsDiv = document.getElementById("modelsList");
         if (modelsDiv)
           modelsDiv.innerHTML = temperedGlassData
             .map(
               (item) =>
-                `<div class="models-list">
-            <span class="main-model">${item.mainModel}</span>
-            <ul>
-              ${item.models.map((m) => `<li>${m}</li>`).join("")}
-            </ul>
-          </div>`
+                `<div class="models-list"><span class="main-model">${
+                  item.mainModel
+                }</span>
+          <ul>${item.models.map((m) => `<li>${m}</li>`).join("")}</ul></div>`
             )
             .join("");
 
@@ -410,7 +931,6 @@
           "LUXURY",
           "ACTORS",
         ];
-
         const designImages = {
           ANIME: [
             "images/V=A=1.jpeg",
@@ -471,7 +991,6 @@
             "images/V=P=33.jpeg",
             "images/V=P=34.jpeg",
           ],
-          // add other categories as empty arrays or with images similarly
           "SOFT QUOTES": [],
           "HARD QUOTES": [],
           "SPORTS PLAYERS": [],
@@ -483,7 +1002,6 @@
           LUXURY: [],
           ACTORS: [],
         };
-
         window.showDesignButtons = function () {
           const btns = designNames
             .map(
@@ -496,7 +1014,6 @@
           document.getElementById("designGallery").style.display = "none";
           document.getElementById("backToDesigns").style.display = "none";
         };
-
         window.showDesignGallery = function (design) {
           const gallery = document.getElementById("designGallery");
           const images = designImages[design] || [];
@@ -515,8 +1032,6 @@
           document.getElementById("backToDesigns").style.display =
             "inline-block";
         };
-
-        // Modal control functions
         window.openImageModal = function (imageSrc) {
           const modal = document.getElementById("imageModal");
           const modalImage = document.getElementById("modalImage");
@@ -524,53 +1039,41 @@
           modal.style.display = "flex";
           document.body.style.overflow = "hidden";
         };
-
         document.getElementById("closeModalBtn").onclick = function () {
-          const modal = document.getElementById("imageModal");
-          modal.style.display = "none";
+          document.getElementById("imageModal").style.display = "none";
           document.body.style.overflow = "";
         };
-
         document.getElementById("printImageBtn").onclick = function () {
           const imgSrc = document.getElementById("modalImage").src;
-
-          // Open WhatsApp chat with image URL as text
-          const whatsappNumber = "1234567890"; // <-- Replace with your WhatsApp number without '+'
-          const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-            imgSrc
-          )}`;
-          window.open(whatsappUrl, "_blank");
-
-          // Open print dialog for the image
+          const whatsappNumber = "8553855378";
+          window.open(
+            `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+              imgSrc
+            )}`,
+            "_blank"
+          );
           printSingleImage(imgSrc);
         };
-
         function printSingleImage(src) {
           const win = window.open("");
-          win.document.write(`
-          <html>
-            <head><title>Print Image</title></head>
-            <body style="margin:0; padding:0; text-align:center;">
-              <img src="${src}" style="max-width:100%; height:auto;" />
-            </body>
-          </html>
-        `);
+          win.document.write(`<html><head><title>Print Image</title></head>
+          <body style="margin:0; padding:0; text-align:center;">
+            <img src="${src}" style="max-width:100%; height:auto;" />
+          </body></html>`);
           win.document.close();
           win.focus();
           win.print();
           win.close();
         }
-
-        // Show design buttons when Design Selections page is shown
+        // Ensure Design section always resets on open
         if (document.getElementById("designSelectionsPage")) {
           const observer = new MutationObserver(function () {
             if (
               !document
                 .getElementById("designSelectionsPage")
                 .classList.contains("hidden")
-            ) {
+            )
               showDesignButtons();
-            }
           });
           observer.observe(document.getElementById("designSelectionsPage"), {
             attributes: true,
@@ -578,7 +1081,141 @@
           });
         }
 
-        // Show home menu initially
+        // --- IPAKY SEARCH ---
+        const ipakAllModels = [];
+        ipakyCasesData.forEach((item) =>
+          item.models.forEach((m) => {
+            if (m && !ipakAllModels.includes(m)) ipakAllModels.push(m);
+          })
+        );
+        const ipakSearchInput = document.getElementById("ipakSearchInput");
+        const ipakSuggestionsDiv = document.getElementById("ipakSuggestions");
+        let ipakSelectedModel = null;
+        if (ipakSearchInput) {
+          ipakSearchInput.addEventListener("input", function () {
+            const val = this.value;
+            ipakSuggestionsDiv.innerHTML = "";
+            ipakSelectedModel = null;
+            document.getElementById("ipakResult").innerHTML = "";
+            if (val.trim().length === 0) {
+              ipakSuggestionsDiv.style.display = "none";
+              return;
+            }
+            const matchedModels = ipakAllModels.filter((m) =>
+              m
+                .replace(/\s+/g, "")
+                .toLowerCase()
+                .includes(val.replace(/\s+/g, "").toLowerCase())
+            );
+            if (matchedModels.length === 0) {
+              ipakSuggestionsDiv.style.display = "none";
+              return;
+            }
+            ipakSuggestionsDiv.style.display = "block";
+            ipakSuggestionsDiv.innerHTML = matchedModels
+              .map(
+                (m) =>
+                  `<div class="suggestion-item" style="padding:5px;cursor:pointer;" onclick="selectIpakSuggestion('${m.replace(
+                    /'/g,
+                    "\\'"
+                  )}')">${m}</div>`
+              )
+              .join("");
+          });
+        }
+        window.selectIpakSuggestion = function (modelName) {
+          ipakSearchInput.value = modelName;
+          ipakSuggestionsDiv.innerHTML = "";
+          ipakSuggestionsDiv.style.display = "none";
+          ipakSelectedModel = modelName;
+          showIpakMainModels(modelName);
+        };
+        function showIpakMainModels(modelName) {
+          const matches = ipakyCasesData.filter((item) =>
+            item.models.some(
+              (phone) =>
+                phone.replace(/\s+/g, "").toLowerCase() ===
+                modelName.replace(/\s+/g, "").toLowerCase()
+            )
+          );
+          const resultDiv = document.getElementById("ipakResult");
+          if (matches.length === 0) {
+            resultDiv.textContent = "No main model found for this phone model.";
+          } else {
+            resultDiv.innerHTML =
+              "Main IPK Case Models: <ul>" +
+              matches.map((item) => `<li>${item.mainModel}</li>`).join("") +
+              "</ul>";
+          }
+        }
+        if (document.getElementById("ipakSearchForm")) {
+          document.getElementById("ipakSearchForm").onsubmit = function (e) {
+            e.preventDefault();
+            let modelName = ipakSearchInput.value.trim();
+            if (!modelName) return;
+            showIpakMainModels(modelName);
+          };
+        }
+        function resetIpak() {
+          document.getElementById("ipakStockSection").classList.add("hidden");
+          document.getElementById("ipakOrderSummary").classList.add("hidden");
+          document.getElementById("ipakResult").textContent = "";
+          document.getElementById("ipakSearchInput").value = "";
+        }
+        // IPAKY Stock Checking
+        let ipakStockMap = {};
+        document.getElementById("ipakStockBtn").onclick = showIpakStock;
+        function showIpakStock() {
+          ipakStockMap = {};
+          document
+            .getElementById("ipakStockSection")
+            .classList.remove("hidden");
+          document.getElementById("ipakOrderSummary").classList.add("hidden");
+          let html =
+            '<table class="ipak-table"><tr><th>Main Model</th><th>Available</th><th>Required</th></tr>';
+          ipakyCasesData.forEach((item) => {
+            html += `<tr>
+            <td>${item.mainModel}</td>
+            <td><input type="number" min="0" value="" oninput="updateIpakRequired(this,'${item.mainModel.replace(
+              /'/g,
+              "&#39;"
+            )}')"></td>
+            <td id="req-${item.mainModel.replace(/\W/g, "")}">5</td>
+          </tr>`;
+          });
+          html += "</table>";
+          document.getElementById("ipakStockList").innerHTML = html;
+        }
+        window.updateIpakRequired = function (input, mainModel) {
+          let avail = parseInt(input.value, 10);
+          if (isNaN(avail)) avail = 0;
+          const req = Math.max(5 - avail, 0);
+          ipakStockMap[mainModel] = avail;
+          document.getElementById(
+            "req-" + mainModel.replace(/\W/g, "")
+          ).textContent = req;
+        };
+        document.getElementById("ipakOrderBtn").onclick = function () {
+          const order = [];
+          ipakyCasesData.forEach((item) => {
+            const avail = ipakStockMap[item.mainModel] || 0;
+            const req = Math.max(5 - avail, 0);
+            if (req > 0) order.push({ model: item.mainModel, quantity: req });
+          });
+          let html =
+            '<table class="ipak-table"><tr><th>Main Model</th><th>Required PC</th></tr>';
+          order.forEach((row) => {
+            html += `<tr><td>${row.model}</td><td>${row.quantity}</td></tr>`;
+          });
+          html += "</table>";
+          document.getElementById("ipakOrderTable").innerHTML = html;
+          document
+            .getElementById("ipakOrderSummary")
+            .classList.remove("hidden");
+          document.getElementById("ipakStockSection").classList.add("hidden");
+        };
+        window.showIpakStock = showIpakStock;
+
         goHome();
       });
     </script>
