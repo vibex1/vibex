@@ -1314,3 +1314,445 @@ const temperedGlassData = [
     models: ["IPHONE 12MINI"],
   },
 ];
+// IPAKY CASES DATA
+const ipakyCasesData = [
+  { mainModel: "ONEPLUS 5", models: ["ONEPLUS 5"] },
+  { mainModel: "ONEPLUS 7", models: ["ONEPLUS 7", "ONEPLUS 6T"] },
+  { mainModel: "ONEPLUS 6", models: ["ONEPLUS 6"] },
+  {
+    mainModel: "ONEPLUS 5T",
+    models: ["ONEPLUS 5T"],
+  },
+  {
+    mainModel: "ONEPLUS 7PRO",
+    models: ["ONEPLUS 7PRO"],
+  },
+  {
+    mainModel: "ONEPLUS 7T",
+    models: ["ONEPLUS 7T"],
+  },
+  {
+    mainModel: "ONEPLUS 8",
+    models: ["ONEPLUS 8"],
+  },
+  {
+    mainModel: "OMEPLUS 8PRO",
+    models: ["ONEPLUS 8PRO"],
+  },
+  {
+    mainModel: "ONEPLUS 9R",
+    models: ["ONEPLUS 9R", "ONEPLUS 8T"],
+  },
+  {
+    mainModel: "ONEPLUS 9",
+    models: ["ONEPLUS 9"],
+  },
+  {
+    mainModel: "ONEPLUS 9PRO",
+    models: ["ONEPLUS 9PRO"],
+  },
+  {
+    mainModel: "ONEPLUS 9RT",
+    models: ["ONEPLUS 9RT"],
+  },
+  {
+    mainModel: "ONEPLUS 10PRO",
+    models: ["ONEPLUS 10PRO"],
+  },
+  {
+    mainModel: "ONEPLUS 10T",
+    models: ["ONEPLUS 10T"],
+  },
+  {
+    mainModel: "ONEPLUS 10R",
+    models: ["ONEPLUS 10R"],
+  },
+  {
+    mainModel: "ONEPLUS NORDCE4",
+    models: ["ONEPLUS NORDCE4"],
+  },
+  {
+    mainModel: "ONEPLUS NORD4",
+    models: ["ONEPLUS NORD4"],
+  },
+  {
+    mainModel: "ONEPLUS NORDCE4LITE",
+    models: ["ONEPLUS NORDCE4LITE"],
+  },
+  {
+    mainModel: "ONEPLUS NORD",
+    models: ["ONEPLUS NORD"],
+  },
+  {
+    mainModel: "OMEPLUS NORD2",
+    models: ["ONEPLUS NORD2"],
+  },
+  {
+    mainModel: "ONEPLUS NORD2T",
+    models: ["ONEPLUS NORD2T"],
+  },
+  {
+    mainModel: "ONEPLUS NORD3",
+    models: ["ONEPLUS NORD3"],
+  },
+  {
+    mainModel: "ONEPLUS NORDCE3",
+    models: ["ONEPLUS NORDCE3"],
+  },
+  {
+    mainModel: "ONEPLUS NORDCE3LITE",
+    models: ["ONEPLUS NORDCE3LITE"],
+  },
+  {
+    mainModel: "ONEPLUS NORDCE2",
+    models: ["ONEPLUS NORDCE2"],
+  },
+  {
+    mainModel: "ONEPLUS NORDCE2LITE",
+    models: ["ONEPLUS NORDCE2LITE", "REALME 95G", "REALME 9PRO5G"],
+  },
+  {
+    mainModel: "ONEPLUS NORDCE5G",
+    models: ["ONEPLUS NORDCE5G"],
+  },
+  {
+    mainModel: "ONEPLUS 12",
+    models: ["ONEPLUS 12"],
+  },
+  {
+    mainModel: "ONEPLUS 13",
+    models: ["ONEPLUS 13"],
+  },
+  {
+    mainModel: "ONEPLUS 13R",
+    models: ["ONEPLUS 13R"],
+  },
+  {
+    mainModel: "ONEPLUS 11",
+    models: ["ONEPLUS 11"],
+  },
+  {
+    mainModel: "ONEPLUS 11R",
+    models: ["ONEPLUS 11R"],
+  },
+  {
+    mainModel: "ONEPLUS 12R",
+    models: ["ONEPLUS 12R"],
+  },
+  {
+    mainModel: "SAMSUNG J2",
+    models: ["SAMSUNG J2"],
+  },
+  {
+    mainModel: "SAMSUNG J4",
+    models: ["SAMSUNG J4"],
+  },
+  {
+    mainModel: "SAMSUNG J4PLUS",
+    models: ["SMASUNG J4PLUS "],
+  },
+  {
+    mainModel: "SAMSUNG J8",
+    models: ["SAMSUNG J8"],
+  },
+  {
+    mainModel: "SAMSUNG J5",
+    models: ["SAMSUNG J5"],
+  },
+  {
+    mainModel: "SAMSUNG J5PRIME",
+    models: ["SAMSUNG J5PRIME"],
+  },
+  {
+    mainModel: "SAMSUNG J6",
+    models: ["SAMSUNG J6"],
+  },
+  {
+    mainModel: "SAMSUG J6PLUS",
+    models: ["SAMSUNG J6PLUS"],
+  },
+  {
+    mainModel: "SAMSUNG J7",
+    models: ["SAMSUNG J7"],
+  },
+  {
+    mainModel: "SAMSUNG J7PRIME",
+    models: ["SAMSUNG J7PRIME"],
+  },
+  {
+    mainModel: "SAMSUNG J7MAX",
+    models: ["SAMSUNG J7MAX"],
+  },
+  {
+    mainModel: "SAMSUNG J7PRO",
+    models: ["SAMSUNG J7PRO"],
+  },
+  {
+    mainModel: "SAMSUNG A01",
+    models: ["SAMSUNG A01"],
+  },
+  {
+    mainModel: "SAMSUNG A01CORE",
+    models: ["SAMSUNG A01CORE", "SAMSUNG M01CORE"],
+  },
+  {
+    mainModel: "SAMSUNG A02",
+    models: ["SAMSUNG A02", "SAMSUNG M02"],
+  },
+  {
+    mainModel: "SAMSUNG A2CORE",
+    models: ["SAMSUNG A2CORE"],
+  },
+  {
+    mainModel: "SAMSUNG A03S",
+    models: ["SAMSUNG A03S", "SAMSUNG A02S"],
+  },
+  {
+    mainModel: "SAMSUNG A03",
+    models: ["SAMSUNG A03"],
+  },
+  {
+    mainModel: "SAMSUNG A03CORE",
+    models: ["SAMSUNG A03CORE"],
+  },
+  {
+    mainModel: "SAMSUNG A04",
+    models: ["SAMSUNG A04", "SAMSUNG M135G"],
+  },
+  {
+    mainModel: "SAMSUNG A04S",
+    models: ["SAMSUNG A04S", "SAMSUNG A135G"],
+  },
+  {
+    mainModel: "SAMSUNG A04E",
+    models: ["SAMSUNG A04E", "SAMSUNG F04", "SAMSUNG M04"],
+  },
+  {
+    mainModel: "SAMSUNG A718",
+    models: ["SAMSUNG A718"],
+  },
+  {
+    mainModel: "SAMSUNG A05S",
+    models: ["SAMSUNG A05S"],
+  },
+  {
+    mainModel: "SAMSUNG A054G",
+    models: ["SAMSUNG A05", "SAMSUNG MO54G", "SAMSUNG F044G"],
+  },
+  {
+    mainModel: "SAMSUNG A710",
+    models: ["SAMSUNG A710"],
+  },
+  {
+    mainModel: "SAMSUNG A10",
+    models: ["SAMSUNG A10", "SAMSUNG M10"],
+  },
+  {
+    mainModel: "SAMSUNG A10S",
+    models: ["SAMSUNG A10S", "SAMSUNG M01S"],
+  },
+  {
+    mainModel: "SAMSUNG A11",
+    models: ["SAMSUNG A11", "SAMSUNG M11"],
+  },
+  {
+    mainModel: "SAMSUNG A12",
+    models: ["SAMSUNG A12", "SAMSUNG F12", "SAMSUNG M12"],
+  },
+  {
+    mainModel: "SAMSUNG A14",
+    models: ["SAMSUNG A14"],
+  },
+  {
+    mainModel: "SAMSUING A15",
+    models: ["SAMSUNG A15"],
+  },
+  {
+    mainModel: "SAMSUNG A16",
+    models: ["SASMUNG A16"],
+  },
+  {
+    mainModel: "SAMSUNG A20",
+    models: ["SAMSUNG A20", "SAMSUNG A30", "SAMSUNG M10S"],
+  },
+  {
+    mainModel: "SAMSUNG A20S",
+    models: ["SAMSUNG A20S"],
+  },
+  {
+    showMainModels: "SAMSUNG A21",
+    models: ["SAMSUNG A21"],
+  },
+  {
+    mainModel: "SAMSUNG A21S",
+    models: ["SAMSUNG A21S"],
+  },
+  {
+    mainModel: "SAMSUNG A224G",
+    models: ["SAMSUNG A224G", "SAMSUNG M324G"],
+  },
+  {
+    mainModel: "SAMSUNG A225G",
+    models: ["SASMUNG A225G", "SAMSUNG F425G", "SAMSUNG A22S5G"],
+  },
+  {
+    mainModel: "SAMSUNG A134G",
+    models: ["SAMSUNG A134G", "SAMSUNG A325G", "SAMSUNG M325G"],
+  },
+  {
+    mainModel: "SAMSUNG A23",
+    models: ["SAMSUNG A23"],
+  },
+  {
+    mainModel: "SAMSUNG 25",
+    models: ["SASMUNG A25"],
+  },
+  {
+    mainModel: "SAMSUNG A244G",
+    models: ["SAMSUNG A244G"],
+  },
+  {
+    mainModel: "SAMSUNG A31",
+    models: ["SAMSUNG A31"],
+  },
+  {
+    mainModel: "SASMUNG A324G",
+    models: ["SAMSUNG A324G"],
+  },
+  {
+    mainModel: "SAMSUNG 335G",
+    models: ["SAMSUNG A335G"],
+  },
+  {
+    mainModel: "SAMSUNG A34",
+    models: ["SAMSUNG A34"],
+  },
+  {
+    mainModel: "SAMSUNG A35",
+    models: ["SAMSUNG A35"],
+  },
+  {
+    mainModel: "SAMSMUNG A26",
+    models: ["SAMSUNG A26"],
+  },
+  {
+    mainModel: "SAMSUNG A50",
+    models: ["SAMSUNG A50", "SAMSUNG A50S", "SAMSUNG A30S"],
+  },
+  {
+    mainModel: "SAMSUUNG A51",
+    models: ["SAMSUNG A51"],
+  },
+  {
+    mainModel: "SAMSUNG A52",
+    models: ["SAMSUNG A52", "SAMSUNG A52S"],
+  },
+  {
+    mainModel: "SAMSUNG A70",
+    models: ["SAMSUNG A70", "SAMSUNG A70S"],
+  },
+  {
+    mainModel: "SAMSUNG A54",
+    models: ["SAMSUNG A54"],
+  },
+  {
+    mainModel: "SAMSUNG A55",
+    models: ["SASMUNG A55"],
+  },
+  {
+    mainModel: "SAMSUNG A56",
+    models: ["SAMSUNG A56"],
+  },
+  {
+    mainModel: "SAMSUNG A53",
+    models: ["AMSUNG A53"],
+  },
+  {
+    mainModel: "SAMSUNG A71",
+    models: ["SAMSUNG A71"],
+  },
+  {
+    mainModel: "SAMSUNG A72",
+    models: ["SAMSUNG A72"],
+  },
+  {
+    mainModel: "SAMSUNG A73",
+    models: ["SAMSUNG A73"],
+  },
+  {
+    mainModel: "SAMSUNG F23",
+    models: ["SAMSUNG F23", "SAMSUNG M23", "SAMSUNG F134G"],
+  },
+  {
+    mainModel: "SAMSUNG F135G",
+    models: ["SAMSUNG F135G", "SAMSUNG M134G"],
+  },
+  {
+    mainModel: "SASUNG F14",
+    models: ["SAMSUNG F14"],
+  },
+  {
+    mainModel: "SAMSUNG F15",
+    models: ["SAMSUNG F15", "SAMSUNG M15"],
+  },
+  {
+    mainModel: "SAMSUNG M01",
+    models: ["SAMSUNG M01"],
+  },
+  {
+    mainModel: "SAMSUNG M135G",
+    models: ["SAMSUNG M135G", "SAMSUNG A04"],
+  },
+  {
+    mainModel: "SAMSUNG M14",
+    models: ["SAMSUNG M14"],
+  },
+  {
+    mainModel: "SAMSUNG M20",
+    models: ["SAMSUNG M20"],
+  },
+  {
+    mainModel: "SAMSUNG M21",
+    models: ["SAMSUNG M21", "SAMSUNG M30S", "SAMSUNG F41"],
+  },
+  {
+    mainModel: "SAMSUNG M30",
+    models: ["SAMSUNG M30", "SAMSUNG A40S"],
+  },
+  {
+    mainModel: "SAMSUNG M31",
+    models: ["SAMSUNG M31", "SAMSIUNG M21S", "SAMSUNG M31PRIME"],
+  },
+  {
+    mainModel: "SAMSUNG M31S",
+    models: ["SAMSUNG M31S"],
+  },
+  {
+    mainModel: "SAMSUNG M33",
+    models: ["SAMSUNG M33"],
+  },
+  {
+    mainModel: "SAMSUNG M34",
+    models: ["SAMSUNG M34", "SAMSUNG F34"],
+  },
+  {
+    mainModel: "SAMSUNG M35",
+    models: ["SAMSUNG M35"],
+  },
+  {
+    mainModel: "SAMSUNG MM51",
+    models: ["SAMSUNG M51"],
+  },
+  {
+    mainModel: "SAMSUNG M52",
+    models: ["SAMSUNG M52"],
+  },
+  {
+    mainModel: "SAMSUNG 53",
+    models: ["SAMSUBNG M53"],
+  },
+  {
+    mainModel: "SAMSUNG M55",
+    models: ["SAMSUNG M55", "SAMSUNG F55"],
+  },
+];

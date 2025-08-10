@@ -5,55 +5,170 @@
     <title>Tempered Glass Lookup</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        max-width: 480px;
-        margin: 30px auto;
-        padding: 12px;
+      :root {
+        --royal-blue: #228bee;
+        --matte-white: #f8fafc;
+        --shadow: 0 4px 24px rgba(34, 139, 238, 0.09);
+        --card-radius: 16px;
+        --border: 1.5px solid #e9e9ea;
+        --text-main: #1a2332;
+        --text-muted: #4686b9;
       }
-      h2 {
-        color: #228bee;
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Arial, sans-serif;
+        background: var(--matte-white);
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        color: var(--text-main);
+        min-height: 100vh;
+      }
+      h2,
+      h3 {
+        color: var(--royal-blue);
+        letter-spacing: 1.2px;
+        font-weight: 550;
+        margin-bottom: 0.6em;
+      }
+      .section-card {
+        background: #fff;
+        border: var(--border);
+        border-radius: var(--card-radius);
+        box-shadow: var(--shadow);
+        padding: 2em 1em 1.5em 1em;
+        margin-bottom: 2.2em;
+        max-width: 480px;
+        width: 96%;
+        margin: 0 auto 2.2em auto;
+      }
+      .nav-btn {
+        background: var(--royal-blue);
+        color: #fff;
+        border: none;
+        border-radius: 28px;
+        font-size: 1.07em;
+        font-weight: 500;
+        padding: 15px 30px;
+        box-shadow: 0 2px 10px rgba(34, 139, 238, 0.13);
+        transition: background 0.18s, transform 0.13s;
+        margin: 0 12px 14px 0;
+        outline: none;
+      }
+      .nav-btn:hover,
+      .nav-btn:focus {
+        background: #165fa1;
+        transform: translateY(-2px) scale(1.03);
+      }
+      button:active {
+        opacity: 0.88;
       }
       input[type="text"] {
-        padding: 6px;
-        width: 70%;
+        border-radius: 8px;
+        border: var(--border);
+        padding: 8px 0.8em;
+        font-size: 1em;
+        transition: border 0.14s;
+        outline: none;
+        width: 80%;
+        margin-bottom: 10px;
+        background: #f6fafd;
       }
-      button {
-        padding: 7px 15px;
-        margin: 6px 4px;
-        cursor: pointer;
+      input[type="text"]:focus {
+        border-color: var(--royal-blue);
+        box-shadow: 0 1px 3px rgba(34, 139, 238, 0.07);
       }
       .result {
-        margin: 14px 0;
-        font-size: 1.1em;
+        margin: 16px 0 8px 0;
+        font-size: 1.13em;
+        color: var(--text-main);
+        background: #f7f8fa;
+        border-radius: 8px;
+        padding: 8px 12px;
+        box-shadow: 0 1px 2px #eff2f7;
       }
-      ul {
-        margin-left: 0;
+      hr {
+        border: none;
+        border-top: 1.5px solid #e5e9f2;
+        margin: 34px 0 10px 0;
+      }
+      /* Card and gallery styles */
+      #designGallery,
+      #modelsList,
+      #ipakyModelsList {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 28px 16px;
+        justify-content: center;
+        margin-top: 14px;
+      }
+      #designGallery img,
+      .models-list img {
+        background: #fff;
+        border: var(--border);
+        border-radius: 13px;
+        box-shadow: 0 2px 7px rgba(34, 139, 238, 0.07);
+        width: 130px;
+        height: 150px;
+        object-fit: cover;
+        cursor: pointer;
+        transition: transform 0.14s, box-shadow 0.14s;
+      }
+      #designGallery img:hover,
+      .models-list img:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 36px rgba(34, 139, 238, 0.22);
+        z-index: 2;
+      }
+      .models-list {
+        background: #fafcff;
+        box-shadow: var(--shadow);
+        border-radius: 13px;
+        border: var(--border);
+        padding: 10px 13px 7px 13px;
+        width: 190px;
+        min-width: 152px;
       }
       .main-model {
         font-weight: bold;
-        color: #155a8a;
+        color: var(--royal-blue);
+        letter-spacing: 0.8px;
+        font-size: 1.09em;
       }
-      .models-list {
-        margin-bottom: 16px;
+      ul {
+        margin-top: 0.7em;
+        margin-bottom: 0.3em;
+        padding-left: 1.3em;
+        font-size: 0.99em;
+        color: var(--text-muted);
       }
-      hr {
-        margin: 26px 0;
-      }
+      /* Suggestions/autocomplete dropdown */
       #suggestions,
-      #ipakSuggestions {
+      #ipakySuggestions {
         background: #fff;
-        border: 1px solid #ccc;
+        border: 2px solid var(--royal-blue);
+        border-radius: 11px;
         position: absolute;
         max-height: 150px;
         overflow-y: auto;
-        width: 70%;
+        width: 80%;
         z-index: 99;
         box-sizing: border-box;
         display: none;
+        font-size: 1em;
+        box-shadow: 0 2px 14px rgba(17, 55, 97, 0.07);
+      }
+      .suggestion-item {
+        padding: 10px 18px;
+        cursor: pointer;
+        border-bottom: 1px solid #eef2fa;
+        font-size: 0.99em;
+        color: var(--text-main);
+        background: #f8fafc;
+        transition: background 0.15s;
       }
       .suggestion-item:hover {
-        background-color: #f0f0f0;
+        background-color: #e7effb;
       }
       form {
         position: relative;
@@ -61,32 +176,7 @@
       .hidden {
         display: none !important;
       }
-      .nav-btn {
-        font-size: 1.1em;
-      }
-      #designButtons {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 18px;
-        justify-content: center;
-        margin-bottom: 20px;
-      }
-      #designGallery {
-        display: none;
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: center;
-        margin-top: 20px;
-      }
-      #designGallery img {
-        width: 120px;
-        height: 140px;
-        object-fit: cover;
-        border: 1px solid #bbb;
-        margin: 6px;
-        border-radius: 7px;
-        cursor: pointer;
-      }
+      /* Modal overlay */
       #imageModal {
         display: none;
         position: fixed;
@@ -94,38 +184,86 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        background: rgba(0, 0, 0, 0.8);
+        background: rgba(30, 44, 66, 0.95);
         justify-content: center;
         align-items: center;
-        z-index: 1000;
+        z-index: 1100;
         flex-direction: column;
+        animation: fadeInModal 0.18s;
+      }
+      @keyframes fadeInModal {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
       }
       #modalImage {
-        max-width: 90vw;
-        max-height: 80vh;
-        border-radius: 8px;
-        box-shadow: 0 0 15px #000;
+        max-width: 94vw;
+        max-height: 82vh;
+        border-radius: 11px;
+        box-shadow: 0 8px 40px rgba(34, 139, 238, 0.28);
       }
       #imageModal > div {
-        margin-top: 16px;
+        margin-top: 21px;
+        display: flex;
+        gap: 17px;
       }
-      .ipak-table td,
-      .ipak-table th {
-        padding: 6px 10px;
-        border: 1px solid #ccc;
+      #printImageBtn,
+      #closeModalBtn {
+        background: var(--royal-blue);
+        color: #fff;
+        border: none;
+        border-radius: 30px;
+        font-size: 1em;
+        font-weight: 500;
+        padding: 13px 28px;
+        min-width: 100px;
+        box-shadow: 0 2px 8px rgba(34, 139, 238, 0.09);
+        transition: background 0.16s, transform 0.12s;
       }
-      .ipak-table {
-        border-collapse: collapse;
-        margin-bottom: 20px;
-        width: 100%;
-        max-width: 360px;
+      #printImageBtn:hover,
+      #closeModalBtn:hover {
+        background: #165fa1;
+        transform: scale(1.05);
       }
-      .ipak-table input[type="number"] {
-        width: 54px;
+      /* Home, sections, cards */
+      #homeMenu > div,
+      #backCasesPage,
+      #contactUsPage,
+      #designSelectionsPage,
+      #temperedGlassPage,
+      #ipakyPage {
+        border-radius: var(--card-radius);
+        box-shadow: var(--shadow);
+        margin: 22px auto 34px auto;
+        background: #fff;
+        max-width: 485px;
+        padding: 0 0 24px 0;
+        border: var(--border);
+      }
+      #homeMenu > div {
+        box-shadow: 0 4px 24px rgba(34, 139, 238, 0.15);
+        background: #f5fafe;
+        padding-top: 42px;
+        padding-bottom: 40px;
+        margin-bottom: 30px;
+        border: none;
+      }
+      @media (max-width: 520px) {
+        body,
+        .section-card {
+          max-width: 99vw !important;
+        }
+        #homeMenu > div {
+          padding-left: 8px;
+          padding-right: 8px;
+        }
       }
     </style>
   </head>
-  <body style="min-height: 100vh; margin: 0; padding: 0">
+  <body>
     <!-- Home Menu -->
     <div
       id="homeMenu"
@@ -138,7 +276,7 @@
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          background: #f7fafc;
+          background: #f5fafe;
         "
       >
         <h2 style="margin-bottom: 28px; letter-spacing: 2px">Customers</h2>
@@ -158,7 +296,7 @@
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          background: #e9f1fb;
+          background: #ebf3fb;
         "
       >
         <h2 style="margin-bottom: 18px; letter-spacing: 2px">Staff</h2>
@@ -174,8 +312,8 @@
     </div>
 
     <!-- Tempered Glass Page -->
-    <div id="temperedGlassPage" class="hidden">
-      <button onclick="goHome()" style="margin-bottom: 16px" type="button">
+    <div id="temperedGlassPage" class="hidden section-card">
+      <button onclick="goHome()" class="nav-btn" style="margin-bottom: 15px">
         Back to Home
       </button>
       <h2>Tempered Glass Compatibility Lookup</h2>
@@ -186,7 +324,7 @@
           placeholder="Enter phone model..."
         />
         <div id="suggestions"></div>
-        <button type="submit">Search</button>
+        <button type="submit" class="nav-btn">Search</button>
       </form>
       <div class="result" id="result"></div>
       <hr />
@@ -195,8 +333,8 @@
     </div>
 
     <!-- Design Selections Page -->
-    <div id="designSelectionsPage" class="hidden">
-      <button onclick="goHome()" style="margin-bottom: 16px" type="button">
+    <div id="designSelectionsPage" class="hidden section-card">
+      <button onclick="goHome()" class="nav-btn" style="margin-bottom: 15px">
         Back to Home
       </button>
       <h2>Design Selections</h2>
@@ -204,578 +342,104 @@
       <div id="designGallery"></div>
       <button
         id="backToDesigns"
-        type="button"
+        class="nav-btn"
         style="display: none; margin: 18px auto"
         onclick="showDesignButtons()"
       >
         Back to Design Choices
       </button>
+      <!-- Image Modal Overlay -->
       <div id="imageModal">
         <img id="modalImage" src="" alt="Full Design" />
         <div>
-          <button
-            id="printImageBtn"
-            type="button"
-            style="margin-right: 24px; padding: 10px 20px; font-size: 1em"
-          >
-            Print It
-          </button>
-          <button
-            id="closeModalBtn"
-            type="button"
-            style="padding: 10px 20px; font-size: 1em"
-          >
-            Close
-          </button>
+          <button id="printImageBtn" type="button">Print It</button>
+          <button id="closeModalBtn" type="button">Close</button>
         </div>
       </div>
     </div>
 
     <!-- Contact Us placeholder -->
-    <div id="contactUsPage" class="hidden">
-      <button onclick="goHome()" style="margin-bottom: 16px" type="button">
+    <div id="contactUsPage" class="hidden section-card">
+      <button onclick="goHome()" class="nav-btn" style="margin-bottom: 15px">
         Back to Home
       </button>
       <h2>Contact Us</h2>
-      <p>Redirecting to WhatsApp Business...</p>
+      <p style="color: var(--text-muted)">
+        Redirecting to WhatsApp Business...
+      </p>
     </div>
 
-    <!-- Back Cases MENU page -->
-    <div id="backCasesMenuPage" class="hidden">
-      <button onclick="goHome()" style="margin-bottom: 16px" type="button">
+    <!-- Back Cases Main Page -->
+    <div id="backCasesPage" class="hidden section-card">
+      <button onclick="goHome()" class="nav-btn" style="margin-bottom: 15px">
         Back to Home
       </button>
       <h2>Back Cases</h2>
       <div
         style="
           display: flex;
+          gap: 20px;
           flex-wrap: wrap;
-          gap: 18px;
           justify-content: center;
+          margin-top: 20px;
         "
       >
-        <button id="btnIpakyCases" type="button" class="nav-btn">
-          IPK Cases
+        <button
+          id="btnIpaky"
+          class="nav-btn"
+          style="min-width: 120px; min-height: 54px"
+        >
+          iPaky
         </button>
-        <button id="btnVibexCases" type="button" class="nav-btn">
-          Vibex Cases
+        <button
+          id="btnVibex"
+          class="nav-btn"
+          style="min-width: 120px; min-height: 54px"
+        >
+          Vibex
         </button>
-        <button id="btnDoyersCases" type="button" class="nav-btn">
-          Doyers Cases
-        </button>
-        <button id="btnPremiumCases" type="button" class="nav-btn">
-          Premium Cases
+        <button
+          id="btnPremium"
+          class="nav-btn"
+          style="min-width: 120px; min-height: 54px"
+        >
+          Premium Covers
         </button>
       </div>
     </div>
 
-    <!-- IPKY CASES FULL LOGIC PAGE -->
-    <div id="ipakyCasesPage" class="hidden">
+    <!-- iPaky Lookup Page -->
+    <div id="ipakyPage" class="hidden section-card">
       <button
-        onclick="showPage('backCasesMenuPage')"
-        style="margin-bottom: 16px"
-        type="button"
+        onclick="showPage('backCasesPage')"
+        class="nav-btn"
+        style="margin-bottom: 15px"
       >
         Back to Back Cases
       </button>
-      <div
-        style="
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        "
-      >
-        <h2 style="margin-bottom: 0">IPK Cases</h2>
-        <button
-          id="ipakStockBtn"
-          type="button"
-          class="nav-btn"
-          style="font-size: 1em"
-        >
-          Stock Checking
-        </button>
-      </div>
-      <form id="ipakSearchForm" autocomplete="off" style="margin-top: 18px">
-        <input type="text" id="ipakSearchInput" placeholder="Enter model..." />
-        <div id="ipakSuggestions"></div>
-        <button type="submit">Search</button>
+      <h2>iPaky Cases Compatibility Lookup</h2>
+      <form id="ipakySearchForm" autocomplete="off">
+        <input
+          type="text"
+          id="ipakySearchInput"
+          placeholder="Enter phone model..."
+        />
+        <div id="ipakySuggestions"></div>
+        <button type="submit" class="nav-btn">Search</button>
       </form>
-      <div class="result" id="ipakResult"></div>
+      <div class="result" id="ipakyResult"></div>
       <hr />
-      <!-- Stock Checking Section -->
-      <div id="ipakStockSection" class="hidden" style="margin-top: 24px">
-        <h3>Edit Stock - Enter Available Quantity (5 required per model)</h3>
-        <div id="ipakStockList"></div>
-        <button type="button" id="ipakOrderBtn" style="margin-top: 18px">
-          Get Final Order List
-        </button>
-      </div>
-      <div id="ipakOrderSummary" class="hidden" style="margin-top: 24px">
-        <h3>Required Order List</h3>
-        <div id="ipakOrderTable"></div>
-        <button
-          type="button"
-          onclick="showPage('backCasesMenuPage')"
-          style="margin-top: 18px"
-        >
-          Back to Back Cases
-        </button>
-      </div>
+      <h3>All Main iPaky Models</h3>
+      <div id="ipakyModelsList"></div>
     </div>
 
-    <div id="backCasesPage" class="hidden">
-      <button onclick="goHome()" style="margin-bottom: 16px" type="button">
-        Back to Home
-      </button>
-      <h2>Back Cases</h2>
-      <p>Back cases lookup or sales page coming soon...</p>
-    </div>
-
+    <!-- Load your data.js and design-data.js -->
     <script src="data.js"></script>
+    <script src="design-data.js"></script>
+
     <script>
-      // IPAKY CASES DATA
-      const ipakyCasesData = [
-        { mainModel: "ONEPLUS 5", models: ["ONEPLUS 5"] },
-        { mainModel: "ONEPLUS 7", models: ["ONEPLUS 7", "ONEPLUS 6T"] },
-        { mainModel: "ONEPLUS 6", models: ["ONEPLUS 6"] },
-        {
-          mainModel: "ONEPLUS 5T",
-          models: ["ONEPLUS 5T"],
-        },
-        {
-          mainModel: "ONEPLUS 7PRO",
-          models: ["ONEPLUS 7PRO"],
-        },
-        {
-          mainModel: "ONEPLUS 7T",
-          models: ["ONEPLUS 7T"],
-        },
-        {
-          mainModel: "ONEPLUS 8",
-          models: ["ONEPLUS 8"],
-        },
-        {
-          mainModel: "OMEPLUS 8PRO",
-          models: ["ONEPLUS 8PRO"],
-        },
-        {
-          mainModel: "ONEPLUS 9R",
-          models: ["ONEPLUS 9R", "ONEPLUS 8T"],
-        },
-        {
-          mainModel: "ONEPLUS 9",
-          models: ["ONEPLUS 9"],
-        },
-        {
-          mainModel: "ONEPLUS 9PRO",
-          models: ["ONEPLUS 9PRO"],
-        },
-        {
-          mainModel: "ONEPLUS 9RT",
-          models: ["ONEPLUS 9RT"],
-        },
-        {
-          mainModel: "ONEPLUS 10PRO",
-          models: ["ONEPLUS 10PRO"],
-        },
-        {
-          mainModel: "ONEPLUS 10T",
-          models: ["ONEPLUS 10T"],
-        },
-        {
-          mainModel: "ONEPLUS 10R",
-          models: ["ONEPLUS 10R"],
-        },
-        {
-          mainModel: "ONEPLUS NORDCE4",
-          models: ["ONEPLUS NORDCE4"],
-        },
-        {
-          mainModel: "ONEPLUS NORD4",
-          models: ["ONEPLUS NORD4"],
-        },
-        {
-          mainModel: "ONEPLUS NORDCE4LITE",
-          models: ["ONEPLUS NORDCE4LITE"],
-        },
-        {
-          mainModel: "ONEPLUS NORD",
-          models: ["ONEPLUS NORD"],
-        },
-        {
-          mainModel: "OMEPLUS NORD2",
-          models: ["ONEPLUS NORD2"],
-        },
-        {
-          mainModel: "ONEPLUS NORD2T",
-          models: ["ONEPLUS NORD2T"],
-        },
-        {
-          mainModel: "ONEPLUS NORD3",
-          models: ["ONEPLUS NORD3"],
-        },
-        {
-          mainModel: "ONEPLUS NORDCE3",
-          models: ["ONEPLUS NORDCE3"],
-        },
-        {
-          mainModel: "ONEPLUS NORDCE3LITE",
-          models: ["ONEPLUS NORDCE3LITE"],
-        },
-        {
-          mainModel: "ONEPLUS NORDCE2",
-          models: ["ONEPLUS NORDCE2"],
-        },
-        {
-          mainModel: "ONEPLUS NORDCE2LITE",
-          models: ["ONEPLUS NORDCE2LITE", "REALME 95G", "REALME 9PRO5G"],
-        },
-        {
-          mainModel: "ONEPLUS NORDCE5G",
-          models: ["ONEPLUS NORDCE5G"],
-        },
-        {
-          mainModel: "ONEPLUS 12",
-          models: ["ONEPLUS 12"],
-        },
-        {
-          mainModel: "ONEPLUS 13",
-          models: ["ONEPLUS 13"],
-        },
-        {
-          mainModel: "ONEPLUS 13R",
-          models: ["ONEPLUS 13R"],
-        },
-        {
-          mainModel: "ONEPLUS 11",
-          models: ["ONEPLUS 11"],
-        },
-        {
-          mainModel: "ONEPLUS 11R",
-          models: ["ONEPLUS 11R"],
-        },
-        {
-          mainModel: "ONEPLUS 12R",
-          models: ["ONEPLUS 12R"],
-        },
-        {
-          mainModel: "SAMSUNG J2",
-          models: ["SAMSUNG J2"],
-        },
-        {
-          mainModel: "SAMSUNG J4",
-          models: ["SAMSUNG J4"],
-        },
-        {
-          mainModel: "SAMSUNG J4PLUS",
-          models: ["SMASUNG J4PLUS "],
-        },
-        {
-          mainModel: "SAMSUNG J8",
-          models: ["SAMSUNG J8"],
-        },
-        {
-          mainModel: "SAMSUNG J5",
-          models: ["SAMSUNG J5"],
-        },
-        {
-          mainModel: "SAMSUNG J5PRIME",
-          models: ["SAMSUNG J5PRIME"],
-        },
-        {
-          mainModel: "SAMSUNG J6",
-          models: ["SAMSUNG J6"],
-        },
-        {
-          mainModel: "SAMSUG J6PLUS",
-          models: ["SAMSUNG J6PLUS"],
-        },
-        {
-          mainModel: "SAMSUNG J7",
-          models: ["SAMSUNG J7"],
-        },
-        {
-          mainModel: "SAMSUNG J7PRIME",
-          models: ["SAMSUNG J7PRIME"],
-        },
-        {
-          mainModel: "SAMSUNG J7MAX",
-          models: ["SAMSUNG J7MAX"],
-        },
-        {
-          mainModel: "SAMSUNG J7PRO",
-          models: ["SAMSUNG J7PRO"],
-        },
-        {
-          mainModel: "SAMSUNG A01",
-          models: ["SAMSUNG A01"],
-        },
-        {
-          mainModel: "SAMSUNG A01CORE",
-          models: ["SAMSUNG A01CORE", "SAMSUNG M01CORE"],
-        },
-        {
-          mainModel: "SAMSUNG A02",
-          models: ["SAMSUNG A02", "SAMSUNG M02"],
-        },
-        {
-          mainModel: "SAMSUNG A2CORE",
-          models: ["SAMSUNG A2CORE"],
-        },
-        {
-          mainModel: "SAMSUNG A03S",
-          models: ["SAMSUNG A03S", "SAMSUNG A02S"],
-        },
-        {
-          mainModel: "SAMSUNG A03",
-          models: ["SAMSUNG A03"],
-        },
-        {
-          mainModel: "SAMSUNG A03CORE",
-          models: ["SAMSUNG A03CORE"],
-        },
-        {
-          mainModel: "SAMSUNG A04",
-          models: ["SAMSUNG A04", "SAMSUNG M135G"],
-        },
-        {
-          mainModel: "SAMSUNG A04S",
-          models: ["SAMSUNG A04S", "SAMSUNG A135G"],
-        },
-        {
-          mainModel: "SAMSUNG A04E",
-          models: ["SAMSUNG A04E", "SAMSUNG F04", "SAMSUNG M04"],
-        },
-        {
-          mainModel: "SAMSUNG A718",
-          models: ["SAMSUNG A718"],
-        },
-        {
-          mainModel: "SAMSUNG A05S",
-          models: ["SAMSUNG A05S"],
-        },
-        {
-          mainModel: "SAMSUNG A054G",
-          models: ["SAMSUNG A05", "SAMSUNG MO54G", "SAMSUNG F044G"],
-        },
-        {
-          mainModel: "SAMSUNG A710",
-          models: ["SAMSUNG A710"],
-        },
-        {
-          mainModel: "SAMSUNG A10",
-          models: ["SAMSUNG A10", "SAMSUNG M10"],
-        },
-        {
-          mainModel: "SAMSUNG A10S",
-          models: ["SAMSUNG A10S", "SAMSUNG M01S"],
-        },
-        {
-          mainModel: "SAMSUNG A11",
-          models: ["SAMSUNG A11", "SAMSUNG M11"],
-        },
-        {
-          mainModel: "SAMSUNG A12",
-          models: ["SAMSUNG A12", "SAMSUNG F12", "SAMSUNG M12"],
-        },
-        {
-          mainModel: "SAMSUNG A14",
-          models: ["SAMSUNG A14"],
-        },
-        {
-          mainModel: "SAMSUING A15",
-          models: ["SAMSUNG A15"],
-        },
-        {
-          mainModel: "SAMSUNG A16",
-          models: ["SASMUNG A16"],
-        },
-        {
-          mainModel: "SAMSUNG A20",
-          models: ["SAMSUNG A20", "SAMSUNG A30", "SAMSUNG M10S"],
-        },
-        {
-          mainModel: "SAMSUNG A20S",
-          models: ["SAMSUNG A20S"],
-        },
-        {
-          showMainModels: "SAMSUNG A21",
-          models: ["SAMSUNG A21"],
-        },
-        {
-          mainModel: "SAMSUNG A21S",
-          models: ["SAMSUNG A21S"],
-        },
-        {
-          mainModel: "SAMSUNG A224G",
-          models: ["SAMSUNG A224G", "SAMSUNG M324G"],
-        },
-        {
-          mainModel: "SAMSUNG A225G",
-          models: ["SASMUNG A225G", "SAMSUNG F425G", "SAMSUNG A22S5G"],
-        },
-        {
-          mainModel: "SAMSUNG A134G",
-          models: ["SAMSUNG A134G", "SAMSUNG A325G", "SAMSUNG M325G"],
-        },
-        {
-          mainModel: "SAMSUNG A23",
-          models: ["SAMSUNG A23"],
-        },
-        {
-          mainModel: "SAMSUNG 25",
-          models: ["SASMUNG A25"],
-        },
-        {
-          mainModel: "SAMSUNG A244G",
-          models: ["SAMSUNG A244G"],
-        },
-        {
-          mainModel: "SAMSUNG A31",
-          models: ["SAMSUNG A31"],
-        },
-        {
-          mainModel: "SASMUNG A324G",
-          models: ["SAMSUNG A324G"],
-        },
-        {
-          mainModel: "SAMSUNG 335G",
-          models: ["SAMSUNG A335G"],
-        },
-        {
-          mainModel: "SAMSUNG A34",
-          models: ["SAMSUNG A34"],
-        },
-        {
-          mainModel: "SAMSUNG A35",
-          models: ["SAMSUNG A35"],
-        },
-        {
-          mainModel: "SAMSMUNG A26",
-          models: ["SAMSUNG A26"],
-        },
-        {
-          mainModel: "SAMSUNG A50",
-          models: ["SAMSUNG A50", "SAMSUNG A50S", "SAMSUNG A30S"],
-        },
-        {
-          mainModel: "SAMSUUNG A51",
-          models: ["SAMSUNG A51"],
-        },
-        {
-          mainModel: "SAMSUNG A52",
-          models: ["SAMSUNG A52", "SAMSUNG A52S"],
-        },
-        {
-          mainModel: "SAMSUNG A70",
-          models: ["SAMSUNG A70", "SAMSUNG A70S"],
-        },
-        {
-          mainModel: "SAMSUNG A54",
-          models: ["SAMSUNG A54"],
-        },
-        {
-          mainModel: "SAMSUNG A55",
-          models: ["SASMUNG A55"],
-        },
-        {
-          mainModel: "SAMSUNG A56",
-          models: ["SAMSUNG A56"],
-        },
-        {
-          mainModel: "SAMSUNG A53",
-          models: ["AMSUNG A53"],
-        },
-        {
-          mainModel: "SAMSUNG A71",
-          models: ["SAMSUNG A71"],
-        },
-        {
-          mainModel: "SAMSUNG A72",
-          models: ["SAMSUNG A72"],
-        },
-        {
-          mainModel: "SAMSUNG A73",
-          models: ["SAMSUNG A73"],
-        },
-        {
-          mainModel: "SAMSUNG F23",
-          models: ["SAMSUNG F23", "SAMSUNG M23", "SAMSUNG F134G"],
-        },
-        {
-          mainModel: "SAMSUNG F135G",
-          models: ["SAMSUNG F135G", "SAMSUNG M134G"],
-        },
-        {
-          mainModel: "SASUNG F14",
-          models: ["SAMSUNG F14"],
-        },
-        {
-          mainModel: "SAMSUNG F15",
-          models: ["SAMSUNG F15", "SAMSUNG M15"],
-        },
-        {
-          mainModel: "SAMSUNG M01",
-          models: ["SAMSUNG M01"],
-        },
-        {
-          mainModel: "SAMSUNG M135G",
-          models: ["SAMSUNG M135G", "SAMSUNG A04"],
-        },
-        {
-          mainModel: "SAMSUNG M14",
-          models: ["SAMSUNG M14"],
-        },
-        {
-          mainModel: "SAMSUNG M20",
-          models: ["SAMSUNG M20"],
-        },
-        {
-          mainModel: "SAMSUNG M21",
-          models: ["SAMSUNG M21", "SAMSUNG M30S", "SAMSUNG F41"],
-        },
-        {
-          mainModel: "SAMSUNG M30",
-          models: ["SAMSUNG M30", "SAMSUNG A40S"],
-        },
-        {
-          mainModel: "SAMSUNG M31",
-          models: ["SAMSUNG M31", "SAMSIUNG M21S", "SAMSUNG M31PRIME"],
-        },
-        {
-          mainModel: "SAMSUNG M31S",
-          models: ["SAMSUNG M31S"],
-        },
-        {
-          mainModel: "SAMSUNG M33",
-          models: ["SAMSUNG M33"],
-        },
-        {
-          mainModel: "SAMSUNG M34",
-          models: ["SAMSUNG M34", "SAMSUNG F34"],
-        },
-        {
-          mainModel: "SAMSUNG M35",
-          models: ["SAMSUNG M35"],
-        },
-        {
-          mainModel: "SAMSUNG MM51",
-          models: ["SAMSUNG M51"],
-        },
-        {
-          mainModel: "SAMSUNG M52",
-          models: ["SAMSUNG M52"],
-        },
-        {
-          mainModel: "SAMSUNG 53",
-          models: ["SAMSUBNG M53"],
-        },
-        {
-          mainModel: "SAMSUNG M55",
-          models: ["SAMSUNG M55", "SAMSUNG F55"],
-        },
-      ];
       document.addEventListener("DOMContentLoaded", function () {
+        // Navigation helpers
         function showPage(pageId) {
           [
             "homeMenu",
@@ -783,12 +447,10 @@
             "designSelectionsPage",
             "contactUsPage",
             "backCasesPage",
-            "backCasesMenuPage",
-            "ipakyCasesPage",
-          ].forEach((id) => {
-            var el = document.getElementById(id);
-            if (el) el.classList.add("hidden");
-          });
+            "ipakyPage",
+          ].forEach((id) =>
+            document.getElementById(id).classList.add("hidden")
+          );
           document.getElementById(pageId).classList.remove("hidden");
         }
         window.goHome = function () {
@@ -797,38 +459,46 @@
             "designSelectionsPage",
             "contactUsPage",
             "backCasesPage",
-            "backCasesMenuPage",
-            "ipakyCasesPage",
-          ].forEach((id) => {
-            var el = document.getElementById(id);
-            if (el) el.classList.add("hidden");
-          });
+            "ipakyPage",
+          ].forEach((id) =>
+            document.getElementById(id).classList.add("hidden")
+          );
           document.getElementById("homeMenu").classList.remove("hidden");
         };
-        // Home/Staff navigation
-        document.getElementById("btnBackCases").onclick = function () {
-          showPage("backCasesMenuPage");
+
+        // Contact Us opens WhatsApp Business chat
+        document.getElementById("btnContact").onclick = function () {
+          const whatsappNumber = "8553855378";
+          const whatsappUrl = `https://wa.me/${whatsappNumber}`;
+          window.open(whatsappUrl, "_blank");
+          goHome();
         };
-        document.getElementById("btnIpakyCases").onclick = function () {
-          showPage("ipakyCasesPage");
-          resetIpak();
-        };
+
         document.getElementById("btnDesign").onclick = function () {
           showPage("designSelectionsPage");
         };
         document.getElementById("btnTemperedGlass").onclick = function () {
           showPage("temperedGlassPage");
         };
-        document.getElementById("btnContact").onclick = function () {
-          const whatsappNumber = "8553855378";
-          window.open(`https://wa.me/${whatsappNumber}`, "_blank");
-          goHome();
+        document.getElementById("btnBackCases").onclick = function () {
+          showPage("backCasesPage");
+        };
+        document.getElementById("btnIpaky").onclick = function () {
+          showPage("ipakyPage");
+        };
+        document.getElementById("btnVibex").onclick = function () {
+          alert("Vibex cases lookup coming soon...");
+        };
+        document.getElementById("btnPremium").onclick = function () {
+          alert("Premium covers lookup coming soon...");
         };
 
-        // Tempered Glass Search (unchanged)
+        // Lookup normalization helper
         function normalize(text) {
           return text.replace(/\s+/g, "").toLowerCase();
         }
+
+        // ==== Tempered Glass Autocomplete and Render ====
         const allModels = [];
         temperedGlassData.forEach((item) => {
           item.models.forEach((m) => {
@@ -838,6 +508,7 @@
         const searchInput = document.getElementById("searchInput");
         const suggestionsDiv = document.getElementById("suggestions");
         let selectedModel = null;
+
         if (searchInput) {
           searchInput.addEventListener("input", function () {
             const val = this.value;
@@ -859,7 +530,7 @@
             suggestionsDiv.innerHTML = matchedModels
               .map(
                 (m) =>
-                  `<div class="suggestion-item" style="padding:5px;cursor:pointer;" onclick="selectSuggestion('${m.replace(
+                  `<div class="suggestion-item" onclick="selectSuggestion('${m.replace(
                     /'/g,
                     "\\'"
                   )}')">${m}</div>`
@@ -867,6 +538,7 @@
               .join("");
           });
         }
+
         window.selectSuggestion = function (modelName) {
           searchInput.value = modelName;
           suggestionsDiv.innerHTML = "";
@@ -874,12 +546,22 @@
           selectedModel = modelName;
           showMainModels(modelName);
         };
+
         document.body.addEventListener("click", function (e) {
-          if (e.target !== searchInput) {
+          if (
+            e.target !== searchInput &&
+            e.target !== document.getElementById("ipakySearchInput")
+          ) {
             suggestionsDiv.innerHTML = "";
             suggestionsDiv.style.display = "none";
+            if (document.getElementById("ipakySuggestions")) {
+              document.getElementById("ipakySuggestions").innerHTML = "";
+              document.getElementById("ipakySuggestions").style.display =
+                "none";
+            }
           }
         });
+
         function showMainModels(modelName) {
           const matches = temperedGlassData.filter((item) =>
             item.models.some(
@@ -896,6 +578,7 @@
               "</ul>";
           }
         }
+
         if (document.getElementById("searchForm")) {
           document.getElementById("searchForm").onsubmit = function (e) {
             e.preventDefault();
@@ -904,19 +587,116 @@
             showMainModels(modelName);
           };
         }
+
         const modelsDiv = document.getElementById("modelsList");
         if (modelsDiv)
           modelsDiv.innerHTML = temperedGlassData
             .map(
-              (item) =>
-                `<div class="models-list"><span class="main-model">${
-                  item.mainModel
-                }</span>
-          <ul>${item.models.map((m) => `<li>${m}</li>`).join("")}</ul></div>`
+              (item) => `<div class="models-list">
+              <span class="main-model">${item.mainModel}</span>
+              <ul>${item.models.map((m) => `<li>${m}</li>`).join("")}</ul>
+            </div>`
             )
             .join("");
 
-        // --- Design Selections Gallery Setup ---
+        // ==== iPaky Lookup Functions ====
+        const ipakyAllModels = [];
+        if (typeof ipakyCasesData !== "undefined") {
+          ipakyCasesData.forEach((item) => {
+            item.models.forEach((m) => {
+              if (m && !ipakyAllModels.includes(m)) ipakyAllModels.push(m);
+            });
+          });
+        }
+        const ipakyInput = document.getElementById("ipakySearchInput");
+        const ipakySuggestionsDiv = document.getElementById("ipakySuggestions");
+        let ipakySelectedModel = null;
+
+        if (ipakyInput) {
+          ipakyInput.addEventListener("input", function () {
+            const val = this.value;
+            ipakySuggestionsDiv.innerHTML = "";
+            ipakySelectedModel = null;
+            document.getElementById("ipakyResult").innerHTML = "";
+            if (val.trim().length === 0) {
+              ipakySuggestionsDiv.style.display = "none";
+              return;
+            }
+            const matchedModels = ipakyAllModels.filter((m) =>
+              normalize(m).includes(normalize(val))
+            );
+            if (matchedModels.length === 0) {
+              ipakySuggestionsDiv.style.display = "none";
+              return;
+            }
+            ipakySuggestionsDiv.style.display = "block";
+            ipakySuggestionsDiv.innerHTML = matchedModels
+              .map(
+                (m) =>
+                  `<div class="suggestion-item" onclick="ipakySelectSuggestion('${m.replace(
+                    /'/g,
+                    "\\'"
+                  )}')">${m}</div>`
+              )
+              .join("");
+          });
+        }
+
+        window.ipakySelectSuggestion = function (modelName) {
+          ipakyInput.value = modelName;
+          ipakySuggestionsDiv.innerHTML = "";
+          ipakySuggestionsDiv.style.display = "none";
+          ipakySelectedModel = modelName;
+          showIpakyMainModels(modelName);
+        };
+
+        function showIpakyMainModels(modelName) {
+          if (typeof ipakyCasesData === "undefined") {
+            document.getElementById("ipakyResult").textContent =
+              "iPaky data not found. Please check your data.js file.";
+            return;
+          }
+          const matches = ipakyCasesData.filter((item) =>
+            item.models.some(
+              (phone) => normalize(phone) === normalize(modelName)
+            )
+          );
+          const resultDiv = document.getElementById("ipakyResult");
+          if (matches.length === 0) {
+            resultDiv.textContent = "No main model found for this phone model.";
+          } else {
+            resultDiv.innerHTML =
+              "Main iPaky Models: <ul>" +
+              matches.map((item) => `<li>${item.mainModel}</li>`).join("") +
+              "</ul>";
+          }
+        }
+
+        if (document.getElementById("ipakySearchForm")) {
+          document.getElementById("ipakySearchForm").onsubmit = function (e) {
+            e.preventDefault();
+            let modelName = ipakyInput.value.trim();
+            if (!modelName) return;
+            showIpakyMainModels(modelName);
+          };
+        }
+
+        const ipakyModelsDiv = document.getElementById("ipakyModelsList");
+        if (ipakyModelsDiv && typeof ipakyCasesData !== "undefined") {
+          ipakyModelsDiv.innerHTML = ipakyCasesData
+            .map(
+              (item) => `<div class="models-list">
+              <span class="main-model">${item.mainModel}</span>
+              <ul>${item.models.map((m) => `<li>${m}</li>`).join("")}</ul>
+            </div>`
+            )
+            .join("");
+        } else if (ipakyModelsDiv) {
+          ipakyModelsDiv.innerHTML =
+            "<p>iPaky data not found. Please check your data.js file.</p>";
+        }
+
+        // ==== Design Gallery Logic ====
         const designNames = [
           "ANIME",
           "PINTRESTY",
@@ -931,82 +711,12 @@
           "LUXURY",
           "ACTORS",
         ];
-        const designImages = {
-          ANIME: [
-            "images/V=A=1.jpeg",
-            "images/V=A=2.jpeg",
-            "images/V=A=3.jpeg",
-            "images/V=A=4.jpeg",
-            "images/V=A=5.jpeg",
-            "images/V=A=6.jpeg",
-            "images/V=A=7.jpeg",
-            "images/V=A=8.jpeg",
-            "images/V=A=9.jpeg",
-            "images/V=A=10.jpeg",
-            "images/V=A=11.jpeg",
-            "images/V=A=12.jpeg",
-            "images/V=A=13.jpeg",
-            "images/V=A=14.jpeg",
-            "images/V=A=15.jpeg",
-            "images/V=A=16.jpeg",
-            "images/V=A=17.jpeg",
-            "images/V=A=18.jpeg",
-            "images/V=A=19.jpeg",
-            "images/V=A=20.jpeg",
-            "images/V=A=21.jpeg",
-          ],
-          PINTRESTY: [
-            "images/V=P=1.jpeg",
-            "images/V=P=2.jpeg",
-            "images/V=P=3.jpeg",
-            "images/V=P=4.jpeg",
-            "images/V=P=5.jpeg",
-            "images/V=P=6.jpeg",
-            "images/V=P=7.jpeg",
-            "images/V=P=8.jpeg",
-            "images/V=P=9.jpeg",
-            "images/V=P=10.jpeg",
-            "images/V=P=11.jpeg",
-            "images/V=P=12.jpeg",
-            "images/V=P=13.jpeg",
-            "images/V=P=14.jpeg",
-            "images/V=P=15.jpeg",
-            "images/V=P=16.jpeg",
-            "images/V=P=17.jpeg",
-            "images/V=P=18.jpeg",
-            "images/V=P=19.jpeg",
-            "images/V=P=20.jpeg",
-            "images/V=P=21.jpeg",
-            "images/V=P=22.jpeg",
-            "images/V=P=23.jpeg",
-            "images/V=P=24.jpeg",
-            "images/V=P=25.jpeg",
-            "images/V=P=26.jpeg",
-            "images/V=P=27.jpeg",
-            "images/V=P=28.jpeg",
-            "images/V=P=29.jpeg",
-            "images/V=P=30.jpeg",
-            "images/V=P=31.jpeg",
-            "images/V=P=32.jpeg",
-            "images/V=P=33.jpeg",
-            "images/V=P=34.jpeg",
-          ],
-          "SOFT QUOTES": [],
-          "HARD QUOTES": [],
-          "SPORTS PLAYERS": [],
-          SPORTS: [],
-          SCENERY: [],
-          CARS: [],
-          "ALL MIX=1": [],
-          "ALL MIX=2": [],
-          LUXURY: [],
-          ACTORS: [],
-        };
+
         window.showDesignButtons = function () {
           const btns = designNames
             .map(
               (name) =>
-                `<button type="button" class="nav-btn" style="margin:10px 12px; min-width:120px; min-height:54px; font-size:1.1em;" onclick="showDesignGallery('${name}')">${name}</button>`
+                `<button type="button" class="nav-btn" style="margin:10px 12px;" onclick="showDesignGallery('${name}')">${name}</button>`
             )
             .join("");
           document.getElementById("designButtons").innerHTML = btns;
@@ -1014,6 +724,7 @@
           document.getElementById("designGallery").style.display = "none";
           document.getElementById("backToDesigns").style.display = "none";
         };
+
         window.showDesignGallery = function (design) {
           const gallery = document.getElementById("designGallery");
           const images = designImages[design] || [];
@@ -1023,15 +734,17 @@
               ? images
                   .map(
                     (src) =>
-                      `<img src="${src}" alt="${design}" style="cursor:pointer;" onclick="openImageModal('${src}')" />`
+                      `<img src="${src}" alt="${design}" onclick="openImageModal('${src}')" />`
                   )
                   .join("")
-              : "<p>No images yet for this design.</p>");
+              : "<p style='color: #165fa1;'>No images yet for this design.</p>");
           document.getElementById("designButtons").style.display = "none";
           gallery.style.display = "flex";
           document.getElementById("backToDesigns").style.display =
             "inline-block";
         };
+
+        // Modal control functions
         window.openImageModal = function (imageSrc) {
           const modal = document.getElementById("imageModal");
           const modalImage = document.getElementById("modalImage");
@@ -1039,182 +752,55 @@
           modal.style.display = "flex";
           document.body.style.overflow = "hidden";
         };
+
         document.getElementById("closeModalBtn").onclick = function () {
-          document.getElementById("imageModal").style.display = "none";
+          const modal = document.getElementById("imageModal");
+          modal.style.display = "none";
           document.body.style.overflow = "";
         };
+
         document.getElementById("printImageBtn").onclick = function () {
           const imgSrc = document.getElementById("modalImage").src;
           const whatsappNumber = "8553855378";
-          window.open(
-            `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-              imgSrc
-            )}`,
-            "_blank"
-          );
+          const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+            imgSrc
+          )}`;
+          window.open(whatsappUrl, "_blank");
           printSingleImage(imgSrc);
         };
+
         function printSingleImage(src) {
           const win = window.open("");
-          win.document.write(`<html><head><title>Print Image</title></head>
-          <body style="margin:0; padding:0; text-align:center;">
-            <img src="${src}" style="max-width:100%; height:auto;" />
-          </body></html>`);
+          win.document.write(`
+          <html>
+            <head><title>Print Image</title></head>
+            <body style="margin:0; padding:0; text-align:center;">
+              <img src="${src}" style="max-width:100%; height:auto;" />
+            </body>
+          </html>
+        `);
           win.document.close();
           win.focus();
           win.print();
           win.close();
         }
-        // Ensure Design section always resets on open
+
+        // Show design buttons when Design Selections page is shown
         if (document.getElementById("designSelectionsPage")) {
           const observer = new MutationObserver(function () {
             if (
               !document
                 .getElementById("designSelectionsPage")
                 .classList.contains("hidden")
-            )
+            ) {
               showDesignButtons();
+            }
           });
           observer.observe(document.getElementById("designSelectionsPage"), {
             attributes: true,
             attributeFilter: ["class"],
           });
         }
-
-        // --- IPAKY SEARCH ---
-        const ipakAllModels = [];
-        ipakyCasesData.forEach((item) =>
-          item.models.forEach((m) => {
-            if (m && !ipakAllModels.includes(m)) ipakAllModels.push(m);
-          })
-        );
-        const ipakSearchInput = document.getElementById("ipakSearchInput");
-        const ipakSuggestionsDiv = document.getElementById("ipakSuggestions");
-        let ipakSelectedModel = null;
-        if (ipakSearchInput) {
-          ipakSearchInput.addEventListener("input", function () {
-            const val = this.value;
-            ipakSuggestionsDiv.innerHTML = "";
-            ipakSelectedModel = null;
-            document.getElementById("ipakResult").innerHTML = "";
-            if (val.trim().length === 0) {
-              ipakSuggestionsDiv.style.display = "none";
-              return;
-            }
-            const matchedModels = ipakAllModels.filter((m) =>
-              m
-                .replace(/\s+/g, "")
-                .toLowerCase()
-                .includes(val.replace(/\s+/g, "").toLowerCase())
-            );
-            if (matchedModels.length === 0) {
-              ipakSuggestionsDiv.style.display = "none";
-              return;
-            }
-            ipakSuggestionsDiv.style.display = "block";
-            ipakSuggestionsDiv.innerHTML = matchedModels
-              .map(
-                (m) =>
-                  `<div class="suggestion-item" style="padding:5px;cursor:pointer;" onclick="selectIpakSuggestion('${m.replace(
-                    /'/g,
-                    "\\'"
-                  )}')">${m}</div>`
-              )
-              .join("");
-          });
-        }
-        window.selectIpakSuggestion = function (modelName) {
-          ipakSearchInput.value = modelName;
-          ipakSuggestionsDiv.innerHTML = "";
-          ipakSuggestionsDiv.style.display = "none";
-          ipakSelectedModel = modelName;
-          showIpakMainModels(modelName);
-        };
-        function showIpakMainModels(modelName) {
-          const matches = ipakyCasesData.filter((item) =>
-            item.models.some(
-              (phone) =>
-                phone.replace(/\s+/g, "").toLowerCase() ===
-                modelName.replace(/\s+/g, "").toLowerCase()
-            )
-          );
-          const resultDiv = document.getElementById("ipakResult");
-          if (matches.length === 0) {
-            resultDiv.textContent = "No main model found for this phone model.";
-          } else {
-            resultDiv.innerHTML =
-              "Main IPK Case Models: <ul>" +
-              matches.map((item) => `<li>${item.mainModel}</li>`).join("") +
-              "</ul>";
-          }
-        }
-        if (document.getElementById("ipakSearchForm")) {
-          document.getElementById("ipakSearchForm").onsubmit = function (e) {
-            e.preventDefault();
-            let modelName = ipakSearchInput.value.trim();
-            if (!modelName) return;
-            showIpakMainModels(modelName);
-          };
-        }
-        function resetIpak() {
-          document.getElementById("ipakStockSection").classList.add("hidden");
-          document.getElementById("ipakOrderSummary").classList.add("hidden");
-          document.getElementById("ipakResult").textContent = "";
-          document.getElementById("ipakSearchInput").value = "";
-        }
-        // IPAKY Stock Checking
-        let ipakStockMap = {};
-        document.getElementById("ipakStockBtn").onclick = showIpakStock;
-        function showIpakStock() {
-          ipakStockMap = {};
-          document
-            .getElementById("ipakStockSection")
-            .classList.remove("hidden");
-          document.getElementById("ipakOrderSummary").classList.add("hidden");
-          let html =
-            '<table class="ipak-table"><tr><th>Main Model</th><th>Available</th><th>Required</th></tr>';
-          ipakyCasesData.forEach((item) => {
-            html += `<tr>
-            <td>${item.mainModel}</td>
-            <td><input type="number" min="0" value="" oninput="updateIpakRequired(this,'${item.mainModel.replace(
-              /'/g,
-              "&#39;"
-            )}')"></td>
-            <td id="req-${item.mainModel.replace(/\W/g, "")}">5</td>
-          </tr>`;
-          });
-          html += "</table>";
-          document.getElementById("ipakStockList").innerHTML = html;
-        }
-        window.updateIpakRequired = function (input, mainModel) {
-          let avail = parseInt(input.value, 10);
-          if (isNaN(avail)) avail = 0;
-          const req = Math.max(5 - avail, 0);
-          ipakStockMap[mainModel] = avail;
-          document.getElementById(
-            "req-" + mainModel.replace(/\W/g, "")
-          ).textContent = req;
-        };
-        document.getElementById("ipakOrderBtn").onclick = function () {
-          const order = [];
-          ipakyCasesData.forEach((item) => {
-            const avail = ipakStockMap[item.mainModel] || 0;
-            const req = Math.max(5 - avail, 0);
-            if (req > 0) order.push({ model: item.mainModel, quantity: req });
-          });
-          let html =
-            '<table class="ipak-table"><tr><th>Main Model</th><th>Required PC</th></tr>';
-          order.forEach((row) => {
-            html += `<tr><td>${row.model}</td><td>${row.quantity}</td></tr>`;
-          });
-          html += "</table>";
-          document.getElementById("ipakOrderTable").innerHTML = html;
-          document
-            .getElementById("ipakOrderSummary")
-            .classList.remove("hidden");
-          document.getElementById("ipakStockSection").classList.add("hidden");
-        };
-        window.showIpakStock = showIpakStock;
 
         goHome();
       });
