@@ -8,167 +8,217 @@
   :root {
     --royal-blue: #228bee;
     --matte-white: #f8fafc;
-    --shadow: 0 4px 24px rgba(34, 139, 238, 0.09);
+    --shadow-light: 0 4px 24px rgba(34, 139, 238, 0.09);
+    --shadow-strong: 0 6px 36px rgba(34, 139, 238, 0.22);
     --card-radius: 16px;
     --border: 1.5px solid #e9e9ea;
     --text-main: #1a2332;
     --text-muted: #4686b9;
+    --brand-gradient: linear-gradient(135deg, #1a3b8f 0%, #2255cb 100%);
+    --soft-overlay: rgba(255, 255, 255, 0.12);
   }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Arial, sans-serif;
-    background: var(--matte-white);
+  
+  html, body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    color: var(--text-main);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Arial, sans-serif;
     min-height: 100vh;
+    color: var(--text-main);
+    background: #0147ab url('2_20251011_085254_0001.jpg') center center no-repeat fixed;
+    background-size: 40vw auto;
+    position: relative;
+    overflow-x: hidden;
   }
-  h2,
-  h3 {
+  
+  /* subtle repeating white-logo watermark */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('1_20251011_085254_0000.jpg') repeat;
+    opacity: 0.04;
+    background-size: 18vw auto;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  /* Overlay subtle frosted effect for readability */
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--soft-overlay);
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  h2, h3 {
     color: var(--royal-blue);
     letter-spacing: 1.2px;
-    font-weight: 550;
+    font-weight: 600;
     margin-bottom: 0.6em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   }
+  
   .section-card {
     background: #fff;
     border: var(--border);
     border-radius: var(--card-radius);
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-light);
     padding: 2em 1em 1.5em 1em;
     margin-bottom: 2.2em;
     max-width: 480px;
     width: 96%;
     margin: 0 auto 2.2em auto;
+    transition: box-shadow 0.3s ease;
   }
+  .section-card:hover {
+    box-shadow: var(--shadow-strong);
+  }
+  
   .nav-btn {
     background: var(--royal-blue);
     color: #fff;
     border: none;
     border-radius: 28px;
-    font-size: 1.07em;
-    font-weight: 500;
-    padding: 15px 30px;
-    box-shadow: 0 2px 10px rgba(34, 139, 238, 0.13);
-    transition: background 0.18s, transform 0.13s;
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 15px 38px;
+    box-shadow: 0 2px 12px rgba(34, 139, 238, 0.2);
+    transition: background 0.3s ease, transform 0.18s ease, box-shadow 0.3s ease;
     margin: 0 12px 14px 0;
+    cursor: pointer;
     outline: none;
+    display: inline-block;
+    user-select: none;
   }
   .nav-btn:hover,
   .nav-btn:focus {
-    background: #165fa1;
-    transform: translateY(-2px) scale(1.03);
+    background: #0d3891;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 28px rgba(34, 139, 238, 0.35);
   }
-  button:active {
-    opacity: 0.88;
+  .nav-btn:active {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(34, 139, 238, 0.4);
   }
+  
   input[type="text"] {
-    border-radius: 8px;
+    border-radius: 10px;
     border: var(--border);
-    padding: 8px 0.8em;
-    font-size: 1em;
-    transition: border 0.14s;
+    padding: 12px 1em;
+    font-size: 1.05em;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
     outline: none;
     width: 80%;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     background: #f6fafd;
+    box-shadow: inset 1px 1px 4px rgba(0,0,0,0.07);
   }
   input[type="text"]:focus {
     border-color: var(--royal-blue);
-    box-shadow: 0 1px 3px rgba(34, 139, 238, 0.07);
+    box-shadow: 0 0 10px rgba(34, 139, 238, 0.35);
   }
+  
   .result {
-    margin: 16px 0 8px 0;
-    font-size: 1.13em;
+    margin: 18px 0 12px 0;
+    font-size: 1.2em;
     color: var(--text-main);
     background: #f7f8fa;
-    border-radius: 8px;
-    padding: 8px 12px;
-    box-shadow: 0 1px 2px #eff2f7;
+    border-radius: 10px;
+    padding: 12px 16px;
+    box-shadow: 0 2px 8px #d8dee7;
+    transition: background-color 0.3s ease;
   }
+  .result:hover {
+    background-color: var(--matte-white);
+  }
+  
   hr {
     border: none;
-    border-top: 1.5px solid #e5e9f2;
-    margin: 34px 0 10px 0;
+    border-top: 2px solid #e5e9f2;
+    margin: 38px 0 14px 0;
   }
+  
   /* Card and gallery styles */
   #designGallery,
   #modelsList,
   #ipakyModelsList {
     display: flex;
     flex-wrap: wrap;
-    gap: 28px 16px;
+    gap: 30px 20px;
     justify-content: center;
-    margin-top: 14px;
+    margin-top: 18px;
   }
   #designGallery img,
   .models-list img {
     background: #fff;
     border: var(--border);
-    border-radius: 13px;
-    box-shadow: 0 2px 7px rgba(34, 139, 238, 0.07);
-    width: 130px;
-    height: 150px;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px rgba(34, 139, 238, 0.1);
+    width: 135px;
+    height: 155px;
     object-fit: cover;
     cursor: pointer;
-    transition: transform 0.14s, box-shadow 0.14s;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
   }
   #designGallery img:hover,
   .models-list img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 36px rgba(34, 139, 238, 0.22);
+    transform: scale(1.12);
+    box-shadow: 0 7px 40px rgba(34, 139, 238, 0.28);
     z-index: 2;
   }
   .models-list {
-    background: #fafcff;
-    box-shadow: var(--shadow);
-    border-radius: 13px;
+    background: #f7faff;
+    box-shadow: var(--shadow-light);
+    border-radius: 15px;
     border: var(--border);
-    padding: 10px 13px 7px 13px;
-    width: 190px;
-    min-width: 152px;
+    padding: 12px 14px 9px 14px;
+    width: 192px;
+    min-width: 155px;
   }
   .main-model {
-    font-weight: bold;
+    font-weight: 700;
     color: var(--royal-blue);
-    letter-spacing: 0.8px;
-    font-size: 1.09em;
+    letter-spacing: 1.0px;
+    font-size: 1.12em;
   }
   ul {
-    margin-top: 0.7em;
-    margin-bottom: 0.3em;
-    padding-left: 1.3em;
-    font-size: 0.99em;
+    margin-top: 0.8em;
+    margin-bottom: 0.4em;
+    padding-left: 1.4em;
+    font-size: 1.02em;
     color: var(--text-muted);
   }
+  
   /* Suggestions/autocomplete dropdown */
   #suggestions,
   #ipakySuggestions {
     background: #fff;
     border: 2px solid var(--royal-blue);
-    border-radius: 11px;
+    border-radius: 12px;
     position: absolute;
-    max-height: 150px;
+    max-height: 160px;
     overflow-y: auto;
     width: 80%;
     z-index: 99;
     box-sizing: border-box;
     display: none;
-    font-size: 1em;
-    box-shadow: 0 2px 14px rgba(17, 55, 97, 0.07);
+    font-size: 1.03em;
+    box-shadow: 0 3px 16px rgba(17, 55, 97, 0.1);
   }
   .suggestion-item {
-    padding: 10px 18px;
+    padding: 12px 20px;
     cursor: pointer;
-    border-bottom: 1px solid #eef2fa;
-    font-size: 0.99em;
+    border-bottom: 1px solid #e4e9f4;
+    font-size: 1.02em;
     color: var(--text-main);
-    background: #f8fafc;
-    transition: background 0.15s;
+    background: #f9fbfd;
+    transition: background 0.2s ease;
   }
   .suggestion-item:hover {
-    background-color: #e7effb;
+    background-color: #e3eaf9;
   }
   form {
     position: relative;
@@ -176,6 +226,7 @@
   .hidden {
     display: none !important;
   }
+  
   /* Modal overlay */
   #imageModal {
     display: none;
@@ -184,12 +235,12 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(30, 44, 66, 0.95);
+    background: rgba(30, 44, 66, 0.9);
     justify-content: center;
     align-items: center;
     z-index: 1100;
     flex-direction: column;
-    animation: fadeInModal 0.18s;
+    animation: fadeInModal 0.2s;
   }
   @keyframes fadeInModal {
     from {
@@ -200,34 +251,35 @@
     }
   }
   #modalImage {
-    max-width: 94vw;
-    max-height: 82vh;
-    border-radius: 11px;
-    box-shadow: 0 8px 40px rgba(34, 139, 238, 0.28);
+    max-width: 95vw;
+    max-height: 84vh;
+    border-radius: 12px;
+    box-shadow: 0 9px 45px rgba(34, 139, 238, 0.3);
   }
   #imageModal > div {
-    margin-top: 21px;
+    margin-top: 24px;
     display: flex;
-    gap: 17px;
+    gap: 20px;
   }
   #printImageBtn,
   #closeModalBtn {
     background: var(--royal-blue);
     color: #fff;
     border: none;
-    border-radius: 30px;
+    border-radius: 32px;
     font-size: 1em;
-    font-weight: 500;
-    padding: 13px 28px;
-    min-width: 100px;
-    box-shadow: 0 2px 8px rgba(34, 139, 238, 0.09);
-    transition: background 0.16s, transform 0.12s;
+    font-weight: 600;
+    padding: 14px 30px;
+    min-width: 110px;
+    box-shadow: 0 2.5px 9px rgba(34, 139, 238, 0.11);
+    transition: background 0.2s ease, transform 0.15s ease;
   }
   #printImageBtn:hover,
   #closeModalBtn:hover {
-    background: #165fa1;
-    transform: scale(1.05);
+    background: #124288;
+    transform: scale(1.06);
   }
+  
   /* Home, sections, cards */
   #homeMenu > div,
   #backCasesPage,
@@ -236,50 +288,31 @@
   #temperedGlassPage,
   #ipakyPage {
     border-radius: var(--card-radius);
-    box-shadow: var(--shadow);
-    margin: 22px auto 34px auto;
+    box-shadow: var(--shadow-light);
+    margin: 24px auto 36px auto;
     background: #fff;
-    max-width: 485px;
-    padding: 0 0 24px 0;
+    max-width: 490px;
+    padding: 0 0 26px 0;
     border: var(--border);
   }
   #homeMenu > div {
-    box-shadow: 0 4px 24px rgba(34, 139, 238, 0.15);
-    background: #f5fafe;
-    padding-top: 42px;
-    padding-bottom: 40px;
-    margin-bottom: 30px;
+    box-shadow: 0 5px 27px rgba(34, 139, 238, 0.16);
+    background: #f5faff;
+    padding-top: 44px;
+    padding-bottom: 42px;
+    margin-bottom: 32px;
     border: none;
   }
+  
   @media (max-width: 520px) {
     body,
     .section-card {
       max-width: 99vw !important;
     }
     #homeMenu > div {
-      padding-left: 8px;
-      padding-right: 8px;
+      padding-left: 10px;
+      padding-right: 10px;
     }
-  }
-
-  /* === Add these at the end === */
-
-  body {
-    background: #0147ab url('2_20251011_085254_0001.jpg') center center no-repeat;
-    background-size: 40vw auto;
-    position: relative;
-    color: var(--text-main); /* keeps your text color consistent */
-  }
-
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: url('1_20251011_085254_0000.jpg') repeat;
-    opacity: 0.055;
-    background-size: 15vw auto;
-    pointer-events: none;
-    z-index: 0;
   }
 </style>
 
