@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <title>Tempered Glass Lookup</title>
-    <meta name="viewport" content="
-    <style>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <style>
   :root {
     --royal-blue: #228bee;
     --matte-white: #f8fafc;
@@ -17,24 +17,12 @@
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
       Arial, sans-serif;
-    background: #0147ab url('2_20251011_085254_0001.jpg') center center no-repeat;
-    background-size: 40vw auto;
+    background: var(--matte-white);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     color: var(--text-main);
     min-height: 100vh;
-    position: relative;
-  }
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: url('1_20251011_085254_0000.jpg') repeat;
-    opacity: 0.055;
-    background-size: 15vw auto;
-    pointer-events: none;
-    z-index: 0;
   }
   h2,
   h3 {
@@ -272,6 +260,26 @@
       padding-left: 8px;
       padding-right: 8px;
     }
+  }
+
+  /* === Add these at the end === */
+
+  body {
+    background: #0147ab url('2_20251011_085254_0001.jpg') center center no-repeat;
+    background-size: 40vw auto;
+    position: relative;
+    color: var(--text-main); /* keeps your text color consistent */
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('1_20251011_085254_0000.jpg') repeat;
+    opacity: 0.055;
+    background-size: 15vw auto;
+    pointer-events: none;
+    z-index: 0;
   }
 </style>
 
