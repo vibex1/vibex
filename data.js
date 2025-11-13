@@ -1755,4 +1755,8 @@ const ipakyCasesData = [
     mainModel: "SAMSUNG M55",
     models: ["SAMSUNG M55", "SAMSUNG F55"],
   },
+  {
+    mainModel: "SAMSUNG A31",
+    models: ["SAMSUNG A31"],
+  },
 ];
