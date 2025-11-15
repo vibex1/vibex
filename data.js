@@ -1313,6 +1313,10 @@ const temperedGlassData = [
     mainModel: "IPHONE 12MINI",
     models: ["IPHONE 12MINI"],
   },
+  {
+    mainModel: "SAMSUNG A30",
+    models: ["SAMSUNG A30","SAMSUNG A50","SAMSUNG A20","SAMSUNG A30S","SAMSUNG A50S","SAMSUNG M30","SAMSUNG M30S","SAMSUNG M10S","SAMSUNG M21","SAMSUNG M21S","SAMSUNG M31","SAMSUNG M31","SAMSUNG M31PRIME","SAMSUNG F41"],
+  },
 ];
 // IPAKY CASES DATA
 const ipakyCasesData = [
@@ -1754,9 +1758,5 @@ const ipakyCasesData = [
   {
     mainModel: "SAMSUNG M55",
     models: ["SAMSUNG M55", "SAMSUNG F55"],
-  },
-  {
-    mainModel: "SAMSUNG A31",
-    models: ["SAMSUNG A31"],
   },
 ];
