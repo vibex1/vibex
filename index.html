@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>VIBEX</title>
+    <title>Tempered Glass Lookup</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
    <style>
 :root {
@@ -249,6 +249,23 @@ font-size: 0.99em;
  margin-bottom: 30px;
  border: none;
 }
+/* Airdopes basic layout only */
+.airdopes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
+
+.airdopes-card {
+  flex: 1 1 150px;
+  max-width: 220px;
+}
+
+.airdopes-overlay {
+  display: none;
+}
+
  @media (max-width: 520px) {
  body,
  .section-card {
@@ -283,22 +300,10 @@ font-size: 0.99em;
             Design Selections
           </button>
           <button type="button" id="btnDesign" class="nav-btn">
-            Airdopes
-          </button>
-          <button type="button" id="btnDesign" class="nav-btn">
-            NeckBand
-          </button>
-          <button type="button" id="btnDesign" class="nav-btn">
-            Chargers
-          </button>
-          <button type="button" id="btnDesign" class="nav-btn">
-            Pendrives
-          </button>
-          <button type="button" id="btnDesign" class="nav-btn">
-            Memory Cards 
-          </button>
-          <button type="button" id="btnContact" class="nav-btn">
             Contact Us
+          </button>
+          <button type="button" id="btnDesign" class="nav-btn">
+            Airdopes
           </button>
         </div>
       </div>
@@ -445,6 +450,96 @@ font-size: 0.99em;
       <h3>All Main iPaky Models</h3>
       <div id="ipakyModelsList"></div>
     </div>
+<!-- Airdopes Page -->
+<div id="airdopesPage" class="hidden section-card">
+  <button onclick="goHome()" class="nav-btn" style="margin-bottom: 15px">
+    Back to Home
+  </button>
+
+  <h2>Airdopes</h2>
+
+  <!-- Top main image for Airdopes -->
+  <div style="display: flex; justify-content: center; margin-bottom: 18px">
+    <img
+      src="sample-airdopes-hero.jpg"
+      alt="Airdopes collection"
+      style="
+        width: 100%;
+        max-width: 420px;
+        border-radius: 14px;
+        border: var(--border);
+        box-shadow: var(--shadow);
+        object-fit: cover;
+      "
+    />
+  </div>
+
+  <!-- Grid of Airdopes models -->
+  <div id="airdopesModelsGrid" class="airdopes-grid">
+    <!-- cards inserted by JS -->
+  </div>
+
+  <!-- Model detail overlay -->
+  <div
+    id="airdopesDetailOverlay"
+    class="airdopes-overlay"
+    style="
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.9);
+      justify-content: center;
+      align-items: flex-start;
+      padding: 18px 10px;
+      z-index: 1200;
+      overflow-y: auto;
+    "
+  >
+    <div
+      style="
+        background: #f8fafc;
+        border-radius: 18px;
+        max-width: 520px;
+        width: 100%;
+        padding: 16px 14px 20px 14px;
+        box-shadow: 0 12px 40px rgba(15, 23, 42, 0.4);
+      "
+    >
+      <button
+        type="button"
+        id="closeAirdopesOverlay"
+        class="nav-btn"
+        style="margin-bottom: 10px"
+      >
+        Close
+      </button>
+
+      <h3 id="airdopesDetailTitle">Model Name</h3>
+
+      <div
+        style="
+          max-height: 70vh;
+          overflow-y: auto;
+          padding-right: 6px;
+        "
+      >
+        <div
+          id="airdopesDetailImages"
+          style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 12px"
+        ></div>
+
+        <div
+          id="airdopesDetailText"
+          style="
+            font-size: 0.95em;
+            color: var(--text-main);
+            line-height: 1.5;
+          "
+        ></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
     <!-- Load your data.js and design-data.js -->
     <script src="data.js"></script>
@@ -461,6 +556,7 @@ font-size: 0.99em;
             "contactUsPage",
             "backCasesPage",
             "ipakyPage",
+            "airdopesPage",
           ].forEach((id) =>
             document.getElementById(id).classList.add("hidden")
           );
@@ -473,6 +569,7 @@ font-size: 0.99em;
             "contactUsPage",
             "backCasesPage",
             "ipakyPage",
+            "airdpesPage",
           ].forEach((id) =>
             document.getElementById(id).classList.add("hidden")
           );
@@ -505,6 +602,10 @@ font-size: 0.99em;
         document.getElementById("btnPremium").onclick = function () {
           alert("Premium covers lookup coming soon...");
         };
+        document.getElementById("btnAirdopes").onclick = function () {
+  showPage("airdopesPage");
+};
+
 
         // Lookup normalization helper
         function normalize(text) {
@@ -814,6 +915,104 @@ font-size: 0.99em;
             attributeFilter: ["class"],
           });
         }
+        // ==== Airdopes sample data and logic ====
+const airdopesSampleModels = [
+  {
+    model: "Sample Airdopes 101",
+    mainImage: "sample-airdopes-101-main.jpg",
+    gallery: [
+      "sample-airdopes-101-img1.jpg",
+      "sample-airdopes-101-img2.jpg",
+      "sample-airdopes-101-img3.jpg",
+    ],
+    details:
+      "Sample description for Airdopes 101. You can add battery backup, Bluetooth version, special notes, colour availability etc. here.",
+  },
+  {
+    model: "Sample Airdopes 202",
+    mainImage: "sample-airdopes-202-main.jpg",
+    gallery: [
+      "sample-airdopes-202-img1.jpg",
+      "sample-airdopes-202-img2.jpg",
+    ],
+    details:
+      "Sample description for Airdopes 202. Replace this text with your real model details.",
+  },
+];
+
+const airdopesGrid = document.getElementById("airdopesModelsGrid");
+if (airdopesGrid) {
+  airdopesGrid.innerHTML = airdopesSampleModels
+    .map(
+      (item) => `
+      <div class="airdopes-card" data-model="${item.model}">
+        <img
+          src="${item.mainImage}"
+          alt="${item.model}"
+          class="airdopes-card-img"
+        />
+        <div class="airdopes-card-info">
+          <div class="airdopes-model-name">${item.model}</div>
+          <div class="airdopes-model-tagline">Tap for more photos & details</div>
+        </div>
+      </div>
+    `
+    )
+    .join("");
+}
+
+const airdopesOverlay = document.getElementById("airdopesDetailOverlay");
+const airdopesDetailTitle = document.getElementById("airdopesDetailTitle");
+const airdopesDetailImages = document.getElementById("airdopesDetailImages");
+const airdopesDetailText = document.getElementById("airdopesDetailText");
+const closeAirdopesOverlayBtn = document.getElementById("closeAirdopesOverlay");
+
+function openAirdopesDetail(modelName) {
+  const item = airdopesSampleModels.find((m) => m.model === modelName);
+  if (!item) return;
+
+  airdopesDetailTitle.textContent = item.model;
+
+  airdopesDetailImages.innerHTML = item.gallery
+    .map(
+      (src) => `
+      <img src="${src}" alt="${item.model}">
+    `
+    )
+    .join("");
+
+  airdopesDetailText.textContent = item.details;
+
+  airdopesOverlay.style.display = "flex";
+  document.body.style.overflow = "hidden";
+}
+
+if (airdopesGrid) {
+  airdopesGrid.addEventListener("click", function (e) {
+    const card = e.target.closest(".airdopes-card");
+    if (!card) return;
+    const modelName = card.getAttribute("data-model");
+    openAirdopesDetail(modelName);
+  });
+}
+
+if (closeAirdopesOverlayBtn) {
+  closeAirdopesOverlayBtn.addEventListener("click", function () {
+    airdopesOverlay.style.display = "none";
+    document.body.style.overflow = "";
+  });
+}
+
+// Close overlay on outside click
+if (airdopesOverlay) {
+  airdopesOverlay.addEventListener("click", function (e) {
+    if (e.target === airdopesOverlay) {
+      airdopesOverlay.style.display = "none";
+      document.body.style.overflow = "";
+    }
+  });
+}
+
 
         goHome();
       });
