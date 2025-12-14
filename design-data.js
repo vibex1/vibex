@@ -676,16 +676,16 @@ const accessoriesData = {
   neckbands: [
     {
       model: "OnePlus Bullets Wireless Z3 Black",
-      mainImage: "images/oneplusbulletswirelessz3redcoverpage1.jpg",
+      mainImage: "images/oneplusbulletswirelessz3(red)(coverpage)=1.jpg",
       gallery: [
-        "images/oneplusbulletswirelessz3black1.webp",
-        "images/oneplusbulletswirelessz3black2.png",
-        "images/oneplusbulletswirelessz3black3.png",
-        "images/oneplusbulletswirelessz3black4.webp",
-        "images/oneplusbulletswirelessz3redslide1.jpg",
-        "images/oneplusbulletswirelessz3redslide2.jpg",
-        "images/oneplusbulletswirelessz3redslide3.jpg",
-        "images/oneplusbulletswirelessz3redslide4.jpg"
+        "images/oneplusbulletswirelessz3(black)=1.webp",
+        "images/oneplusbulletswirelessz3(black)=2.png",
+        "images/oneplusbulletswirelessz3(black)=3.png",
+        "images/oneplusbulletswirelessz3(black)=4.webp",
+        "images/oneplusbulletswirelessz3(red)(slide)=1.jpg",
+        "images/oneplusbulletswirelessz3(red)(slide)=2.jpg",
+        "images/oneplusbulletswirelessz3(red)(slide)=3.jpg",
+        "images/oneplusbulletswirelessz3(red)(slide)=4.jpg"
       ],
       details: "OnePlus Bullets Wireless Z3 in-ear neckband… (same text you already use)."
     }
