@@ -694,3 +694,17 @@ const accessoriesData = {
 
   // later you can add: powerbanks: [...], headphones: [...],
 };
+const accessoriesBanners = {
+  boatAirdopes: [
+    {
+      image: "images/boat-offer-1.jpg",
+      text: "Boat Airdopes Mega Sale – Flat 20% Off"
+    },
+    {
+      image: "images/boat-offer-2.jpg",
+      text: "New Launch: Boat Airdopes 191 ANC"
+    }
+    // add more slides as you like
+  ]
+  // later: oneplusAirdopes, oneplusNeckbands, etc.
+};

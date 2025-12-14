@@ -299,6 +299,42 @@ form {
   display: none;
 }
 
+/* Banner slider */
+.banner-slider {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto 16px auto;
+  overflow: hidden;
+  border-radius: 12px;
+  border: var(--border);
+  box-shadow: var(--shadow);
+  background: #0b1b33;
+}
+
+.banner-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.banner-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.banner-slide img {
+  width: 35%;
+  max-width: 150px;
+  object-fit: cover;
+}
+
+.banner-slide div {
+  padding: 10px 14px;
+  font-size: 0.95em;
+}
+
 @media (max-width: 520px) {
   body,
   .section-card {
@@ -506,7 +542,15 @@ form {
       <h2>Accessories</h2>
 
       <!-- Airdopes section -->
-      <h3 id="airdopesSection" style="text-align:center; margin-top:10px;">Airdopes</h3>
+      <h3 id="airdopesSection" style="text-align:center; margin-top:10px;">
+        Airdopes
+      </h3>
+
+      <!-- Boat Airdopes banner slider -->
+      <div class="banner-slider" id="boatAirdopesBanner">
+        <div class="banner-track"></div>
+      </div>
+
       <div style="display: flex; justify-content: center; margin-bottom: 18px">
         <img
           src="sample-airdopes-hero.jpg"
@@ -524,7 +568,9 @@ form {
       <div id="airdopesModelsGrid" class="airdopes-grid"></div>
 
       <!-- Neckbands section -->
-       <h3 id="neckbandSection" style="text-align:center; margin-top:26px;">Neckbands</h3>
+      <h3 id="neckbandSection" style="text-align:center; margin-top:26px;">
+        Neckbands
+      </h3>
       <div id="neckbandModelsGrid" class="airdopes-grid"></div>
 
       <!-- Shared detail overlay -->
@@ -660,17 +706,17 @@ form {
         document.getElementById("btnAccessories").onclick = function () {
           showPage("accessoriesPage");
         };
+
+        // Shortcut buttons to sections
         document.getElementById("btnNeckband").onclick = function () {
           showPage("accessoriesPage");
           const el = document.getElementById("neckbandSection");
-          if (el) el.scrollIntoView({ behavior: "smooth", block:
-            "start"});
+          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
         };
-          document.getElementById("btnPowerbank").onclick = function () {
+        document.getElementById("btnPowerbank").onclick = function () {
           showPage("accessoriesPage");
-          const el = document.getElementById("PowerbankSection");
-          if (el) el.scrollIntoView({ behavior: "smooth", block:
-            "start"});
+          const el = document.getElementById("powerbankSection");
+          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
         };
 
         // Lookup normalization helper
@@ -1115,11 +1161,57 @@ form {
           });
         }
 
+        // ==== Banner slider helper ====
+        function initBannerSlider(containerId, slides) {
+          const container = document.getElementById(containerId);
+          if (!container || !slides || !slides.length) return;
+
+          const track = container.querySelector(".banner-track");
+          if (!track) return;
+
+          track.innerHTML = slides
+            .map(
+              (s) => `
+      <div class="banner-slide">
+        <img src="${s.image}" alt="">
+        <div>${s.text}</div>
+      </div>
+    `
+            )
+            .join("");
+
+          let index = 0;
+
+          function showSlide(i) {
+            track.style.transform = "translateX(" + -i * 100 + "%)";
+          }
+
+          showSlide(index);
+
+          setInterval(function () {
+            index = (index + 1) % slides.length;
+            showSlide(index);
+          }, 3000);
+        }
+
+        // Initialize Boat Airdopes banner (from design-data.js)
+        if (
+          typeof accessoriesBanners !== "undefined" &&
+          accessoriesBanners &&
+          accessoriesBanners.boatAirdopes
+        ) {
+          initBannerSlider(
+            "boatAirdopesBanner",
+            accessoriesBanners.boatAirdopes
+          );
+        }
+
         console.log("JS finished");
         goHome();
       });
     </script>
   </body>
 </html>
+
 
 
