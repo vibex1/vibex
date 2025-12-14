@@ -345,6 +345,12 @@ form {
           <button type="button" id="btnAccessories" class="nav-btn">
             Accessories
           </button>
+          <button type="button" id="btnNeckband" class="nav-btn">
+            Neckband
+          </button>
+          <button type="button" id="btnPowerbank" class="nav-btn">
+            Powerbank
+          </button>
         </div>
       </div>
       <div
@@ -500,6 +506,7 @@ form {
       <h2>Accessories</h2>
 
       <!-- Airdopes section -->
+      <h3 id="airdopesSection" style="text-align:center; margin-top:10px;">Airdopes</h3>
       <h3 style="text-align:center; margin-top:10px;">Airdopes</h3>
       <div style="display: flex; justify-content: center; margin-bottom: 18px">
         <img
@@ -518,6 +525,7 @@ form {
       <div id="airdopesModelsGrid" class="airdopes-grid"></div>
 
       <!-- Neckbands section -->
+       <h3 id="neckbandSection" style="text-align:center; margin-top:26px;">Neckbands/h3>
       <h3 style="text-align:center; margin-top:26px;">Neckbands</h3>
       <div id="neckbandModelsGrid" class="airdopes-grid"></div>
 
@@ -653,6 +661,18 @@ form {
         };
         document.getElementById("btnAccessories").onclick = function () {
           showPage("accessoriesPage");
+        };
+        document.getElementById("btnNeckband").onclick = function () {
+          showPage("accessoriesPage");
+          const el = document.getElementById("neckbandSection");
+          if (el) el.scrollIntoView({ behavior: "smooth", block:
+            "start"});
+        };
+          document.getElementById("btnPowerbank").onclick = function () {
+          showPage("accessoriesPage");
+          const el = document.getElementById("PowerbankSection");
+          if (el) el.scrollIntoView({ behavior: "smooth", block:
+            "start"});
         };
 
         // Lookup normalization helper
