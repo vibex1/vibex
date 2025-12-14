@@ -263,7 +263,7 @@ form {
 #designSelectionsPage,
 #temperedGlassPage,
 #ipakyPage,
-#airdopesPage {
+#accessoriesPage {
   border-radius: var(--card-radius);
   box-shadow: var(--shadow);
   margin: 22px auto 34px auto;
@@ -282,7 +282,7 @@ form {
   border: none;
 }
 
-/* Minimal Airdopes layout */
+/* Accessories (Airdopes/Neckbands) layout */
 .airdopes-grid {
   display: flex;
   flex-wrap: wrap;
@@ -342,8 +342,8 @@ form {
           <button type="button" id="btnContact" class="nav-btn">
             Contact Us
           </button>
-          <button type="button" id="btnAirdopes" class="nav-btn">
-            Airdopes
+          <button type="button" id="btnAccessories" class="nav-btn">
+            Accessories
           </button>
         </div>
       </div>
@@ -491,15 +491,16 @@ form {
       <div id="ipakyModelsList"></div>
     </div>
 
-    <!-- Airdopes Page -->
-    <div id="airdopesPage" class="hidden section-card">
+    <!-- Accessories Page (Airdopes + Neckbands) -->
+    <div id="accessoriesPage" class="hidden section-card">
       <button onclick="goHome()" class="nav-btn" style="margin-bottom: 15px">
         Back to Home
       </button>
 
-      <h2>Airdopes</h2>
+      <h2>Accessories</h2>
 
-      <!-- Top main image for Airdopes -->
+      <!-- Airdopes section -->
+      <h3 style="text-align:center; margin-top:10px;">Airdopes</h3>
       <div style="display: flex; justify-content: center; margin-bottom: 18px">
         <img
           src="sample-airdopes-hero.jpg"
@@ -514,11 +515,13 @@ form {
           "
         />
       </div>
-
-      <!-- Grid of Airdopes models -->
       <div id="airdopesModelsGrid" class="airdopes-grid"></div>
 
-      <!-- Model detail overlay -->
+      <!-- Neckbands section -->
+      <h3 style="text-align:center; margin-top:26px;">Neckbands</h3>
+      <div id="neckbandModelsGrid" class="airdopes-grid"></div>
+
+      <!-- Shared detail overlay -->
       <div
         id="airdopesDetailOverlay"
         class="airdopes-overlay"
@@ -601,7 +604,7 @@ form {
             "contactUsPage",
             "backCasesPage",
             "ipakyPage",
-            "airdopesPage",
+            "accessoriesPage",
           ].forEach((id) =>
             document.getElementById(id).classList.add("hidden")
           );
@@ -615,7 +618,7 @@ form {
             "contactUsPage",
             "backCasesPage",
             "ipakyPage",
-            "airdopesPage",
+            "accessoriesPage",
           ].forEach((id) =>
             document.getElementById(id).classList.add("hidden")
           );
@@ -648,8 +651,8 @@ form {
         document.getElementById("btnPremium").onclick = function () {
           alert("Premium covers lookup coming soon...");
         };
-        document.getElementById("btnAirdopes").onclick = function () {
-          showPage("airdopesPage");
+        document.getElementById("btnAccessories").onclick = function () {
+          showPage("accessoriesPage");
         };
 
         // Lookup normalization helper
@@ -992,10 +995,15 @@ form {
           });
         }
 
+        // ==== Accessories (Airdopes + Neckbands) ====
         const airdopesGrid = document.getElementById("airdopesModelsGrid");
-if (airdopesGrid && accessoriesData && accessoriesData.airdopes) {
-  airdopesGrid.innerHTML = accessoriesData.airdopes
-    .map(item => `
+        const neckbandGrid = document.getElementById("neckbandModelsGrid");
+
+        function renderAccessoriesGrid(gridEl, items) {
+          if (!gridEl || !items || !items.length) return;
+          gridEl.innerHTML = items
+            .map(
+              (item) => `
       <div class="airdopes-card" data-model="${item.model}">
         <img src="${item.mainImage}" alt="${item.model}"
              style="width: 100%; border-radius: 11px; border: var(--border); box-shadow: var(--shadow); object-fit: cover" />
@@ -1004,10 +1012,15 @@ if (airdopesGrid && accessoriesData && accessoriesData.airdopes) {
           <div style="font-size: 0.88em; color: var(--text-muted)">Tap for more photos & details</div>
         </div>
       </div>
-    `)
-    .join("");
-}
+    `
+            )
+            .join("");
+        }
 
+        if (typeof accessoriesData !== "undefined" && accessoriesData) {
+          renderAccessoriesGrid(airdopesGrid, accessoriesData.airdopes || []);
+          renderAccessoriesGrid(neckbandGrid, accessoriesData.neckbands || []);
+        }
 
         const airdopesOverlay =
           document.getElementById("airdopesDetailOverlay");
@@ -1021,29 +1034,46 @@ if (airdopesGrid && accessoriesData && accessoriesData.airdopes) {
           document.getElementById("closeAirdopesOverlay");
 
         function openAirdopesDetail(modelName) {
-  const item =
-    accessoriesData &&
-    accessoriesData.airdopes &&
-    accessoriesData.airdopes.find(m => m.model === modelName);
+          let item = null;
 
-  if (!item) return;
+          if (typeof accessoriesData !== "undefined" && accessoriesData) {
+            item =
+              (accessoriesData.airdopes || []).find(
+                (m) => m.model === modelName
+              ) ||
+              (accessoriesData.neckbands || []).find(
+                (m) => m.model === modelName
+              );
+          }
 
-  airdopesDetailTitle.textContent = item.model;
-  airdopesDetailImages.innerHTML = item.gallery
-    .map(src => `
+          if (!item) return;
+
+          airdopesDetailTitle.textContent = item.model;
+          airdopesDetailImages.innerHTML = item.gallery
+            .map(
+              (src) => `
       <img src="${src}" alt="${item.model}"
            style="width: 100%; border-radius: 12px; border: var(--border); box-shadow: var(--shadow); object-fit: cover" />
-    `)
-    .join("");
+    `
+            )
+            .join("");
 
-  airdopesDetailText.textContent = item.details;
-  airdopesOverlay.style.display = "flex";
-  document.body.style.overflow = "hidden";
-}
-
+          airdopesDetailText.textContent = item.details;
+          airdopesOverlay.style.display = "flex";
+          document.body.style.overflow = "hidden";
+        }
 
         if (airdopesGrid) {
           airdopesGrid.addEventListener("click", function (e) {
+            const card = e.target.closest(".airdopes-card");
+            if (!card) return;
+            const modelName = card.getAttribute("data-model");
+            openAirdopesDetail(modelName);
+          });
+        }
+
+        if (neckbandGrid) {
+          neckbandGrid.addEventListener("click", function (e) {
             const card = e.target.closest(".airdopes-card");
             if (!card) return;
             const modelName = card.getAttribute("data-model");
@@ -1073,4 +1103,5 @@ if (airdopesGrid && accessoriesData && accessoriesData.airdopes) {
     </script>
   </body>
 </html>
+
 
