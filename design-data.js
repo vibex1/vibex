@@ -74,32 +74,31 @@ const accessoriesData = {
   airdopes: [
     {
       model: "Boat Airdopes 138",
-      mainImage: "images/boatairdopes1381.png",
+      mainImage: "images/boatairdopes138=1.png",
       gallery: [
-        "images/boatairdopes1381.png",
-        "images/boatairdopes1382.jpg",
-        "images/boatairdopes1383.jpg",
-        "images/boatairdopes1384.jpg",
-        "images/boatairdopes1385.jpg"
+        "images/boatairdopes138=1.png",
+        "images/boatairdopes138=2.jpg",
+        "images/boatairdopes138=3.jpg",
+        "images/boatairdopes138=4.jpg",
+        "images/boatairdopes138=5.jpg",
       ],
       details: "Availabe for Bulk Orders. Original product at the best price. 1 year Vibex exchange guarantee (terms and conditions applied)."
     },
     {
-      model: "Boat Airdopes 101v2 Black",
-      mainImage: "images/boatairdopes101v2black1.png",
+      model: "Boat Airdopes 101v2 (black)",
+      mainImage: "images/boatairdopes101v2(black)=1.png",
       gallery: [
-        "images/boatairdopes101v2black1.png",
-        "images/boatairdopes101v2black2.png",
-        "images/boatairdopes101v2black3.png",
-        "images/boatairdopes101v2black4.png",
-        "images/boatairdopes101v2black5.png",
-        "images/boatairdopes101v2black6.png",
-        "images/boatairdopes101v2black7.png",
-        "images/boatairdopes101v2black8.png"
+        "images/boatairdopes101v2(black)=1.png",
+        "images/boatairdopes101v2(black)=2.png",
+        "images/boatairdopes101v2(black)=3.png",
+        "images/boatairdopes101v2(black)=4.png",
+        "images/boatairdopes101v2(black)=5.png",
+        "images/boatairdopes101v2(black)=6.png",
+        "images/boatairdopes101v2(black)=7.png",
+        "images/boatairdopes101v2(black)=8.png",
       ],
       details: "Availabe for Bulk Orders. Original product at the best price. 1 year Vibex exchange guarantee (terms and conditions applied)."
     },
-    // …continue copying all remaining Airdopes objects from your current airdopesSampleModels…
     {
             model: "Boat Airdopes 101v2 (white)",
             mainImage: "images/boatairdopes101v2(white)=1.png",
