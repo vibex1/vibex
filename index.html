@@ -335,6 +335,18 @@ form {
   font-size: 0.95em;
 }
 
+/* Brand logo row */
+.brand-row {
+  display: flex;
+  justify-content: center;
+  margin: 6px 0 4px 0;
+}
+.brand-row img {
+  height: 32px;
+  max-width: 160px;
+  object-fit: contain;
+}
+
 @media (max-width: 520px) {
   body,
   .section-card {
@@ -545,6 +557,11 @@ form {
       <h3 id="airdopesSection" style="text-align:center; margin-top:10px;">
         Airdopes
       </h3>
+
+      <!-- Boat brand logo -->
+      <div class="brand-row">
+        <img src="images/boat-logo.png" alt="boAt" />
+      </div>
 
       <!-- Boat Airdopes banner slider -->
       <div class="banner-slider" id="boatAirdopesBanner">
@@ -1212,6 +1229,7 @@ form {
     </script>
   </body>
 </html>
+
 
 
 
