@@ -697,15 +697,15 @@ const accessoriesData = {
 const accessoriesBanners = {
   boatAirdopes: [
     {
-      image: "images/boatairdopes(slide)=1",
+      image: "images/boatairdopes(slide)=1.webp",
       text: "Boat Airdopes Best Seller"
     },
     {
-      image: "images/boatairdopes(slide)=2",
+      image: "images/boatairdopes(slide)=2.webp",
       text: "Boat Airdopes 161 ANC Elite"
     },
     {
-      image: "images/boatairdopes(slide)=3",
+      image: "images/boatairdopes(slide)=3.webp",
       text: "Best Quality Available"
     },
     // add more slides as you like
