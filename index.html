@@ -574,6 +574,31 @@ form {
       <h3 id="neckbandSection" style="text-align:center; margin-top:26px;">
         Neckbands
       </h3>
+      <!-- OnePlus Airdopes section -->
+<h3 id="oneplusAirdopesSection" style="text-align:center; margin-top:26px;">OnePlus Airdopes</h3>
+
+<!-- OnePlus brand logo -->
+<div class="brand-row">
+  <img src="images/oneplus-logo.png" alt="OnePlus" />
+</div>
+
+<!-- OnePlus Airdopes banner slider -->
+<div class="banner-slider" id="oneplusAirdopesBanner">
+  <div class="banner-track"></div>
+</div>
+<!-- OnePlus Neckbands section -->
+<h3 id="oneplusNeckbandsSection" style="text-align:center; margin-top:26px;">OnePlus Neckbands</h3>
+
+<!-- OnePlus brand logo -->
+<div class="brand-row">
+  <img src="images/oneplus-logo.png" alt="OnePlus" />
+</div>
+
+<!-- OnePlus Neckbands banner slider -->
+<div class="banner-slider" id="oneplusNeckbandsBanner">
+  <div class="banner-track"></div>
+</div>
+
       <div id="neckbandModelsGrid" class="airdopes-grid"></div>
 
       <!-- Shared detail overlay -->
@@ -1208,6 +1233,15 @@ form {
             accessoriesBanners.boatAirdopes
           );
         }
+// Initialize OnePlus Airdopes banner
+if (typeof accessoriesBanners !== "undefined" && accessoriesBanners.oneplusAirdopes) {
+  initBannerSlider("oneplusAirdopesBanner", accessoriesBanners.oneplusAirdopes);
+}
+
+// Initialize OnePlus Neckbands banner  
+if (typeof accessoriesBanners !== "undefined" && accessoriesBanners.oneplusNeckbands) {
+  initBannerSlider("oneplusNeckbandsBanner", accessoriesBanners.oneplusNeckbands);
+}
 
         console.log("JS finished");
         goHome();

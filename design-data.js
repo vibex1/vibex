@@ -443,7 +443,7 @@ const accessoriesData = {
               "Availabe for Bulk Orders. Original product at the best price. 1 year Vibex exchange gaurante(terms and condition apllied).",   
           },
           {
-            model: "Boat Airdopes 161 ANC Elite(black)",
+            model: "Boat Airdopes 161 ANC Elite (black)",
             mainImage: "images/boatairdopes161ancelite(black)=1.webp",
             gallery: [
               "images/boatairdopes161ancelite(black)=1.webp",
