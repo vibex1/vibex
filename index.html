@@ -544,62 +544,50 @@ form {
       <h3>All Main iPaky Models</h3>
       <div id="ipakyModelsList"></div>
     </div>
-
     <!-- Accessories Page (Airdopes + Neckbands) -->
-    <div id="accessoriesPage" class="hidden section-card">
-      <button onclick="goHome()" class="nav-btn" style="margin-bottom: 15px">
-        Back to Home
-      </button>
+<div id="accessoriesPage" class="hidden section-card">
+  <button onclick="goHome()" class="nav-btn" style="margin-bottom: 15px">
+    Back to Home
+  </button>
 
-      <h2>Accessories</h2>
+  <h2>Accessories</h2>
 
-      <!-- Airdopes section -->
-      <h3 id="airdopesSection" style="text-align:center; margin-top:10px;">
-        Airdopes
-      </h3>
+  <!-- === BOAT AIRDOPES SECTION === -->
+  <h3 id="airdopesSection" style="text-align:center; margin-top:10px;">Airdopes</h3>
+  <div class="brand-row">
+    <img src="images/boat-airdopes-logo.png" alt="boAt Airdopes" />
+  </div>
+  <div class="banner-slider" id="boatAirdopesBanner">
+    <div class="banner-track"></div>
+  </div>
+  <div style="display: flex; justify-content: center; margin-bottom: 18px">
+    <img src="sample-airdopes-hero.jpg" alt="Airdopes collection" style="width: 100%; max-width: 420px; border-radius: 14px; border: var(--border); box-shadow: var(--shadow); object-fit: cover;" />
+  </div>
+  <div id="boatAirdopesGrid" class="airdopes-grid"></div>
 
-      <!-- Boat brand logo -->
-      <div class="brand-row">
-        <img src="images/boat-logo.png" alt="boAt" />
-      </div>
+  <!-- === ONEPLUS AIRDOPES SECTION === -->
+  <h3 id="oneplusAirdopesSection" style="text-align:center; margin-top:26px;">OnePlus Airdopes</h3>
+  <div class="brand-row">
+    <img src="images/oneplus-logo.png" alt="OnePlus" />
+  </div>
+  <div class="banner-slider" id="oneplusAirdopesBanner">
+    <div class="banner-track"></div>
+  </div>
+  <div id="oneplusAirdopesGrid" class="airdopes-grid"></div>
 
-      <!-- Boat Airdopes banner slider -->
-      <div class="banner-slider" id="boatAirdopesBanner">
-        <div class="banner-track"></div>
-      </div>
+  <!-- === NECKBANDS SECTION === -->
+  <h3 id="neckbandSection" style="text-align:center; margin-top:26px;">Neckbands</h3>
+  <div class="brand-row">
+    <img src="images/oneplus-logo.png" alt="OnePlus Neckbands" />
+  </div>
+  <div class="banner-slider" id="oneplusNeckbandsBanner">
+    <div class="banner-track"></div>
+  </div>
+  <div id="neckbandModelsGrid" class="airdopes-grid"></div>
 
-      <div id="airdopesModelsGrid" class="airdopes-grid"></div>
+  
 
-      <!-- Neckbands section -->
-      <h3 id="neckbandSection" style="text-align:center; margin-top:26px;">
-        Neckbands
-      </h3>
-      <!-- OnePlus Airdopes section -->
-<h3 id="oneplusAirdopesSection" style="text-align:center; margin-top:26px;">OnePlus Airdopes</h3>
 
-<!-- OnePlus brand logo -->
-<div class="brand-row">
-  <img src="images/oneplus-logo.png" alt="OnePlus" />
-</div>
-
-<!-- OnePlus Airdopes banner slider -->
-<div class="banner-slider" id="oneplusAirdopesBanner">
-  <div class="banner-track"></div>
-</div>
-<!-- OnePlus Neckbands section -->
-<h3 id="oneplusNeckbandsSection" style="text-align:center; margin-top:26px;">OnePlus Neckbands</h3>
-
-<!-- OnePlus brand logo -->
-<div class="brand-row">
-  <img src="images/oneplus-logo.png" alt="OnePlus" />
-</div>
-
-<!-- OnePlus Neckbands banner slider -->
-<div class="banner-slider" id="oneplusNeckbandsBanner">
-  <div class="banner-track"></div>
-</div>
-
-      <div id="neckbandModelsGrid" class="airdopes-grid"></div>
 
       <!-- Shared detail overlay -->
       <div
@@ -1110,8 +1098,13 @@ form {
         }
 
         if (typeof accessoriesData !== "undefined" && accessoriesData) {
-          renderAccessoriesGrid(airdopesGrid, accessoriesData.airdopes || []);
-          renderAccessoriesGrid(neckbandGrid, accessoriesData.neckbands || []);
+          // Boat Airdopes grid
+renderAccessoriesGrid(document.getElementById("boatAirdopesGrid"), accessoriesData.boatAirdopes || []);
+// OnePlus Airdopes grid  
+renderAccessoriesGrid(document.getElementById("oneplusAirdopesGrid"), accessoriesData.oneplusAirdopes || []);
+// Neckbands grid
+renderAccessoriesGrid(document.getElementById("neckbandModelsGrid"), accessoriesData.neckbands || []);
+
         }
 
         const airdopesOverlay =
