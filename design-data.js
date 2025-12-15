@@ -697,13 +697,17 @@ const accessoriesData = {
 const accessoriesBanners = {
   boatAirdopes: [
     {
-      image: "images/boat-offer-1.jpg",
-      text: "Boat Airdopes Mega Sale – Flat 20% Off"
+      image: "images/boatairdopes(slide)=1",
+      text: "Boat Airdopes Best Seller"
     },
     {
-      image: "images/boat-offer-2.jpg",
-      text: "New Launch: Boat Airdopes 191 ANC"
-    }
+      image: "images/boatairdopes(slide)=2",
+      text: "Boat Airdopes 161 ANC Elite"
+    },
+    {
+      image: "images/boatairdopes(slide)=3",
+      text: "Best Quality Available"
+    },
     // add more slides as you like
   ]
   // later: oneplusAirdopes, oneplusNeckbands, etc.
