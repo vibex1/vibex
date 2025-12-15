@@ -736,8 +736,20 @@ const accessoriesBanners = {
   // later: oneplusAirdopes, oneplusNeckbands, etc.
   oneplusAirdopes: [
     {
-      image: "images/oneplusairdopes(slide)=1.png",
+      image: "images/oneplusnordbuds3pro(black)=5.png",
       text: "Oneplus Airdopes Best Seller"
+    },
+    {
+      image: "images/oneplusnordbuds3pro(black)=4.png",
+      text: "Oneplus Nord Buds 3 Pro (black)"
+    },
+    {
+      image: "images/oneplusnordbuds3pro(black)=2.png",
+      text: "Best Quality Available"
+    },
+    {
+      image: "images/oneplusnordbuds3pro(black)=2.png",
+      text: "Only @2600/="
     },
   ],
 };
