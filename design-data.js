@@ -443,6 +443,25 @@ const accessoriesData = {
               "Availabe for Bulk Orders. Original product at the best price. 1 year Vibex exchange gaurante(terms and condition apllied).",   
           },
           {
+            model: "Boat Airdopes 161 ANC Elite(black)",
+            mainImage: "images/boatairdopes161ancelite(black)=1.webp",
+            gallery: [
+              "images/boatairdopes161ancelite(black)=1.webp",
+              "images/boatairdopes161ancelite(black)=2.webp",
+              "images/boatairdopes161ancelite(black)=3.webp",
+              "images/boatairdopes161ancelite(black)=4.webp",
+              "images/boatairdopes161ancelite(black)=5.webp",
+              "images/boatairdopes161ancelite(black)=6.webp",
+              "images/boatairdopes161ancelite(black)=7.webp",
+              "images/boatairdopes161ancelite(black)=8.webp",
+              "images/boatairdopes161ancelite(black)=9.webp",
+              "images/boatairdopes161ancelite(black)=10.webp",
+              "images/boatairdopes161ancelite(black)=11.webp",
+            ],
+             details:
+              "Availabe for Bulk Orders. Original product at the best price. 1 year Vibex exchange gaurante(terms and condition apllied).",   
+          },
+          {
             model: "Boat Airdopes Unity ANC (black)",
             mainImage: "images/boatairdopesunityanc(black)=1.png",
             gallery: [
@@ -713,6 +732,12 @@ const accessoriesBanners = {
       text: "Only @1250/="
     }
     // add more slides as you like
-  ]
+  ],
   // later: oneplusAirdopes, oneplusNeckbands, etc.
+  oneplusAirdopes: [
+    {
+      image: "images/oneplusairdopes(slide)=1.png",
+      text: "Oneplus Airdopes Best Seller"
+    },
+  ],
 };
