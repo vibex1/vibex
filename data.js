@@ -1,14 +1,6 @@
 // data.js — Your full tempered glass data array
 
 const temperedGlassData = [
-  {
-    mainModel: "MI A3",
-    models: ["MI A3", "OPPO A1K", "REALME C2"],
-  },
-  {
-    mainModel: "MI NOTE8",
-    models: ["MI NOTE8"],
-  },
  {
   mainModel: "NOTHING PHONE 1",
   models: [
