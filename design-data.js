@@ -754,6 +754,26 @@ const accessoriesData = {
       "AMAZON PRICE= 800/= HT CURRENT PRICE= 800/=",
     },
     {
+      model: "Boat Rockerz 210 ANC (black)",
+      mainImage: "images/boatrockerz210anc(black)=1.webp",
+      gallery: [
+        "images/boatrockerz210anc(black)=1.webp",
+        "images/boatrockerz210anc(black)=2.webp",
+        "images/boatrockerz210anc(black)=3.webp",
+        "images/boatrockerz210anc(blaCK)=4.webp",
+        "images/boatrockerz210anc(black)=5.webp",
+        "images/boatrockerz210anc(black)=6.webp",
+        "images/boatrockerz210anc(black)=7.webp",
+        "images/boatrockerz210anc(black)=8.webp",
+        "images/boatrockerz210anc(black)=9.webp",
+        "images/boatrockerz210anc(black)=10.webp",
+        "images/boatrockerz210anc(black)=11.webp",
+        "images/boatrockerz210anc(black)=12.webp"
+      ],
+      details: 
+      "AMAZON PRICE= 1499/= HT CURRENT PRICE= 1350/=",
+    },
+    {
       model: "OnePlus Bullets Wireless Z3 (black)",
       mainImage: "images/oneplusbulletswirelessz3(black)=1.webp",
       gallery: [
