@@ -694,8 +694,22 @@ const accessoriesData = {
 
   neckbands: [
     {
-      model: "OnePlus Bullets Wireless Z3 Black",
-      mainImage: "images/oneplusbulletswirelessz3(red)(coverpage)=1.jpg",
+      model: "Boat Rockerz Summit",
+      mainImage: "images/boatrockerzsummit=1.webp",
+      gallery: [
+        "images/boatrockerzsummit=1.webp",
+        "images/boatrockerzsummit=2.webp",
+        "images/boatrockerzsummit=3.webp",
+        "images/boatrockerzsummit=4.webp",
+        "images/boatrockerzsummit=5.webp",
+        "images/boatrockerzsummit=6.webp"
+      ],
+      details:
+      "FLIPKART PRICE =1010/= HT CURRENT PRICE= 650/="
+    },
+    {
+      model: "OnePlus Bullets Wireless Z3 (black)",
+      mainImage: "images/oneplusbulletswirelessz3(black)=1.webp",
       gallery: [
         "images/oneplusbulletswirelessz3(black)=1.webp",
         "images/oneplusbulletswirelessz3(black)=2.png",
@@ -704,7 +718,8 @@ const accessoriesData = {
         "images/oneplusbulletswirelessz3(red)(slide)=1.jpg",
         "images/oneplusbulletswirelessz3(red)(slide)=2.jpg",
         "images/oneplusbulletswirelessz3(red)(slide)=3.jpg",
-        "images/oneplusbulletswirelessz3(red)(slide)=4.jpg"
+        "images/oneplusbulletswirelessz3(red)(slide)=4.jpg",
+        "images/oneplusbulletswirelessz3(red)(coverpage)=1.jpg"
       ],
       details: "OnePlus Bullets Wireless Z3 in-ear neckband… (same text you already use)."
     }
