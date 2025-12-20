@@ -708,6 +708,32 @@ const accessoriesData = {
       "FLIPKART PRICE =1010/= HT CURRENT PRICE= 650/="
     },
     {
+      model: "Boat Rockerz 200 (black)",
+      mainImage: "images/boatrockerz200(black)=1.webp",
+      gallery: [
+        "images/boatrockerz200(black)=1.webp",
+        "images/boatrockerz200(black)=2.webp",
+        "images/boatrockerz200(black)=3.webp",
+        "images/boatrockerz200(black)=4.webp",
+        "images/boatrockerz200(black)=5.webp",
+        "images/boatrockerz200(black)=6.webp",
+        "images/boatrockerz200(black)=7.webp"
+      ],
+    },
+    {
+      model: "Boat Rockerz 200 (blue)",
+      mainImage: "images/boatrockerz200(blue)=1.webp",
+      gallery: [
+        "images/boatrockerz200(blue)=1.webp",
+        "images/boatrockerz200(blue)=2.webp",
+        "images/boatrockerz200(blue)=3.webp",
+        "images/boatrockerz200(blue)=4.webp",
+        "images/boatrockerz200(blue)=5.webp",
+        "images/boatrockerz200(blue)=6.webp",
+        "images/boatrockerz200(blue)=7.webp"
+      ],
+    },
+    {
       model: "OnePlus Bullets Wireless Z3 (black)",
       mainImage: "images/oneplusbulletswirelessz3(black)=1.webp",
       gallery: [
