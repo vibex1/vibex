@@ -719,6 +719,8 @@ const accessoriesData = {
         "images/boatrockerz200(black)=6.webp",
         "images/boatrockerz200(black)=7.webp"
       ],
+      details:
+      "ONLINE PRICE= NOT AVAILABLE/= HT CURRENT PRICE= 700/=",
     },
     {
       model: "Boat Rockerz 200 (blue)",
@@ -732,6 +734,24 @@ const accessoriesData = {
         "images/boatrockerz200(blue)=6.webp",
         "images/boatrockerz200(blue)=7.webp"
       ],
+            details:
+      "ONLINE PRICE= NOT AVAILABLE/= HT CURRENT PRICE= 700/=",
+    },
+    {
+      model: "Boat Rockerz 203 (grey)",
+      mainImage: "images/boatrockerz203(grey)=1.webp",
+      gallery: [
+        "images/boatrockerz203(grey)=1.webp",
+        "images/boatrockerz203(grey)=2.webp",
+        "images/boatrockerz203(grey)=3.webp",
+        "images/boatrockerz203(grey)=4.webp",
+        "images/boatrockerz203(grey)=5.webp",
+        "images/boatrockerz203(grey)=6.webp",
+        "images/boatrockerz203(grey)=7.webp",
+        "images/boatrockerz203(grey)=8.webp"
+      ],
+      details: 
+      "AMAZON PRICE= 800/= HT CURRENT PRICE= 800/=",
     },
     {
       model: "OnePlus Bullets Wireless Z3 (black)",
