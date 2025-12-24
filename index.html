@@ -419,9 +419,6 @@ form {
           <button type="button" id="btnBackCases" class="nav-btn">
             Back Cases
           </button>
-          <button type="button" id="btnBackCases" class="nav-btn">
-            Camera Glass
-          </button>
         </div>
       </div>
     </div>
@@ -446,26 +443,7 @@ form {
       <h3>All Main Tempered Glass Models</h3>
       <div id="modelsList"></div>
     </div>
-    <!-- Camera Glass Page -->
-    <div id="cameraGlassPage" class="hidden section-card">
-      <button onclick="goHome()" class="nav-btn" style="margin-bottom: 15px">
-        Back to Home
-      </button>
-      <h2>Camera Glass Compatibility Lookup</h2>
-      <form id="searchForm" autocomplete="off">
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="Enter phone model..."
-        />
-        <div id="suggestions"></div>
-        <button type="submit" class="nav-btn">Search</button>
-      </form>
-      <div class="result" id="result"></div>
-      <hr />
-      <h3>All Main Camera Glass Models</h3>
-      <div id="modelsList"></div>
-    </div>
+
     <!-- Design Selections Page -->
     <div id="designSelectionsPage" class="hidden section-card">
       <button onclick="goHome()" class="nav-btn" style="margin-bottom: 15px">
@@ -676,7 +654,6 @@ form {
           [
             "homeMenu",
             "temperedGlassPage",
-            "cameraGlassPage",
             "designSelectionsPage",
             "contactUsPage",
             "backCasesPage",
@@ -691,7 +668,6 @@ form {
         window.goHome = function () {
           [
             "temperedGlassPage",
-            "cameraGlassPage",
             "designSelectionsPage",
             "contactUsPage",
             "backCasesPage",
@@ -717,9 +693,6 @@ form {
         document.getElementById("btnTemperedGlass").onclick = function () {
           showPage("temperedGlassPage");
         };
-        document.getElementById("btnCameraGlass").onclick = function () {
-          showPage("cameraGlassPage");
-        };        
         document.getElementById("btnBackCases").onclick = function () {
           showPage("backCasesPage");
         };
@@ -823,21 +796,6 @@ form {
           }
         });
 
-        document.body.addEventListener("click", function (e) {
-          if (
-            e.target !== searchInput &&
-            e.target !== document.getElementById("cameraGLassSearchInput")
-          ) {
-            suggestionsDiv.innerHTML = "";
-            suggestionsDiv.style.display = "none";
-            if (document.getElementById("cameraGlassSuggestions")) {
-              document.getElementById("cameraGlassSuggestions").innerHTML = "";
-              document.getElementById("cameraGlassSuggestions").style.display =
-                "none";
-            }
-          }
-        });
-
         function showMainModels(modelName) {
           const resultDiv = document.getElementById("result");
           if (
@@ -847,6 +805,7 @@ form {
             resultDiv.textContent = "Tempered glass data not found.";
             return;
           }
+
           const matches = temperedGlassData.filter((item) =>
             item.models.some(
               (phone) => normalize(phone) === normalize(modelName)
@@ -891,106 +850,6 @@ form {
           modelsDiv.innerHTML =
             "<p>Tempered glass data not found. Please check your data.js file.</p>";
         }
-        // ==== Camera Glass Lookup Functions ====
-        const cameraGlassAllModels = [];
-        if (typeof cameraGlassData !== "undefined") {
-          cameraGlassData.forEach((item) => {
-            item.models.forEach((m) => {
-              if (m && !cameraGlassAllModels.includes(m)) cameraGlassAllModels.push(m);
-            });
-          });
-        }
-
-        const cameraGlassInput = document.getElementById("cameraGlassSearchInput");
-        const cameraGlassSuggestionsDiv =
-          document.getElementById("cameraGlassSuggestions");
-        let cameraGlassSelectedModel = null;
-
-        if (cameraGlassInput) {
-          cameraGlassInput.addEventListener("input", function () {
-            const val = this.value;
-            cameraGlassSuggestionsDiv.innerHTML = "";
-            cameraGlassSelectedModel = null;
-            document.getElementById("cameraGlassResult").innerHTML = "";
-            if (val.trim().length === 0) {
-              cmaeraGlassSuggestionsDiv.style.display = "none";
-              return;
-            }
-            const matchedModels = cameraGlassAllModels.filter((m) =>
-              normalize(m).includes(normalize(val))
-            );
-            if (matchedModels.length === 0) {
-              cameraGLassSuggestionsDiv.style.display = "none";
-              return;
-            }
-            cmaeraGLassSuggestionsDiv.style.display = "block";
-            cameraGlassSuggestionsDiv.innerHTML = matchedModels
-              .map(
-                (m) =>
-                  `<div class="suggestion-item" onclick="cameraGlassSelectSuggestion('${m.replace(
-                    /'/g,
-                    "\\'"
-                  )}')">${m}</div>`
-              )
-              .join("");
-          });
-        }
-
-        window.cameraGLassSelectSuggestion = function (modelName) {
-          cameraGLassInput.value = modelName;
-          cameraGlassSuggestionsDiv.innerHTML = "";
-          cameraGlassSuggestionsDiv.style.display = "none";
-          cameraGlassSelectedModel = modelName;
-          showcameraGlassMainModels(modelName);
-        };
-
-        function showcameraGLassMainModels(modelName) {
-          const resultDiv = document.getElementById("cameraGlassResult");
-          if (typeof cameraGLassData === "undefined") {
-            resultDiv.textContent =
-              "Camera Glass data not found. Please check your data.js file.";
-            return;
-          }
-          const matches = cameraGlassData.filter((item) =>
-            item.models.some(
-              (phone) => normalize(phone) === normalize(modelName)
-            )
-          );
-          if (matches.length === 0) {
-            resultDiv.textContent = "No main model found for this phone model.";
-          } else {
-            resultDiv.innerHTML =
-              "Main Camera Glass Models: <ul>" +
-              matches.map((item) => `<li>${item.mainModel}</li>`).join("") +
-              "</ul>";
-          }
-        }
-
-        if (document.getElementById("cameraGlassSearchForm")) {
-          document.getElementById("cameraGLassSearchForm").onsubmit = function (e) {
-            e.preventDefault();
-            let modelName = ipakyInput.value.trim();
-            if (!modelName) return;
-            showcameraGlassMainModels(modelName);
-          };
-        }
-
-        const cameraGLassModelsDiv = document.getElementById("cameraGLassModelsList");
-        if (cameraGLassModelsDiv && typeof cameraGlassData !== "undefined") {
-          cameraGLassModelsDiv.innerHTML = cameraGLassData
-            .map(
-              (item) => `<div class="models-list">
-                <span class="main-model">${item.mainModel}</span>
-                <ul>${item.models
-                  .map((m) => `<li>${m}</li>`)
-                  .join("")}</ul>
-              </div>`
-            )
-            .join("");
-        } else if (cameraGlassModelsDiv) {
-          cameraGlassModelsDiv.innerHTML =
-            "<p>Camera Glass data not found. Please check your data.js file.</p>";
-        }        
 
         // ==== iPaky Lookup Functions ====
         const ipakyAllModels = [];
