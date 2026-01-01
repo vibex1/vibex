@@ -1689,5 +1689,89 @@ const temperedGlassData = [
     "MOTO G67 POWER"
   ],
 },
+{
+  mainModel: "REALME P4X",
+  models: [
+    "REALME P4X"
+  ],
+},
+{
+  mainModel: "OPPO FIND X9",
+  models: [
+    "OPPO FIND X9"
+  ],
+},
+{
+  mainModel: "REALME GT 8",
+  models: [
+    "REALME GT 8",
+    "REALME GT 8 PRO"
+  ],
+},
+{
+  mainModel: "MOTO EDGE 70",
+  models: [
+    "MOTO EDGE 70"
+  ],
+},
+{
+  mainModel: "MOTO G86",
+  models: [
+    "MOTO G86",
+    "MOTO G86 POWER"
+  ],
+},
+{
+  mainModel: "1+ 15R",
+  models: [
+    "1+ ACE 5",
+    "1+ ACE 5 ULTRA",
+    "1+ NORD 5",
+    "1+ ACE 6",
+    "1+ 15R",
+    "OPPO RENO 14 PRO"
+  ],
+},
+{
+  mainModel: "1+ 15",
+  models: [
+    "1+ 15",
+    "OPPO FIND X9 PRO",
+    "OPPO RENO 15 PRO"
+  ],
+},
+{
+  mainModel: "VIVO X300",
+  models: [
+    "VIVO X300"
+  ],
+},
+{
+  mainModel: "VIVO X300 PRO",
+  models: [
+    "VIVO X300 PRO"
+  ],
+},
+{
+  mainModel: "VIVO V60 LITE",
+  models: [
+    "VIVO V60 LITE"
+  ],
+},
+{
+  mainModel: "VIVO Y300 5G",
+  models: [
+    "VIVO Y300 5G",
+    "VIVO V40 LITE",
+    "VIVO Y400"
+  ],
+},
+{
+  mainModel: "MI 14",
+  models: [
+    "MI 13",
+    "MI 14"
+  ],
+},
 ];
 
