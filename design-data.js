@@ -32,9 +32,12 @@ const designImages = {
     "images/P=7.jpg",
     "images/P=8.jpg",
     "images/P=9.jpg",
+    "images/P=10.jpg",
+    "images/P=11.jpg",
   ],
   "SOFT QUOTES": [
     "images/SQ=1.jpg",
+    "images/SQ=2.jpg"
   ],
   "HARD QUOTES": [
     "images/HQ=1.jpg",
@@ -67,6 +70,7 @@ const designImages = {
     "images/C=13.jpg",
     "images/C=14.jpg",
     "images/C=15.jpg",
+    "images/C=16.jpg",
   ],
   "ALL MIX=1": [
     "images/AM1=1.jpg",
@@ -76,6 +80,21 @@ const designImages = {
     "images/AM1=5.jpg",
     "images/AM1=6.jpg",
     "images/AM1=7.jpg",
+    "images/AM1=8.jpg",
+    "images/AM1=9.jpg",
+    "images/AM1=10.jpg",
+    "images/AM1=11.jpg",
+    "images/AM1=12.jpg",
+    "images/AM1=13.jpg",
+    "images/AM1=14.jpg",
+    "images/AM1=15.jpg",
+    "images/AM1=16.jpg",
+    "images/AM1=17.jpg",
+    "images/AM1=18.jpg",
+    "images/AM1=19.jpg",
+    "images/AM1=20.jpg",
+    "images/AM1=21.jpg",
+    "images/AM1=22.jpg",
   ],
   "ALL MIX=2": [
     "images/AM2=1.jpg",
@@ -89,9 +108,17 @@ const designImages = {
     "images/AM2=9.jpg",
     "images/AM2=10.jpg",
     "images/AM2=11.jpg",
+    "images/AM2=12.jpg",
+    "images/AM2=13.jpg",
+    "images/AM2=14.jpg",
+    "images/AM2=15.jpg",
+    "images/AM2=16.jpg",
+    "images/AM2=17.jpg",
   ],
   LUXURY: [],
-  ACTORS: [],
+  ACTORS: [
+    "images/A=1.jpg",
+  ],
 };
 // All accessories data (Airdopes + Neckbands etc.)
 const accessoriesData = {
