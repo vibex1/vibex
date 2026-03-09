@@ -34,7 +34,7 @@ const designImages = {
     "images/P=9.jpg",
   ],
   "SOFT QUOTES": [
-    "SQ=1.jpg",
+    "images/SQ=1.jpg",
   ],
   "HARD QUOTES": [
     "images/HQ=1.jpg",
