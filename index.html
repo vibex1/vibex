@@ -1,286 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Ram's Mobile Accessories & Design</title>
+<head>
+    <meta charset="UTF-8">
+    <title>RAM | HUB</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    
     <style>
-:root {
-  --royal-blue: #228bee;
-  --matte-white: #f8fafc;
-  --shadow: 0 4px 24px rgba(34, 139, 238, 0.09);
-  --card-radius: 16px;
-  --border: 1.5px solid #e9e9ea;
-  --text-main: #1a2332;
-  --text-muted: #4686b9;
-}
+        :root {
+            --nothing-blue: #0a111f; /* Deep Matte Dark Blue */
+            --nothing-white: #f5f5f7; /* Matte White */
+            --accent-red: #ff0000;    /* Nothing Dot Red */
+            --glass-bg: rgba(255, 255, 255, 0.05);
+        }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  background: var(--matte-white);
-  margin: 0; padding: 0; box-sizing: border-box;
-  color: var(--text-main); min-height: 100vh;
-}
+        body {
+            margin: 0; padding: 0;
+            background-color: var(--nothing-blue);
+            color: var(--nothing-white);
+            font-family: 'Inter', -apple-system, sans-serif;
+            text-transform: uppercase; /* Nothing Brand Feel */
+            letter-spacing: 1px;
+            overflow-x: hidden;
+        }
 
-h2, h3 { color: var(--royal-blue); letter-spacing: 1.2px; font-weight: 550; margin-bottom: 0.6em; }
+        /* --- LAYOUT CONTAINERS --- */
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
 
-.section-card {
-  background: #fff; border: var(--border); border-radius: var(--card-radius);
-  box-shadow: var(--shadow); padding: 2em 1em 1.5em 1em;
-  max-width: 480px; width: 96%; margin: 0 auto 2.2em auto;
-}
+        .page { display: none; animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .active { display: block; }
 
-.nav-btn {
-  background: var(--royal-blue); color: #fff; border: none; border-radius: 28px;
-  font-size: 1.07em; font-weight: 500; padding: 15px 30px;
-  box-shadow: 0 2px 10px rgba(34, 139, 238, 0.13);
-  transition: background 0.18s, transform 0.13s; margin: 0 12px 14px 0; outline: none;
-}
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-.nav-btn:hover { background: #165fa1; transform: translateY(-2px); }
+        /* --- BUTTONS & CARDS --- */
+        .main-btn {
+            background: none;
+            border: 1px solid var(--nothing-white);
+            color: var(--nothing-white);
+            padding: 25px;
+            width: 100%;
+            margin-bottom: 20px;
+            font-size: 14px;
+            text-align: left;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-input[type="text"] {
-  border-radius: 8px; border: var(--border); padding: 8px 0.8em;
-  font-size: 1em; outline: none; width: 80%; margin-bottom: 10px; background: #f6fafd;
-}
+        .main-btn:hover, .main-btn:active {
+            background: var(--nothing-white);
+            color: var(--nothing-blue);
+        }
 
-/* FIX: DESIGN GALLERY GRID (2 COLUMNS FOR MOBILE) */
-#designGallery {
-  display: grid !important;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  padding: 10px;
-  justify-items: center;
-}
+        /* --- SEARCH INPUT --- */
+        .search-wrapper { position: relative; margin-top: 20px; }
+        input {
+            width: 100%;
+            background: none;
+            border: none;
+            border-bottom: 2px solid var(--nothing-white);
+            color: var(--nothing-white);
+            padding: 15px 0;
+            font-size: 18px;
+            outline: none;
+        }
 
-#designGallery img {
-  width: 100%;
-  height: 240px; /* Made taller for better view */
-  background: #fff; border: var(--border); border-radius: 13px;
-  object-fit: cover; cursor: pointer;
-}
+        /* --- SEARCH SUGGESTIONS (Google Style) --- */
+        #suggBox {
+            background: var(--nothing-white);
+            color: var(--nothing-blue);
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+            position: absolute;
+            width: 100%;
+            z-index: 100;
+        }
+        .sugg-item {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            font-size: 12px;
+            cursor: pointer;
+        }
 
-/* FIX: GALLERY MODAL & NAVIGATION */
-#imageModal {
-  display: none; position: fixed; top: 0; left: 0;
-  width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.95);
-  justify-content: center; align-items: center; z-index: 1100;
-  flex-direction: column;
-}
+        /* --- RESULT CARD (SURPRISE ANIMATION) --- */
+        #resultDisplay {
+            margin-top: 40px;
+            padding: 30px;
+            border: 1px dashed var(--nothing-white);
+            display: none;
+            text-align: center;
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
 
-#modalImage {
-  max-width: 95vw; max-height: 75vh; border-radius: 8px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
-}
+        @keyframes popIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
 
-.gallery-controls {
-  display: flex; gap: 25px; margin-top: 20px;
-}
+        .dot { color: var(--accent-red); font-size: 24px; }
 
-/* Common list styles */
-.models-list { background: #fafcff; border-radius: 13px; border: var(--border); padding: 10px; width: 190px; }
-.main-model { font-weight: bold; color: var(--royal-blue); }
-#suggestions { background: #fff; border: 2px solid var(--royal-blue); border-radius: 11px; position: absolute; max-height: 150px; overflow-y: auto; width: 80%; z-index: 99; display: none; }
-.suggestion-item { padding: 10px; cursor: pointer; border-bottom: 1px solid #eef2fa; }
-.hidden { display: none !important; }
+        /* --- DESIGN GRID --- */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+        .grid-2 img { width: 100%; height: 250px; object-fit: cover; filter: grayscale(20%); }
 
-/* Accessory styles */
-.airdopes-grid { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
-.airdopes-card { flex: 1 1 150px; max-width: 220px; }
-.banner-slider { width: 100%; max-width: 480px; margin: 0 auto 16px auto; overflow: hidden; border-radius: 12px; background: #0b1b33; }
-.banner-track { display: flex; transition: transform 0.4s ease; }
-.banner-slide { min-width: 100%; display: flex; align-items: center; color: #fff; }
-.banner-slide img { width: 35%; object-fit: cover; }
-.brand-row { display: flex; justify-content: center; margin: 10px 0; }
-.brand-row img { height: 32px; }
-
-@media (max-width: 520px) {
-  .section-card { width: 98vw; padding: 1em 0.5em; }
-}
+        .back-nav { font-size: 10px; margin-bottom: 30px; cursor: pointer; opacity: 0.6; }
     </style>
-  </head>
-  <body>
-    <div id="homeMenu" style="display: flex; flex-direction: column; height: 100vh">
-      <div style="flex: 8; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #f5fafe;">
-        <h2 style="margin-bottom: 28px;">Customers</h2>
-        <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
-          <button type="button" id="btnDesign" class="nav-btn">Design Selections</button>
-          <button type="button" id="btnContact" class="nav-btn">Contact Us</button>
-          <button type="button" id="btnAccessories" class="nav-btn">Accessories</button>
-          <button type="button" id="btnNeckband" class="nav-btn">Neckband</button>
-          <button type="button" id="btnPowerbank" class="nav-btn">Powerbank</button>
+</head>
+<body>
+
+<div class="container">
+    
+    <div id="homePage" class="page active">
+        <h1 style="font-size: 40px; font-weight: 200; margin-bottom: 60px;">RAM <span class="dot">.</span><br>HUB</h1>
+        <button class="main-btn" onclick="showPage('designPage')">SKIN SELECTIONS <span>→</span></button>
+        <button class="main-btn" onclick="showPage('glassMenu')">TEMPERED GLASS <span>→</span></button>
+    </div>
+
+    <div id="glassMenu" class="page">
+        <div class="back-nav" onclick="showPage('homePage')">← BACK TO HOME</div>
+        <h2>SELECT TYPE<span class="dot">.</span></h2>
+        <button class="main-btn" onclick="showPage('gorillaPage')">GORILLA GLASS <span>→</span></button>
+        <button class="main-btn" onclick="showPage('uvPage')">UV GLASS <span>→</span></button>
+    </div>
+
+    <div id="gorillaPage" class="page">
+        <div class="back-nav" onclick="showPage('glassMenu')">← BACK TO SELECTION</div>
+        <h2>GORILLA SEARCH<span class="dot">.</span></h2>
+        
+        <div class="search-wrapper">
+            <input type="text" id="glassInput" placeholder="TYPE MODEL NAME..." oninput="handleTyping(this.value)">
+            <div id="suggBox"></div>
         </div>
-      </div>
-      <div style="flex: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #ebf3fb;">
-        <h2 style="margin-bottom: 15px;">Staff</h2>
-        <div style="display: flex; gap: 15px">
-          <button type="button" id="btnTemperedGlass" class="nav-btn">Tempered Glass</button>
-          <button type="button" id="btnBackCases" class="nav-btn">Back Cases</button>
+
+        <div id="resultDisplay">
+            <div style="font-size: 10px; opacity: 0.6; margin-bottom: 10px;">PICK THIS GLASS:</div>
+            <div id="mainModelName" style="font-size: 28px; font-weight: 900;"></div>
+            <div id="compatList" style="font-size: 11px; margin-top: 15px; border-top: 1px solid #333; padding-top: 10px;"></div>
         </div>
-      </div>
     </div>
 
-    <div id="temperedGlassPage" class="hidden section-card">
-      <button onclick="goHome()" class="nav-btn" style="margin-bottom: 15px">Home</button>
-      <h2>Tempered Glass Lookup</h2>
-      <form id="searchForm" autocomplete="off">
-        <input type="text" id="searchInput" placeholder="Enter phone model..." />
-        <div id="suggestions"></div>
-        <button type="submit" class="nav-btn">Search</button>
-      </form>
-      <div class="result" id="result"></div>
-      <div id="modelsList" style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:20px;"></div>
+    <div id="designPage" class="page">
+        <div class="back-nav" onclick="showPage('homePage')">← BACK TO HOME</div>
+        <h2>DESIGNS<span class="dot">.</span></h2>
+        <div id="catButtons"></div>
+        <div id="designGrid" class="grid-2"></div>
     </div>
 
-    <div id="designSelectionsPage" class="hidden section-card">
-      <button onclick="goHome()" class="nav-btn" style="margin-bottom: 15px">Home</button>
-      <h2>Design Selections</h2>
-      <div id="designButtons" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;"></div>
-      <div id="designGallery"></div>
-      <button id="backToDesigns" class="nav-btn" style="display: none; margin: 18px auto" onclick="showDesignButtons()">Back to Choices</button>
-
-      <div id="imageModal">
-        <span id="galleryCounter" style="color: white; margin-bottom: 10px; font-weight: bold;"></span>
-        <img id="modalImage" src="" alt="Full Design" />
-        <div class="gallery-controls">
-            <button onclick="navigateGallery(-1)" class="nav-btn" style="background: #444;">&larr; Prev</button>
-            <button onclick="navigateGallery(1)" class="nav-btn">Next &rarr;</button>
-        </div>
-        <div style="margin-top: 20px; display: flex; gap: 10px;">
-          <button id="printImageBtn" class="nav-btn" style="background: #28a745;">WhatsApp / Print</button>
-          <button id="closeModalBtn" class="nav-btn" style="background: #dc3545;">Close</button>
-        </div>
-      </div>
-    </div>
-    <div id="ipakyPage" class="hidden section-card">
-      <button onclick="showPage('backCasesPage')" class="nav-btn" style="margin-bottom: 15px">Back</button>
-      <h2>iPaky Compatibility</h2>
-      <form id="ipakySearchForm" autocomplete="off">
-        <input type="text" id="ipakySearchInput" placeholder="Enter model..." />
-        <div id="ipakySuggestions"></div>
-        <button type="submit" class="nav-btn">Search</button>
-      </form>
-      <div class="result" id="ipakyResult"></div>
-      <div id="ipakyModelsList" style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center;"></div>
+    <div id="uvPage" class="page">
+        <div class="back-nav" onclick="showPage('glassMenu')">← BACK</div>
+        <h2>UV GLASS<span class="dot">.</span></h2>
+        <p style="opacity: 0.5;">UV Inventory Sync Pending...</p>
     </div>
 
-    <div id="backCasesPage" class="hidden section-card">
-      <button onclick="goHome()" class="nav-btn" style="margin-bottom: 15px">Home</button>
-      <h2>Back Cases</h2>
-      <div style="display: flex; gap: 15px; justify-content: center;">
-        <button id="btnIpaky" class="nav-btn">iPaky</button>
-        <button onclick="alert('Coming soon!')" class="nav-btn">Premium</button>
-      </div>
-    </div>
+</div>
 
-    <div id="accessoriesPage" class="hidden section-card">
-      <button onclick="goHome()" class="nav-btn" style="margin-bottom: 15px">Home</button>
-      <h2>Accessories</h2>
-      <div class="brand-row"><img src="images/boat-logo.png" alt="boAt" /></div>
-      <div class="banner-slider" id="boatAirdopesBanner"><div class="banner-track"></div></div>
-      <h3 id="airdopesSection">Airdopes</h3>
-      <div id="airdopesModelsGrid" class="airdopes-grid"></div>
-      <h3 id="neckbandSection" style="margin-top:20px;">Neckbands</h3>
-      <div id="neckbandModelsGrid" class="airdopes-grid"></div>
-    </div>
+<script src="data.js"></script>
+<script src="design-data.js"></script>
 
-    <script src="data.js"></script>
-    <script src="design-data.js"></script>
-
-    <script>
-      let currentGalleryImages = [];
-      let currentImgIndex = 0;
-
-      document.addEventListener("DOMContentLoaded", function () {
-        function showPage(pageId) {
-          document.querySelectorAll('.section-card, #homeMenu').forEach(el => el.classList.add('hidden'));
-          document.getElementById(pageId).classList.remove('hidden');
+<script>
+    // --- PART: PAGE NAVIGATION ---
+    function showPage(id) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        if(id === 'designPage') renderCats();
+        // Clear results when entering search
+        if(id === 'gorillaPage') {
+            document.getElementById('resultDisplay').style.display = 'none';
+            document.getElementById('glassInput').value = '';
         }
-        window.showPage = showPage;
-        window.goHome = () => showPage('homeMenu');
+    }
 
-        // Navigation
-        document.getElementById("btnDesign").onclick = () => showPage("designSelectionsPage");
-        document.getElementById("btnTemperedGlass").onclick = () => showPage("temperedGlassPage");
-        document.getElementById("btnBackCases").onclick = () => showPage("backCasesPage");
-        document.getElementById("btnIpaky").onclick = () => showPage("ipakyPage");
-        document.getElementById("btnAccessories").onclick = () => showPage("accessoriesPage");
-        document.getElementById("btnContact").onclick = () => window.open("https://wa.me/8553855378", "_blank");
+    // --- PART: SEARCH LOGIC (THE BRAIN) ---
+    function handleTyping(query) {
+        const inputVal = query.toLowerCase().replace(/\s+/g, ''); // REMOVE ALL SPACES
+        const box = document.getElementById('suggBox');
+        const res = document.getElementById('resultDisplay');
+        box.innerHTML = '';
+        res.style.display = 'none';
 
-        // DESIGN GALLERY LOGIC
-        const designNames = ["ANIME", "PINTRESTY", "SOFT QUOTES", "HARD QUOTES", "SPORTS", "CARS", "LUXURY", "ACTORS"];
-
-        window.showDesignButtons = function () {
-          const container = document.getElementById("designButtons");
-          container.innerHTML = designNames.map(name => `<button class="nav-btn" onclick="showDesignGallery('${name}')">${name}</button>`).join("");
-          container.style.display = "flex";
-          document.getElementById("designGallery").style.display = "none";
-          document.getElementById("backToDesigns").style.display = "none";
-        };
-
-        window.showDesignGallery = function (category) {
-          const gallery = document.getElementById("designGallery");
-          currentGalleryImages = (typeof designImages !== "undefined" && designImages[category]) ? designImages[category] : [];
-          
-          gallery.innerHTML = `<h3 style="grid-column: span 2; text-align:center; width:100%;">${category}</h3>`;
-          currentGalleryImages.forEach((src, index) => {
-            const img = document.createElement("img");
-            img.src = src;
-            img.onclick = () => openImageModalAtIndex(index);
-            gallery.appendChild(img);
-          });
-
-          document.getElementById("designButtons").style.display = "none";
-          gallery.style.display = "grid";
-          document.getElementById("backToDesigns").style.display = "block";
-        };
-
-        window.openImageModalAtIndex = function (index) {
-          currentImgIndex = index;
-          updateModal();
-          document.getElementById("imageModal").style.display = "flex";
-          document.body.style.overflow = "hidden";
-        };
-
-        window.navigateGallery = function (direction) {
-          currentImgIndex += direction;
-          if (currentImgIndex >= currentGalleryImages.length) currentImgIndex = 0;
-          if (currentImgIndex < 0) currentImgIndex = currentGalleryImages.length - 1;
-          updateModal();
-        };
-
-        function updateModal() {
-          document.getElementById("modalImage").src = currentGalleryImages[currentImgIndex];
-          document.getElementById("galleryCounter").innerText = `${currentImgIndex + 1} / ${currentGalleryImages.length}`;
+        if(!inputVal || typeof temperedGlassData === 'undefined') {
+            box.style.display = 'none';
+            return;
         }
 
-        // SWIPE LOGIC
-        let touchStartX = 0;
-        document.getElementById("imageModal").addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX);
-        document.getElementById("imageModal").addEventListener('touchend', e => {
-          let touchEndX = e.changedTouches[0].screenX;
-          if (touchStartX - touchEndX > 50) navigateGallery(1);
-          if (touchEndX - touchStartX > 50) navigateGallery(-1);
+        // Search in Main and Compatible Models
+        const matches = temperedGlassData.filter(item => {
+            const mainClean = item.mainModel.toLowerCase().replace(/\s+/g, '');
+            const subClean = item.models.some(m => m.toLowerCase().replace(/\s+/g, '').includes(inputVal));
+            return mainClean.includes(inputVal) || subClean;
         });
 
-        document.getElementById("closeModalBtn").onclick = () => {
-          document.getElementById("imageModal").style.display = "none";
-          document.body.style.overflow = "auto";
-        };
+        if(matches.length > 0) {
+            box.style.display = 'block';
+            matches.slice(0, 12).forEach(match => {
+                const div = document.createElement('div');
+                div.className = 'sugg-item';
+                div.innerHTML = `<strong>${match.mainModel}</strong><br>${match.models.join(' / ')}`;
+                div.onclick = () => selectModel(match);
+                box.appendChild(div);
+            });
+        } else {
+            box.style.display = 'none';
+        }
+    }
 
-        document.getElementById("printImageBtn").onclick = () => {
-          const src = currentGalleryImages[currentImgIndex];
-          window.open(`https://wa.me/8553855378?text=Order Design: ${src}`, "_blank");
-        };
+    function selectModel(data) {
+        document.getElementById('suggBox').style.display = 'none';
+        document.getElementById('glassInput').value = data.mainModel;
+        
+        // Surprise Animation Result
+        const res = document.getElementById('resultDisplay');
+        document.getElementById('mainModelName').innerText = data.mainModel;
+        document.getElementById('compatList').innerText = "FITS: " + data.models.join(' | ');
+        
+        res.style.display = 'block';
+    }
 
-        // AUTO-INIT Design Buttons
-        showDesignButtons();
-        goHome();
-      });
-    </script>
-  </body>
+    // --- PART: DESIGN GALLERY ---
+    function renderCats() {
+        const btnBox = document.getElementById('catButtons');
+        const cats = Object.keys(designImages || {});
+        btnBox.innerHTML = cats.map(c => 
+            `<button class="main-btn" style="padding: 10px; font-size: 10px; margin-bottom: 5px;" onclick="loadImages('${c}')">${c} <span>+</span></button>`
+        ).join('');
+    }
+
+    function loadImages(cat) {
+        const grid = document.getElementById('designGrid');
+        grid.innerHTML = designImages[cat].map(src => `<img src="${src}">`).join('');
+    }
+</script>
+
+</body>
 </html>
-
-
-
-
