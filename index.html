@@ -198,13 +198,18 @@
         }
     }
 
-    // --- GLASS SEARCH LOGIC ---
+// --- UPDATED ERROR-PROOF SEARCH LOGIC ---
     function renderFullList() {
         const container = document.getElementById('inventoryContainer');
-        if (typeof temperedGlassData === 'undefined') return;
-        container.innerHTML = temperedGlassData.map(item => `
-            <div class="inv-item" onclick='selectModel(${JSON.stringify(item)})'>
-                <div style="font-weight: bold;">${item.mainModel}</div>
+        // Check if data exists, if not, show an error on screen
+        if (typeof temperedGlassData === 'undefined') {
+            container.innerHTML = "<div style='color:red;'>ERROR: data.js not found or broken.</div>";
+            return;
+        }
+        
+        container.innerHTML = temperedGlassData.map((item, index) => `
+            <div class="inv-item" onclick='selectFromList(${index})'>
+                <div style="font-weight: bold; color: white;">${item.mainModel}</div>
                 <div style="font-size: 10px; opacity: 0.5; text-transform: none;">Fits: ${item.models.join(', ')}</div>
             </div>
         `).join('');
@@ -212,37 +217,52 @@
 
     function handleTyping(val) {
         const box = document.getElementById('suggBox');
-        const query = val.toUpperCase().replace(/\s/g, '');
-        if (!query) { box.style.display = 'none'; return; }
+        if (!val) { box.style.display = 'none'; return; }
 
+        const query = val.toString().toUpperCase().replace(/\s/g, '');
+        
         const matches = temperedGlassData.filter(item => {
-            const mMatch = item.mainModel.toUpperCase().replace(/\s/g, '').includes(query);
-            const listMatch = item.models.some(m => m.toUpperCase().replace(/\s/g, '').includes(query));
-            return mMatch || listMatch;
+            // Force everything to String to prevent crashes
+            const mainName = String(item.mainModel).toUpperCase().replace(/\s/g, '');
+            const modelList = item.models.map(m => String(m).toUpperCase().replace(/\s/g, ''));
+            
+            const mainMatch = mainName.includes(query);
+            const listMatch = modelList.some(m => m.includes(query));
+            
+            return mainMatch || listMatch;
         });
 
         if (matches.length > 0) {
             box.style.display = 'block';
-            box.innerHTML = matches.slice(0, 10).map(m => `
-                <div class="sugg-item" onclick='selectModel(${JSON.stringify(m)})'>
-                    <strong>${m.mainModel}</strong><br>
-                    <small>Compatible: ${m.models.join(', ')}</small>
-                </div>
-            `).join('');
-        } else { box.style.display = 'none'; }
+            box.innerHTML = matches.slice(0, 10).map(m => {
+                // We find the original index to keep data clean
+                const dataIndex = temperedGlassData.indexOf(m);
+                return `
+                    <div class="sugg-item" onclick='selectFromList(${dataIndex})'>
+                        <div style="font-weight:bold; color:#0a111f;">${m.mainModel}</div>
+                        <div style="font-size:10px; opacity:0.7;">Fits: ${m.models.slice(0,3).join(', ')}...</div>
+                    </div>
+                `;
+            }).join('');
+        } else {
+            box.style.display = 'none';
+        }
     }
 
-    function executeSearch() {
-        const val = document.getElementById('glassInput').value;
-        handleTyping(val);
+    // New helper to handle clicks safely
+    function selectFromList(index) {
+        const data = temperedGlassData[index];
+        selectModel(data);
     }
 
     function selectModel(data) {
         document.getElementById('suggBox').style.display = 'none';
         document.getElementById('glassInput').value = data.mainModel;
+        
         const res = document.getElementById('resultDisplay');
         document.getElementById('mainModelName').innerText = data.mainModel;
-        document.getElementById('compatList').innerText = "FITS: " + data.models.join(' • ');
+        document.getElementById('compatList').innerText = "COMPATIBLE WITH: " + data.models.join(' • ');
+        
         res.style.display = 'block';
         res.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
