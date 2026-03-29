@@ -114,6 +114,54 @@
         .grid-2 img { width: 100%; height: 250px; object-fit: cover; filter: grayscale(20%); }
 
         .back-nav { font-size: 10px; margin-bottom: 30px; cursor: pointer; opacity: 0.6; }
+        /* --- FULLSCREEN GALLERY STYLES --- */
+#galleryModal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 17, 31, 0.98); /* Matte Dark Blue */
+    z-index: 9999;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+
+#galleryModal img {
+    max-width: 90%;
+    max-height: 70%;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.design-info {
+    margin-top: 20px;
+    text-align: center;
+    color: var(--nothing-white);
+}
+
+.file-name {
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 5px;
+    color: var(--accent-red); /* Nothing Red for the ID */
+}
+
+.gallery-nav {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.close-x {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 24px;
+    cursor: pointer;
+}
     </style>
 </head>
 <body>
@@ -161,6 +209,21 @@
         <h2>UV GLASS<span class="dot">.</span></h2>
         <p style="opacity: 0.5;">UV Inventory Sync Pending...</p>
     </div>
+    <div id="galleryModal">
+    <div class="close-x" onclick="closeGallery()">✕ CLOSE</div>
+    
+    <img id="modalImg" src="">
+    
+    <div class="design-info">
+        <span id="designFileName" class="file-name"></span>
+        <span id="designCounter" style="font-size: 10px; opacity: 0.5;"></span>
+    </div>
+
+    <div class="gallery-nav">
+        <button class="main-btn" style="padding: 10px 20px; width: auto;" onclick="changeImg(-1)">PREV</button>
+        <button class="main-btn" style="padding: 10px 20px; width: auto;" onclick="changeImg(1)">NEXT</button>
+    </div>
+</div>
 
 </div>
 
@@ -239,6 +302,59 @@
         const grid = document.getElementById('designGrid');
         grid.innerHTML = designImages[cat].map(src => `<img src="${src}">`).join('');
     }
+    let currentImages = [];
+let currentIndex = 0;
+
+// --- GALLERY LOGIC ---
+
+// 1. Update the grid renderer to allow clicking
+function loadImages(cat) {
+    const grid = document.getElementById('designGrid');
+    currentImages = designImages[cat] || [];
+    grid.innerHTML = currentImages.map((src, i) => 
+        `<img src="${src}" onclick="openGallery(${i})">`
+    ).join('');
+}
+
+// 2. Open the Modal
+function openGallery(index) {
+    currentIndex = index;
+    const modal = document.getElementById('galleryModal');
+    const img = document.getElementById('modalImg');
+    const nameLabel = document.getElementById('designFileName');
+    const counter = document.getElementById('designCounter');
+
+    const fullPath = currentImages[currentIndex];
+    // This extracts "boatairdopes138" from "images/boatairdopes138.png"
+    const fileName = fullPath.split('/').pop().split('.')[0].toUpperCase();
+
+    img.src = fullPath;
+    nameLabel.innerText = fileName;
+    counter.innerText = `${currentIndex + 1} / ${currentImages.length}`;
+    
+    modal.style.display = 'flex';
+}
+
+function closeGallery() {
+    document.getElementById('galleryModal').style.display = 'none';
+}
+
+function changeImg(dir) {
+    currentIndex = (currentIndex + dir + currentImages.length) % currentImages.length;
+    openGallery(currentIndex);
+}
+
+// 3. Swipe Logic for Gallery Feel
+let touchStartX = 0;
+document.getElementById('galleryModal').addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.getElementById('galleryModal').addEventListener('touchend', e => {
+    let touchEndX = e.changedTouches[0].screenX;
+    if (touchStartX - touchEndX > 50) changeImg(1);  // Swipe Left -> Next
+    if (touchEndX - touchStartX > 50) changeImg(-1); // Swipe Right -> Prev
+});
 </script>
 
 </body>
