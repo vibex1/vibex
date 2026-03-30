@@ -1774,5 +1774,11 @@ const temperedGlassData = [
   ],
 },
 ];
+// --- NEW BACK CASE DATA (Add this below) ---
+const backCaseData = [
+    { mainModel: "REDMI NOTE 12", models: ["REDMI NOTE 12 5G", "POCO X5 5G"] },
+    { mainModel: "VIVO Y16", models: ["VIVO Y16", "VIVO Y02", "VIVO Y02S"] },
+    { mainModel: "SAMSUNG A14", models: ["SAMSUNG A14 4G", "SAMSUNG A14 5G"] }
+];
 
 

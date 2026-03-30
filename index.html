@@ -121,6 +121,7 @@
         <h1 style="font-size: 40px; font-weight: 200; margin-bottom: 60px;">RAM <span class="dot">.</span><br>HUB</h1>
         <button class="main-btn" onclick="showPage('designPage')">SKIN SELECTIONS <span>→</span></button>
         <button class="main-btn" onclick="showPage('glassMenu')">TEMPERED GLASS <span>→</span></button>
+        <button class="main-btn" onclick="showPage('caseMenu')">BACK CASES <span>→</span></button>
     </div>
 
     <div id="glassMenu" class="page">
@@ -129,6 +130,12 @@
         <button class="main-btn" onclick="showPage('gorillaPage')">GORILLA GLASS <span>→</span></button>
         <button class="main-btn" onclick="showPage('uvPage')">UV GLASS <span>→</span></button>
     </div>
+    <div id="caseMenu" class="page">
+    <div class="back-nav" onclick="showPage('homePage')">← BACK TO HOME</div>
+    <h2>SELECT CASE TYPE<span class="dot">.</span></h2>
+    <button class="main-btn" onclick="showPage('battleCasePage')">BATTLE CASES <span>→</span></button>
+    <button class="main-btn">FANCY CASES (COMING SOON) <span>→</span></button>
+</div>
 
     <div id="gorillaPage" class="page">
         <div class="back-nav" onclick="showPage('glassMenu')">← BACK</div>
@@ -163,6 +170,20 @@
         <div class="back-nav" onclick="showPage('glassMenu')">← BACK</div>
         <h2>UV GLASS<span class="dot">.</span></h2>
         <p style="opacity: 0.5;">SYNCING...</p>
+    </div>
+</div>
+<div id="battleCasePage" class="page">
+    <div class="back-nav" onclick="showPage('caseMenu')">← BACK</div>
+    <h2>BATTLE CASE SEARCH<span class="dot">.</span></h2>
+    
+    <div class="search-wrapper">
+        <input type="text" id="caseInput" placeholder="TYPE MODEL..." oninput="handleCaseTyping(this.value)">
+        <div id="caseSuggBox" class="sugg-box-style"></div> </div>
+
+    <div id="caseResultDisplay" style="display:none; text-align:center; padding:30px; border:1px dashed white; margin-top:20px;">
+        <div style="font-size: 10px; opacity: 0.6;">USE THIS CASE:</div>
+        <div id="caseMainName" style="font-size: 28px; font-weight: 900; color: var(--accent-red);"></div>
+        <div id="caseCompatList" style="font-size: 11px; margin-top: 15px; border-top: 1px solid #333; padding-top: 10px;"></div>
     </div>
 </div>
 
@@ -266,6 +287,43 @@
         res.style.display = 'block';
         res.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
+    function handleCaseTyping(val) {
+    const box = document.getElementById('caseSuggBox');
+    const res = document.getElementById('caseResultDisplay');
+    const query = val.toUpperCase().replace(/\s/g, '');
+    
+    box.innerHTML = '';
+    if (!query || typeof backCaseData === 'undefined') { box.style.display = 'none'; return; }
+
+    const matches = backCaseData.filter(item => {
+        const mMatch = item.mainModel.toUpperCase().replace(/\s/g, '').includes(query);
+        const listMatch = item.models.some(m => m.toUpperCase().replace(/\s/g, '').includes(query));
+        return mMatch || listMatch;
+    });
+
+    if (matches.length > 0) {
+        box.style.display = 'block';
+        box.style.background = 'white'; // Matches Nothing style
+        box.style.position = 'absolute';
+        box.style.width = '100%';
+        box.style.zIndex = '100';
+
+        box.innerHTML = matches.slice(0, 10).map(m => `
+            <div class="sugg-item" style="color:black; padding:15px; border-bottom:1px solid #eee;" onclick='selectCase(${JSON.stringify(m)})'>
+                <strong>${m.mainModel}</strong><br>
+                <small>Fits: ${m.models.join(', ')}</small>
+            </div>
+        `).join('');
+    } else { box.style.display = 'none'; }
+}
+
+function selectCase(data) {
+    document.getElementById('caseSuggBox').style.display = 'none';
+    document.getElementById('caseInput').value = data.mainModel;
+    document.getElementById('caseMainName').innerText = data.mainModel;
+    document.getElementById('caseCompatList').innerText = "FITS: " + data.models.join(' • ');
+    document.getElementById('caseResultDisplay').style.display = 'block';
+}
 
     // --- SKIN GALLERY LOGIC ---
     function renderCats() {
