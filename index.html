@@ -56,7 +56,6 @@
 
         .main-btn:hover { background: var(--nothing-white); color: var(--nothing-blue); }
 
-        /* SEARCH UI */
         .search-wrapper { position: relative; margin-top: 20px; border-bottom: 2px solid var(--nothing-white); display: flex; align-items: center; }
         input {
             width: 100%;
@@ -68,7 +67,7 @@
             outline: none;
         }
 
-        #suggBox {
+        #suggBox, #caseSuggBox {
             background: var(--nothing-white);
             color: var(--nothing-blue);
             max-height: 300px;
@@ -82,7 +81,7 @@
         }
         .sugg-item { padding: 15px; border-bottom: 1px solid #ddd; font-size: 12px; cursor: pointer; }
 
-        #resultDisplay {
+        .result-box {
             margin-top: 30px;
             padding: 30px;
             border: 1px dashed var(--nothing-white);
@@ -99,7 +98,6 @@
 
         .back-nav { font-size: 10px; margin-bottom: 30px; cursor: pointer; opacity: 0.6; }
 
-        /* GALLERY MODAL */
         #galleryModal {
             display: none; position: fixed; inset: 0; background: rgba(10, 17, 31, 0.98);
             z-index: 9999; flex-direction: column; justify-content: center; align-items: center;
@@ -109,7 +107,6 @@
         .file-name { font-size: 18px; font-weight: 900; color: var(--accent-red); display: block; margin-top: 20px; }
         .close-x { position: absolute; top: 30px; right: 30px; font-size: 20px; cursor: pointer; }
         
-        /* INVENTORY LIST */
         .inv-item { padding: 15px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 10px; cursor: pointer; }
     </style>
 </head>
@@ -130,32 +127,49 @@
         <button class="main-btn" onclick="showPage('gorillaPage')">GORILLA GLASS <span>→</span></button>
         <button class="main-btn" onclick="showPage('uvPage')">UV GLASS <span>→</span></button>
     </div>
+
     <div id="caseMenu" class="page">
-    <div class="back-nav" onclick="showPage('homePage')">← BACK TO HOME</div>
-    <h2>SELECT CASE TYPE<span class="dot">.</span></h2>
-    <button class="main-btn" onclick="showPage('battleCasePage')">BATTLE CASES <span>→</span></button>
-    <button class="main-btn">FANCY CASES (COMING SOON) <span>→</span></button>
-</div>
+        <div class="back-nav" onclick="showPage('homePage')">← BACK TO HOME</div>
+        <h2>SELECT CASE TYPE<span class="dot">.</span></h2>
+        <button class="main-btn" onclick="showPage('battleCasePage')">BATTLE CASES <span>→</span></button>
+        <button class="main-btn">FANCY CASES (COMING SOON) <span>→</span></button>
+    </div>
 
     <div id="gorillaPage" class="page">
         <div class="back-nav" onclick="showPage('glassMenu')">← BACK</div>
         <h2>GORILLA SEARCH<span class="dot">.</span></h2>
-        
         <div class="search-wrapper">
             <input type="text" id="glassInput" placeholder="TYPE MODEL..." oninput="handleTyping(this.value)">
             <button onclick="executeSearch()" style="background:none; border:none; color:white; cursor:pointer; padding-left:10px;">GO</button>
             <div id="suggBox"></div>
         </div>
-
-        <div id="resultDisplay">
+        <div id="resultDisplay" class="result-box">
             <div style="font-size: 10px; opacity: 0.6; margin-bottom: 5px;">PICK THIS GLASS:</div>
             <div id="mainModelName" style="font-size: 28px; font-weight: 900; color: var(--accent-red);"></div>
             <div id="compatList" style="font-size: 11px; margin-top: 15px; border-top: 1px solid #333; padding-top: 10px; text-transform: none;"></div>
         </div>
-
-        <div id="inventorySection" style="margin-top: 40px;">
+        <div style="margin-top: 40px;">
             <h3 style="font-size: 10px; opacity: 0.4; margin-bottom: 15px;">ALL STOCK MODELS:</h3>
             <div id="inventoryContainer"></div>
+        </div>
+    </div>
+
+    <div id="battleCasePage" class="page">
+        <div class="back-nav" onclick="showPage('caseMenu')">← BACK</div>
+        <h2>BATTLE CASE SEARCH<span class="dot">.</span></h2>
+        <div class="search-wrapper">
+            <input type="text" id="caseInput" placeholder="TYPE MODEL..." oninput="handleCaseTyping(this.value)">
+            <button onclick="executeCaseSearch()" style="background:none; border:none; color:white; cursor:pointer; padding-left:10px;">GO</button>
+            <div id="caseSuggBox"></div>
+        </div>
+        <div id="caseResultDisplay" class="result-box">
+            <div style="font-size: 10px; opacity: 0.6; margin-bottom: 10px;">USE THIS CASE:</div>
+            <div id="caseMainName" style="font-size: 28px; font-weight: 900; color: var(--accent-red);"></div>
+            <div id="caseCompatList" style="font-size: 11px; margin-top: 15px; border-top: 1px solid #333; padding-top: 10px; text-transform: none;"></div>
+        </div>
+        <div style="margin-top: 40px;">
+            <h3 style="font-size: 10px; opacity: 0.4; margin-bottom: 15px;">FULL CASE INVENTORY:</h3>
+            <div id="caseInventoryContainer"></div>
         </div>
     </div>
 
@@ -171,23 +185,8 @@
         <h2>UV GLASS<span class="dot">.</span></h2>
         <p style="opacity: 0.5;">SYNCING...</p>
     </div>
-</div>
-<div id="battleCasePage" class="page">
-    <div class="back-nav" onclick="showPage('caseMenu')">← BACK</div>
-    <h2>BATTLE CASE SEARCH<span class="dot">.</span></h2>
-    
-    <div class="search-wrapper">
-        <input type="text" id="caseInput" placeholder="TYPE MODEL..." oninput="handleCaseTyping(this.value)">
-        <div id="caseSuggBox" class="sugg-box-style"></div> </div>
 
-    <div id="caseResultDisplay" style="display:none; text-align:center; padding:30px; border:1px dashed white; margin-top:20px;">
-        <div style="font-size: 10px; opacity: 0.6;">USE THIS CASE:</div>
-        <div id="caseMainName" style="font-size: 28px; font-weight: 900; color: var(--accent-red);"></div>
-        <div id="caseCompatList" style="font-size: 11px; margin-top: 15px; border-top: 1px solid #333; padding-top: 10px;"></div>
-    </div>
-</div>
-
-<div id="galleryModal">
+</div> <div id="galleryModal">
     <div class="close-x" onclick="closeGallery()">✕ CLOSE</div>
     <img id="modalImg">
     <div class="design-info">
@@ -211,23 +210,24 @@
     function showPage(id) {
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
         document.getElementById(id).classList.add('active');
+
         if(id === 'designPage') renderCats();
         if(id === 'gorillaPage') {
             document.getElementById('resultDisplay').style.display = 'none';
             document.getElementById('glassInput').value = '';
-            renderFullList();
+            renderFullList(); 
+        }
+        if(id === 'battleCasePage') {
+            document.getElementById('caseResultDisplay').style.display = 'none';
+            document.getElementById('caseInput').value = '';
+            renderFullCaseList();
         }
     }
 
-// --- UPDATED ERROR-PROOF SEARCH LOGIC ---
+    // --- GORILLA GLASS LOGIC ---
     function renderFullList() {
         const container = document.getElementById('inventoryContainer');
-        // Check if data exists, if not, show an error on screen
-        if (typeof temperedGlassData === 'undefined') {
-            container.innerHTML = "<div style='color:red;'>ERROR: data.js not found or broken.</div>";
-            return;
-        }
-        
+        if (typeof temperedGlassData === 'undefined') return;
         container.innerHTML = temperedGlassData.map((item, index) => `
             <div class="inv-item" onclick='selectFromList(${index})'>
                 <div style="font-weight: bold; color: white;">${item.mainModel}</div>
@@ -239,91 +239,72 @@
     function handleTyping(val) {
         const box = document.getElementById('suggBox');
         if (!val) { box.style.display = 'none'; return; }
-
         const query = val.toString().toUpperCase().replace(/\s/g, '');
-        
         const matches = temperedGlassData.filter(item => {
-            // Force everything to String to prevent crashes
             const mainName = String(item.mainModel).toUpperCase().replace(/\s/g, '');
             const modelList = item.models.map(m => String(m).toUpperCase().replace(/\s/g, ''));
-            
-            const mainMatch = mainName.includes(query);
-            const listMatch = modelList.some(m => m.includes(query));
-            
-            return mainMatch || listMatch;
+            return mainName.includes(query) || modelList.some(m => m.includes(query));
         });
-
         if (matches.length > 0) {
             box.style.display = 'block';
             box.innerHTML = matches.slice(0, 10).map(m => {
-                // We find the original index to keep data clean
                 const dataIndex = temperedGlassData.indexOf(m);
-                return `
-                    <div class="sugg-item" onclick='selectFromList(${dataIndex})'>
-                        <div style="font-weight:bold; color:#0a111f;">${m.mainModel}</div>
-                        <div style="font-size:10px; opacity:0.7;">Fits: ${m.models.slice(0,3).join(', ')}...</div>
-                    </div>
-                `;
+                return `<div class="sugg-item" onclick='selectFromList(${dataIndex})'><strong>${m.mainModel}</strong><br><small>Fits: ${m.models.slice(0,2).join(', ')}...</small></div>`;
             }).join('');
-        } else {
-            box.style.display = 'none';
-        }
+        } else { box.style.display = 'none'; }
     }
 
-    // New helper to handle clicks safely
-    function selectFromList(index) {
-        const data = temperedGlassData[index];
-        selectModel(data);
-    }
-
+    function selectFromList(index) { selectModel(temperedGlassData[index]); }
+    function executeSearch() { handleTyping(document.getElementById('glassInput').value); }
     function selectModel(data) {
         document.getElementById('suggBox').style.display = 'none';
         document.getElementById('glassInput').value = data.mainModel;
-        
-        const res = document.getElementById('resultDisplay');
         document.getElementById('mainModelName').innerText = data.mainModel;
         document.getElementById('compatList').innerText = "COMPATIBLE WITH: " + data.models.join(' • ');
-        
-        res.style.display = 'block';
-        res.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        document.getElementById('resultDisplay').style.display = 'block';
+        document.getElementById('resultDisplay').scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
-    function handleCaseTyping(val) {
-    const box = document.getElementById('caseSuggBox');
-    const res = document.getElementById('caseResultDisplay');
-    const query = val.toUpperCase().replace(/\s/g, '');
-    
-    box.innerHTML = '';
-    if (!query || typeof backCaseData === 'undefined') { box.style.display = 'none'; return; }
 
-    const matches = backCaseData.filter(item => {
-        const mMatch = item.mainModel.toUpperCase().replace(/\s/g, '').includes(query);
-        const listMatch = item.models.some(m => m.toUpperCase().replace(/\s/g, '').includes(query));
-        return mMatch || listMatch;
-    });
-
-    if (matches.length > 0) {
-        box.style.display = 'block';
-        box.style.background = 'white'; // Matches Nothing style
-        box.style.position = 'absolute';
-        box.style.width = '100%';
-        box.style.zIndex = '100';
-
-        box.innerHTML = matches.slice(0, 10).map(m => `
-            <div class="sugg-item" style="color:black; padding:15px; border-bottom:1px solid #eee;" onclick='selectCase(${JSON.stringify(m)})'>
-                <strong>${m.mainModel}</strong><br>
-                <small>Fits: ${m.models.join(', ')}</small>
+    // --- BATTLE CASE LOGIC ---
+    function renderFullCaseList() {
+        const container = document.getElementById('caseInventoryContainer');
+        if (typeof backCaseData === 'undefined') return;
+        container.innerHTML = backCaseData.map((item, index) => `
+            <div class="inv-item" onclick='selectCaseFromList(${index})'>
+                <div style="font-weight: bold; color: white;">${item.mainModel}</div>
+                <div style="font-size: 10px; opacity: 0.5; text-transform: none;">Fits: ${item.models.join(', ')}</div>
             </div>
         `).join('');
-    } else { box.style.display = 'none'; }
-}
+    }
 
-function selectCase(data) {
-    document.getElementById('caseSuggBox').style.display = 'none';
-    document.getElementById('caseInput').value = data.mainModel;
-    document.getElementById('caseMainName').innerText = data.mainModel;
-    document.getElementById('caseCompatList').innerText = "FITS: " + data.models.join(' • ');
-    document.getElementById('caseResultDisplay').style.display = 'block';
-}
+    function handleCaseTyping(val) {
+        const box = document.getElementById('caseSuggBox');
+        if (!val) { box.style.display = 'none'; return; }
+        const query = val.toString().toUpperCase().replace(/\s/g, '');
+        const matches = backCaseData.filter(item => {
+            const mainName = String(item.mainModel).toUpperCase().replace(/\s/g, '');
+            const modelList = item.models.map(m => String(m).toUpperCase().replace(/\s/g, ''));
+            return mainName.includes(query) || modelList.some(m => m.includes(query));
+        });
+        if (matches.length > 0) {
+            box.style.display = 'block';
+            box.innerHTML = matches.slice(0, 10).map(m => {
+                const dataIndex = backCaseData.indexOf(m);
+                return `<div class="sugg-item" onclick='selectCaseFromList(${dataIndex})'><strong>${m.mainModel}</strong><br><small>Fits: ${m.models.slice(0,2).join(', ')}...</small></div>`;
+            }).join('');
+        } else { box.style.display = 'none'; }
+    }
+
+    function selectCaseFromList(index) { selectCase(backCaseData[index]); }
+    function executeCaseSearch() { handleCaseTyping(document.getElementById('caseInput').value); }
+    function selectCase(data) {
+        document.getElementById('caseSuggBox').style.display = 'none';
+        document.getElementById('caseInput').value = data.mainModel;
+        document.getElementById('caseMainName').innerText = data.mainModel;
+        document.getElementById('caseCompatList').innerText = "COMPATIBLE WITH: " + data.models.join(' • ');
+        document.getElementById('caseResultDisplay').style.display = 'block';
+        document.getElementById('caseResultDisplay').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
 
     // --- SKIN GALLERY LOGIC ---
     function renderCats() {
@@ -331,12 +312,10 @@ function selectCase(data) {
         const cats = Object.keys(designImages || {});
         btnBox.innerHTML = cats.map(c => `<button class="main-btn" style="padding: 10px; font-size: 10px; margin-bottom: 5px;" onclick="loadImages('${c}')">${c} <span>+</span></button>`).join('');
     }
-
     function loadImages(cat) {
         currentImages = designImages[cat] || [];
         document.getElementById('designGrid').innerHTML = currentImages.map((src, i) => `<img src="${src}" onclick="openGallery(${i})">`).join('');
     }
-
     function openGallery(i) {
         currentIndex = i;
         const modal = document.getElementById('galleryModal');
@@ -346,17 +325,8 @@ function selectCase(data) {
         document.getElementById('designCounter').innerText = `${currentIndex + 1} / ${currentImages.length}`;
         modal.style.display = 'flex';
     }
-
     function closeGallery() { document.getElementById('galleryModal').style.display = 'none'; }
     function changeImg(d) { currentIndex = (currentIndex + d + currentImages.length) % currentImages.length; openGallery(currentIndex); }
-
-    let startX = 0;
-    document.getElementById('galleryModal').ontouchstart = e => startX = e.touches[0].clientX;
-    document.getElementById('galleryModal').ontouchend = e => {
-        let endX = e.changedTouches[0].clientX;
-        if (startX - endX > 50) changeImg(1);
-        if (endX - startX > 50) changeImg(-1);
-    };
 </script>
 
 </body>
