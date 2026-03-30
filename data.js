@@ -1776,9 +1776,1072 @@ const temperedGlassData = [
 ];
 // --- NEW BACK CASE DATA (Add this below) ---
 const backCaseData = [
-    { mainModel: "REDMI NOTE 12", models: ["REDMI NOTE 12 5G", "POCO X5 5G"] },
-    { mainModel: "VIVO Y16", models: ["VIVO Y16", "VIVO Y02", "VIVO Y02S"] },
-    { mainModel: "SAMSUNG A14", models: ["SAMSUNG A14 4G", "SAMSUNG A14 5G"] }
+  {
+    mainModel: "SAMSUNG A01 CORE",
+    models: [
+      "SAMSUNG A01 CORE",
+      "SAMSUNG M01 CORE",
+      "SAMSUNG A03 CORE"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG A02",
+    models: [
+      "SAMSUNG A02",
+      "SAMSUNG M02"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG A03",
+    models: [
+      "SAMSUNG A03",
+    ],
+  },
+  {
+    mainModel: "SAMSUNG A03 CORE",
+    models: [
+      "SAMSUNG A03 CORE",
+    ],
+  },
+  {
+    mainModel: "SAMSUNG A04 E",
+    models: [
+      "SAMSUNG A04 E",
+      "SAMSUNG M04",
+      "SAMSUNG F04"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG M24 5G",
+    models: [
+      "SAMSUNG M24 5G",
+      "SAMSUNG A05 S",
+      "SAMSUNG F14"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG A05 4G",
+    models: [
+      "SAMSUNG A05 4G",
+      "SAMSUNG F05 4G",
+      "SAMSUNG M05 4G"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG A06 5G",
+    models: [
+      "SAMSUNG A06 5G"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG A07 4G",
+    models: [
+      "SAMSUNG A07 4G"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG M10",
+    models: [
+      "SAMSUNG M10",
+      "SAMSUNG A10"
+    ],
+  },
+  {
+    mainModel: "A10S",
+    models: [
+      "SAMSUNG A10S",
+      "SAMSUNG M01S"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG A11",
+    models: [
+      "SAMSUNG A11",
+      "SAMSUNG M11"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG A12",
+    models: [
+      "SAMSUNG A12",
+      "SAMSUNG M12",
+      "SAMSUNG F12",
+      "SAMSUNG A125"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG A13 5G",
+    models: [
+      "SAMSUNG A13 5G",
+      "SAMSUNG A04 S"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG A13 4G",
+    models: [
+      "SAMSUNG A13 4G",
+      "SAMSUNG A13 LITE"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG A17",
+    models: [
+      "SAMSUNG A17",
+      "SAMSUNG A26"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG A30",
+    models: [
+      "SAMSUNG A30",
+      "SAMSUNG A20",
+      "SAMSUNG A305",
+      "SAMSUNG M10 S"
+    ],
+  },
+  {
+    mainModel: "SMASUNG A20 S",
+    models: [
+      "SAMSUNG A20 S"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG A21S",
+    models: [
+      "SAMSUNG A21 S",
+      "SAMSUNG A217F"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG A22 4G",
+    models: [
+      "SAMSUNG A22 4G"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG A22 5G",
+    models: [
+      "SAMSUNG A22 5G",
+      "SASMUNG F42 5G",
+      "SAMSUNG A22 S 5G"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG A32 4G",
+    models: [
+      "SAMSUNG A32 4G"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG A34 5G",
+    models: [
+      "SAMSUNG A34 5G"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG A35 5G",
+    models: [
+      "SAMSUNG A35 5G"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG A36 5G",
+    models: [
+      "SAMSUNG A36 5G"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG A50",
+    models: [
+      "SAMSUNG A50",
+      "SAMSUNG A30",
+      "SAMSUNG A50 S"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG A51",
+    models: [
+      "SAMSUNG A51",
+      "SAMSUNG M40 S",
+      "SAMSUNG A515F"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG A70",
+    models: [
+      "SAMSUNG A70",
+      "SAMSUNG A70 S"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG A03 S",
+    models: [
+      "SAMSUNG A03 S",
+      "SAMSUNG A02 S",
+      "SAMSUNG M02 S"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG M13 5G",
+    models: [
+      "SAMSUNG M13 5G",
+      "SAMSUNG A04 4G"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG M14 5G",
+    models: [
+      "SAMSUNG M14 5G",
+      "SAMSUNG A05 S",
+      "SAMSUNG F14 4G"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG M23",
+    models: [
+      "SAMSUNG M23",
+      "SAMSUNG F23"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG M30 S",
+    models: [
+      "SASMUNG M30 S",
+      "SAMSUNG M21"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG M31",
+    models: [
+      "SAMSUNG M31",
+      "SAMSUNG M21 S",
+      "SAMSUNG F41"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG M34",
+    models: [
+      "SAMSUNG M34",
+      "SAMSUNG F34"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG M35",
+    models: [
+      "SAMSUNG M35"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG M51",
+    models: [
+      "SAMSUNG M51"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG M56",
+    models: [
+      "SAMSUNG M56",
+      "SAMSUNG F56"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG F06",
+    models: [
+      "SAMSUNG F06",
+      "SAMSUNG M06"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG M36",
+    models: [
+      "SAMSUNG M36",
+      "SAMSUNG MF36"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG F14 5G",
+    models: [
+      "SAMSUNG F14 5G",
+      "SAMSUNG M14 5G",
+      "SAMSUNG A05 S" 
+    ],
+  },
+  {
+    mainModel: "SAMSUNG S20 FE",
+    models: [
+      "SAMSUNG S20 FE",
+      "SAMSUNG S20 LITE"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG S21 FE",
+    models: [
+      "SAMSUNG S21 FE"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG S22",
+    models: [
+      "SAMSUNG S22"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG S22 ULTRA",
+    models: [
+      "SAMSUNG S22 ULTRA"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG S23",
+    models: [
+      "SAMSUNG S23"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG S23 ULTRA",
+    models: [
+      "SAMSUNG S23 ULTRA"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG S23 FE",
+    models: [
+      "SAMSUNG S23 FE"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG S24",
+    models: [
+      "SAMSUNG S24",
+      "SAMSUNG S25"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG S24 ULTRA",
+    models: [
+      "SAMSUNG S24 ULTRA"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG S25 ULTRA",
+    models: [
+      "SAMSUNG S25 ULTRA"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG J7 PRIME",
+    models: [
+      "SAMSUNG J7 PRIME"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG A14",
+    models: [
+      "SAMSUNG A14"
+    ],
+  },
+  {
+    mainModel: "VIVO Y02",
+    models: [
+      "VIVO Y02",
+      "VIVO Y11 2023",
+      "VIVO Y02 T",
+      "VIVO Y02 A"
+    ],
+  },
+  {
+    mainModel: "VIVO Y15 S",
+    models: [
+      "VIVO Y15 S",
+      "VIVO Y15 A 4G",
+      "VIVO T1 4G",
+      "VIVO Y10 4G",
+      "VIVO Y01",
+      "IQOO U5X"
+    ],
+  },
+  {
+    mainModel: "VIVO Y16",
+    models: [
+      "VIVO Y16",
+      "VIVO Y35 5G",
+      "IQOO Z7",
+      "VIVO Y56",
+      "T2 X",
+      "VIVO Y02S 4G"
+    ],
+  },
+  {
+    mainModel: "VIOV Y17",
+    models: [
+      "VIVO Y17",
+      "VIVO Y3",
+      "VIVO Y15",
+      "VIVO Y12",
+      "VIVO U3X",
+      "VIVO U10",
+      "VIVO Y11"
+    ],
+  },
+  {
+    mainModel: "VIVO Y18",
+    models: [
+      "VIVO Y18",
+      "VIVO Y03",
+      "VIVO Y18 E",
+      "VIVO Y18 4G",
+      "VIVO T3 LITE",
+      "VIVO Y28 S",
+      "VIVO Y36 T",
+      "VIVO Y37 5G"
+    ],
+  },
+  {
+    mainModel: "VIVO Y19",
+    models: [
+      "VIVO Y19",
+      "VIVO Y5 S",
+      "VIVO U3",
+      "VIVO U20"
+    ],
+  },
+  {
+    mainModel: "VIVO Y19 5G",
+    models: [
+      "VIVO Y19 5G",
+      "VIVO Y04",
+      "VIVO Y29 S",
+      "VIVO Y19 E",
+      "IQOO Z10 LITE",
+      "VIVO T4 LITE",
+      "VIVO Y37 C"
+    ],
+  },
+  {
+    mainModel: "VIVO Y20",
+    models: [
+      "VIVO Y20",
+      "VIVO Y20 I",
+      "VIVO Y20 S",
+      "VIVO Y11 S",
+      "VIVO Y12 S",
+      "IQOO U1X"
+    ],
+  },
+  {
+    mainModel: "VIVO Y21",
+    models: [
+      "VIVO Y21",
+      "VIVO Y32",
+      "VIVO Y33 S",
+      "VIVO Y21 S",
+      "VIVO Y22",
+      "VIVO Y33 T",
+      "VIVO T1X 4G"
+    ],
+  },
+  {
+    mainModel: "VIVO Y27 23",
+    models: [
+      "IVVO Y27 23",
+    ],
+  },
+  {
+    mainModel: "VIVO Y29 5G",
+    models: [
+      "VIVO Y29 5G",
+      "VIVO Y19 S"
+    ],
+  },
+  {
+    mainModel: "VIVO Y31",
+    models: [
+      "VIVO Y31",
+      "VIVO 21 D"
+    ],
+  },
+  {
+    mainModel: "VIVO Y35",
+    models: [
+      "VIVO Y35"
+    ],
+  },
+  {
+    mainModel: "VIVO Y36",
+    models: [
+      "VIVO Y36",
+      "VIVO Y27 S",
+      "VIVO Y78 5G",
+      "VIVO Y27 5G"
+    ],
+  },
+  {
+    mainModel: "VIVO Y38 5G",
+    models: [
+      "VIVO Y38 5G",
+      "VIVO Y58 5G",
+      "VIVO Y200 I"
+    ],
+  },
+  {
+    mainModel: "VIVO Y51",
+    models: [
+      "VIVO Y51",
+      "VIVO Y51 A",
+      "VIVO Y51 S",
+      "VIVO Y31",
+      "VIVO Y53 S",
+      "VIVO Y33"
+    ],
+  },
+  {
+    mainModel: "VIVO Y73",
+    models: [
+      "VIVO 73",
+      "VIVO V20",
+      "VIVO V21 E 4G"
+    ],
+  },
+  {
+    mainModel: "VIVO Y90",
+    models: [
+      "VIVO Y90",
+      "VIVO Y93",
+      "VIVO Y70",
+      "VIVO Y91 C",
+      "VIVO Y91 I"
+    ],
+  },
+  {
+    mainModel: "Y100",
+    models: [
+      "VIVO Y100",
+      "VIVO T2"
+    ],
+  },
+  {
+    mainModel: "VIVO Y200",
+    models: [
+      "VIVO Y200",
+      "VIVO V30 LITE"
+    ],
+  },
+  {
+    mainModel: "VIVO Y200 E",
+    models: [
+      "VIVO Y200 E",
+      "VIVO T3",
+      "VIVO V40 SE"
+    ],
+  },
+  {
+    mainModel: "VIVO Y400 PRO",
+    models: [
+      "VIVO Y400 PRO"
+    ],
+  },
+  {
+    mainModel: "VIVO Y400",
+    models: [
+      "VIVO Y400"
+    ],
+  },
+  {
+    mainModel: "VIVO S1",
+    models: [
+      "VIVO S1",
+      "VIVO Z1 X",
+      "VIVO V17 NEO",
+      "IQOO NEO"
+    ],
+  },
+  {
+    mainModel: "VIVO T1 5G",
+    models: [
+      "VIVO T1 5G",
+      "VIVO Y75 5G",
+      "VIVO Y55 5G",
+      "IQOO Z6 5G"
+    ],
+  },
+  {
+    mainModel: "VIVO T1 44W",
+    models: [
+      "VIVO T1 44W",
+      "VIVO Z6 44W",
+      "VIVO Y55 4G"
+    ],
+  },
+  {
+    mainModel: "VIVO T3 X",
+    models: [
+      "VIVO T3 X",
+      "VIVO Y200 I",
+      "VIVO Y200 T"
+    ],
+  },
+  {
+    mainModel: "VIVO T4",
+    models: [
+      "VIVO T4",
+      "VIVO Y300 PRO",
+      "VIVO Y300 PRO PLUS",
+      "IQOO Z10 5G"
+    ],
+  },
+  {
+    mainModel: "VIVO T4 ULTRA",
+    models: [
+      "VIVO T4 ULTRA",
+      "VIVO S20 PRO 5G"
+    ],
+  },
+  {
+    mainModel: "VIVO T4 R",
+    models: [
+      "VIVO T4 R",
+      "VIVO V50",
+      "VIVO V50 E",
+      "VIVO IQOO Z10 R"
+    ],
+  },
+  {
+    mainModel: "VIVO T4 X 5G",
+    models: [
+      "VIVO T4 X",
+      "VIVO V29 4G",
+      "VIVO Y300 T",
+      "VIVO Z10 X"
+    ],
+  },
+  {
+    mainModel: "VIVO Z9 X",
+    models :[
+      "VIVO Z9 X",
+      "VIVO Y37 PRO"
+    ],
+  },
+  {
+    mainModel: "VIVO Z9",
+    models: [
+      "VIVO Z9"
+    ],
+  },
+  {
+    mainModel: "IQOO NEO 10",
+    models: [
+      "IQOO NEO 10",
+      "VIVO Y300 GT 5G",
+      "VIVO Z10 TURBO",
+      "VIVO Z10 TURBO PRO",
+    ],
+  },
+  {
+    mainModel: "VIVO X200 FE",
+    models:[
+      "VIVO X200 FE",
+      "VIVO S30 PRO MINI"
+    ],
+  },
+  {
+    mainModel: "VIVO X300 PRO",
+    models: [
+      "VIVO X300 PRO"
+    ],
+  },
+  {
+    mainModel: "X300",
+    models: [
+      "VIVO X300"
+    ],
+  },
+  {
+    mainModel: "VIVO T2 PRO",
+    models: [
+      "VIVO T2 PRO",
+      "VIVO S17 E"
+    ],
+  },
+  {
+    mainModel: "VIVO V15 PRO",
+    models: [
+      "VIVO V15 PRO"
+    ],
+  },
+  {
+    mainModel: "VIVO V19",
+    models :[
+      "VIVO V19"
+    ],
+  },
+  {
+    mainModel: "VIVO V15",
+    models: [
+      "VIVO V15"
+    ],
+  },
+  {
+    mainModel: "VIVO V17",
+    models: [
+      "VIVO V17",
+      "VIVO V19 NEO"
+    ],
+  },
+  {
+    mainModel: "VIVO V2O",
+    models: [
+      "VIVO V20",
+      "VIVO V21 E 4G",
+      "VIVO Y73 4G"
+    ],
+  },
+  {
+    mainModel: "VIVO V20 SE",
+    models: [
+      "VIVO V20 SE",
+      "VIVO Y70"
+    ],
+  },
+  {
+    mainModel: "VIVO V25",
+    models: [
+      "VIVO V25",
+      "VIVO X80 LITE",
+      "VIVO V25 E"
+    ],
+  },
+  {
+    mainModel: "VIVO V27",
+    models: [
+      "VIVO V27",
+      "VIVO V27 PRO",
+      "VIVO S16",
+      "VIVO S16 PRO"
+    ],
+  },
+  {
+    mainModel: "VIVO V21",
+    mainModel: [
+      "VIVO V21"
+    ],
+  },
+  {
+    mainModel: "VIVO V25 PRO",
+    models: [
+      "VIVO V25 PRO",
+      "VIVO S15 PRO"
+    ],
+  },
+  {
+    mainModel: "VIVO V23 E",
+    models: [
+      "VIVO V23 E",
+      "VIVO S10 E",
+      "VIVO Y75 4G",
+      "VIVO T01"
+    ],
+  },
+  {
+    mainModel: "VIVO V30 E",
+    models: [
+      "VIVO V30 E"
+    ],
+  },
+  {
+    mainModel: "VIVO V30",
+    models: [
+      "VIVO V30",
+      "VIVO V30 PRO",
+      "VIVO S18 5G",
+      "VIVO S18 PRO"
+    ],
+  },
+  {
+    mainModel: "VIVO V40 PRO",
+    models: [
+      "VIVO V40 PRO",
+      "VIVO S19 PRO",
+      "VIVO V40"
+    ],
+  },
+  {
+    mainModel: "VIVO V40",
+    models: [
+      "VIVO V40",
+      "IQOO Z9S"
+    ],
+  },
+  {
+    mainModel: "VIVO V60",
+    models:[
+      "VIVO V60",
+      "VIVO T4 PRO"
+    ],
+  },
+  {
+    mainModel: "MI 7A",
+    models: [
+      "MI 7A"
+    ],
+  },
+  {
+    mainModel: "MI 7",
+    models: [
+      "MI 7",
+      "MI Y3"
+    ],
+  },
+  {
+    mainModel: "MI 8",
+    models: [
+      "MI 8",
+      "MI 8A"
+    ],
+  },
+  {
+    mainModel: "MI 9 POWER",
+    models: [
+      "MI 9POWER",
+      "MI 9 T",
+      "MI NOTE 9 4G",
+      "POCO M3"
+    ],
+  },
+  {
+    mainModel: "MI 9A",
+    models: [
+      "MI 9A",
+      "MI 9I",
+      "MI 9A T"
+    ],
+  },
+  {
+    mainModel: "MI 9C",
+    models: [
+      "MI 9C",
+      "MI 9",
+      "POCO C3",
+      "POCO C31"
+    ],
+  },
+  {
+    mainModel: "MI 9 PRIME",
+    models: [
+      "MI 9 PRIME",
+      "POCO M2",
+      "POCO M2 RELODED"
+    ],
+  },
+  {
+    mainModel: "MI 10 PRIME",
+    models: [
+      "MI 10 PRIME",
+      "MI 10 "
+    ],
+  },
+  {
+    mainModel: "MI 10 C",
+    models: [
+      "MI 10 C",
+      "MI 10 4G"
+    ],
+  },
+  {
+    mainModel: "MI 12 5G",
+    models: [
+      "MI 12 5G",
+      "POCO M6 PRO"
+    ],
+  },
+  {
+    mainModel: "MI 12 C",
+    models: [
+      "MI 12 C",
+      "POCO C55"
+    ],
+  },
+  {
+    mainModel: "MI 13 C 4G",
+    models: [
+      "MI 13 C 4G",
+      "POCO C65 4G"
+    ],
+  },
+  {
+    mainModel: "MI 13 5G",
+    models: [
+      "MI 13 5G",
+      "MI 13 4G",
+      "MI NOTE 13 R",
+      "POCO M6 4G",
+      "POCO M6 PLUS"
+    ],
+  },
+  {
+    mainModel: "MI 13 C 5G",
+    models: [
+      "MI 13 C 5G",
+      "MI 13 R 5G",
+      "POCO M6 5G"
+    ],
+  },
+  {
+    mainModel: "MI 15 5G",
+    models: [
+      "MAIN 15 5G",
+      "MI NOTE 15 R"
+    ],
+  },
+  {
+    mainModel: "MI A3 4G",
+    models: [
+      "MI A3 4G",
+      "MI A3 X",
+      "POCO C61"
+    ],
+  },
+  {
+    mainModel: "MI A5 4G",
+    models: [
+      "MI A5 4G",
+      "POCO C71 4G"
+    ],
+  },
+  {
+    mainModel: "MI A4 5G",
+    models: [
+      "MI A4 5G",
+      "MI 14 C 5G",
+      "MI 14 R 5G",
+      "MI A3 PRO",
+      "POCO C75",
+      "POCO M7 5G"
+    ],
+  },
+  {
+    mainModel: "MI NOTE 7",
+    models: [
+      "MI NOTE 7",
+      "MI NOTE 7 S",
+      "MI NOTE 7 PRO"
+    ],
+  },
+  {
+    mainModel: "MI NOTE 8",
+    models: [
+      "MI NOTE 8"
+    ],
+  },
+  {
+    mainModel: "MI NOTE 8 PRO",
+    models: [
+      "MI NOTE 8 PRO"
+    ],
+  },
+  {
+    mainModel: "MI NOTE 9",
+    models: [
+      "MI NOTE 9",
+      "MI 10 X"
+    ],
+  },
+  {
+    mainModel: "MI NOTE 9 PRO",
+    models: [
+      "MI NOTE 9 PRO",
+      "MI NOTE 9 S",
+      "MI NOTE 9 PRO MAX",
+      "POCO M2 PRO"
+    ],
+  },
+  {
+    mainModel: "MI NOTE 10 PRO",
+    models: [
+      "MI NOTE 10 PRO",
+      "MI NOTE 10 PRO MAX"
+    ],
+  },
+  {
+    mainModel:"MI NOTE 10 4G",
+    models: [
+      "MI NOTE 10 4G",
+      "MI NOTE 10 S",
+      "POCO M5S 4G",
+      "MI NOTE 11 SE 4G"
+    ],
+  },
+  {
+    mainModel: "MI NOTE 10 5G",
+    models: [
+      "MI NOTE 10 5G",
+      "POCO M3 PRO",
+      "MI NOTE 10 T 5G"
+    ],
+  },
+  {
+    mainModel: "MI NOTE 11 4G",
+    models: [
+      "MI NOTE 11 4G",
+      "MI NOTE 11 S 4G",
+      "MI NOTE 12 S"
+    ],
+  },
+  {
+    mainModel: "MI NOTE 11 5G",
+    models: [
+      "MI NOTE 11 5G",
+      "POCOC M4 PRO",
+      "MI NOTE 11 T 5G",
+      "MI NOTE 11 S 5G"
+    ],
+  },
+  {
+    mainModel: "NOTE 12 PRO",
+    models: [
+      "MI NOTE 12 PRO"
+    ],
+  },
+  {
+    mainModel: "MI NOTE 13",
+    models: [
+      "MI NOTE 13"
+    ],
+  },
+  {
+    mainModel: "MI NOTE 15 PRO",
+    models: [
+      "MI NOTE 15 PRO"
+    ],
+  },
+  {
+    mainModel: "POCO M5 4G",
+    models: [
+      "POCOC M5 4G",
+      "POCO M4 5G",
+      "MI NOTE 11 R"
+    ],
+  },
+  {
+    mainModel: "MI A1",
+    models: [
+      "MI A1",
+      "MI A2"
+    ],
+  },
+  {
+    mainModel: "POCO X4 PRO 4G",
+    models: [
+      "POCO X4 PRO",
+    ],
+  },
+  {
+    mainModel: "MI NOTE 5 PRO",
+    models: [
+      "MI NOTE 5 PRO",
+      " MI NOTE 5 PRO"
+    ],
+    },
 ];
+
 
 
