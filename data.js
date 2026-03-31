@@ -1794,13 +1794,13 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG A03",
     models: [
-      "SAMSUNG A03",
+      "SAMSUNG A03"
     ],
   },
   {
     mainModel: "SAMSUNG A03 CORE",
     models: [
-      "SAMSUNG A03 CORE",
+      "SAMSUNG A03 CORE"
     ],
   },
   {
@@ -2243,7 +2243,7 @@ const backCaseData = [
   {
     mainModel: "VIVO Y27 23",
     models: [
-      "IVVO Y27 23",
+      "VIVO Y27 23"
     ],
   },
   {
@@ -2422,9 +2422,9 @@ const backCaseData = [
     ],
   },
   {
-    mainModel: "VIVO Z9",
+    mainModel: "IQOO Z9",
     models: [
-      "VIVO Z9"
+      "IQOO Z9"
     ],
   },
   {
@@ -2433,7 +2433,7 @@ const backCaseData = [
       "IQOO NEO 10",
       "VIVO Y300 GT 5G",
       "VIVO Z10 TURBO",
-      "VIVO Z10 TURBO PRO",
+      "VIVO Z10 TURBO PRO"
     ],
   },
   {
@@ -2450,7 +2450,7 @@ const backCaseData = [
     ],
   },
   {
-    mainModel: "X300",
+    mainModel: "VIVO X300",
     models: [
       "VIVO X300"
     ],
@@ -2521,7 +2521,7 @@ const backCaseData = [
   },
   {
     mainModel: "VIVO V21",
-    mainModel: [
+    models: [
       "VIVO V21"
     ],
   },
@@ -2831,7 +2831,7 @@ const backCaseData = [
   {
     mainModel: "POCO X4 PRO 4G",
     models: [
-      "POCO X4 PRO",
+      "POCO X4 PRO"
     ],
   },
   {
@@ -2840,7 +2840,7 @@ const backCaseData = [
       "MI NOTE 5 PRO",
       " MI NOTE 5 PRO"
     ],
-    },
+  },
 ];
 
 
