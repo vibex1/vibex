@@ -327,6 +327,35 @@
     }
     function closeGallery() { document.getElementById('galleryModal').style.display = 'none'; }
     function changeImg(d) { currentIndex = (currentIndex + d + currentImages.length) % currentImages.length; openGallery(currentIndex); }
+    // --- ADD THIS SWIPE LOGIC AT THE VERY BOTTOM OF THE SCRIPT ---
+    let startX = 0;
+    let endX = 0;
+
+    const modal = document.getElementById('galleryModal');
+
+    // 1. Capture the start of the finger touch
+    modal.addEventListener('touchstart', function(e) {
+        startX = e.touches[0].clientX;
+    }, {passive: true});
+
+    // 2. Capture the end of the finger touch
+    modal.addEventListener('touchend', function(e) {
+        endX = e.changedTouches[0].clientX;
+        
+        const threshold = 50; 
+        if (startX - endX > threshold) {
+            changeImg(1);  // Swipe Left -> Next Image
+        } else if (endX - startX > threshold) {
+            changeImg(-1); // Swipe Right -> Previous Image
+        }
+    }, {passive: true});
+
+    // 3. Close gallery if user clicks the dark background (not the image)
+    modal.addEventListener('click', function(e) {
+        if (e.target.id === 'galleryModal') {
+            closeGallery();
+        }
+    });
 </script>
 
 </body>
