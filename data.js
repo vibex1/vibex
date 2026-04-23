@@ -1773,6 +1773,70 @@ const temperedGlassData = [
     "MI 14"
   ],
 },
+{
+  mainModel: "NOTHING 4A",
+  models: [
+    "NOTHING 4A",
+    "NOTHING 4A PRO"
+  ],
+},
+{
+  mainModel: "REALME 16",
+  models: [
+    "REALME 16"
+  ],
+},
+{
+  mainModel: "PIXEL 10 A",
+  models: [
+    "PIXEL 10 A"
+  ],
+},
+{
+  mainModel: "NOTHING CMF PHONE 2",
+  models: [
+    "NOTHING CMF PHONE 2",
+    "NOTHING CMF PHONE 2 PRO"
+  ],
+},
+{
+  mainModel: "REALME C83",
+  models: [
+    "REALME C83"
+  ],
+},
+{
+  mainModel: "VIVO V70",
+  models: [
+    "VIVO V70",
+    "VIVO V70 LITE"
+  ],
+},
+{
+  mainModel: "OPPO A6",
+  models: [
+    "OPPO A6",
+    "OPPO A6 PRO",
+    "OPPO K14 X",
+    "OPPO NARZO 90 X",
+    "OPPO A6X",
+    "REALME C85",
+    "REALME 15 X"
+  ],
+},
+{
+  mainModel: "OPPO RENO 15 C",
+  models: [
+    "OPPO RENO 15 C"
+  ],
+},
+{
+  mainModel: "VIVO Y05",
+  models: [
+    "VIVO Y05",
+    "VIVO Y11 D"
+  ],
+},
 ];
 // --- NEW BACK CASE DATA (Add this below) ---
 const backCaseData = [
