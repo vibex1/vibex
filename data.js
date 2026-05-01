@@ -1837,6 +1837,45 @@ const temperedGlassData = [
     "VIVO Y11 D"
   ],
 },
+{
+  mainModel: "1+15 T",
+  models: [
+    "1+15 T"
+  ],
+},
+{
+  mainModel: "MI 17 ULTRA",
+  models: [
+    "MI 17 ULTRA",
+    "MI 17 PRO MAX"
+  ],
+},
+{
+  mainModel: "MI 15C",
+  models: [
+    "MI 15 C",
+    "POCO C85"
+  ],
+},
+{
+  mainModel: "1+ NORD 6",
+  models: [
+    "1+ NORD 6"
+  ],
+},
+{
+  mainModel: "VIVO V70 FE",
+  models: [
+    "VIVO V70 FE"
+  ],
+},
+{
+  mainModel: "MI 15 A",
+  models: [
+    "MI 15 A",
+    "MI A7 PRO"
+  ],
+},
 ];
 // --- NEW BACK CASE DATA (Add this below) ---
 const backCaseData = [
