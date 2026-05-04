@@ -1686,7 +1686,8 @@ const temperedGlassData = [
   models: [
     "MOTO G75",
     "MOTO G57",
-    "MOTO G67 POWER"
+    "MOTO G67 POWER",
+    "MOTO G57 POWER"
   ],
 },
 {
@@ -1874,6 +1875,52 @@ const temperedGlassData = [
   models: [
     "MI 15 A",
     "MI A7 PRO"
+  ],
+},
+{
+  mainModel: "VIVO X200 T",
+  models: [
+    "VIVO X200 T",
+    "VIVO X200 S",
+    "VIVO Y 500 PRO"
+  ],
+},
+{
+  mainModel: "OPPO RENO 15",
+  models: [
+    "OPPO RENO 15",
+    "OPPO RENO 15 MINI"
+  ],
+},
+{
+  mainModel: "MI NOTE 15 PRO",
+  models: [
+    "MI NOTE 15 PRO",
+    "MI TURBO 4 PRO",
+    "MI K80 ULTRA",
+    "MI TURBO 5 MAX",
+    "POCO X8 PRO MAX",
+    "MI 15 T",
+    "MI 15 T PRO"
+  ],
+},
+{
+  mainModel: "OPPO RENO 15 C",
+  models: [
+    "OPPO RENO 15 C",
+    "OPPO F31",
+    "OPPO F31 PRO",
+    "OPPO F33",
+    "OPPO F33 PRO",
+    "OPPO A6 PRO",
+    "OPPO A6S PRO",
+    "OPPO RENO 13 5G",
+    "OPPO RENO 14 5G",
+    "OPPO RENO 14 F",
+    "OPPO RENO 15 5G",
+    "OPPO RENO 15 FS",
+    "OPPO RENO 15 F",
+    "REALME 16"
   ],
 },
 ];
