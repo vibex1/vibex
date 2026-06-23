@@ -132,7 +132,7 @@
         <div class="back-nav" onclick="showPage('homePage')">← BACK TO HOME</div>
         <h2>SELECT CASE TYPE<span class="dot">.</span></h2>
         <button class="main-btn" onclick="showPage('battleCasePage')">BATTLE CASES <span>→</span></button>
-        <button class="main-btn">FANCY CASES (COMING SOON) <span>→</span></button>
+        <button class="main-btn" onclick="showPage('antiyellowmagsafeCasePage')">antiyellowmagsafeCasePage <span>→</span></button>
     </div>
 
     <div id="gorillaPage" class="page">
@@ -170,6 +170,25 @@
         <div style="margin-top: 40px;">
             <h3 style="font-size: 10px; opacity: 0.4; margin-bottom: 15px;">FULL CASE INVENTORY:</h3>
             <div id="caseInventoryContainer"></div>
+        </div>
+    </div>
+
+    <div id="antiyellowmagsafeCasePage" class="page">
+        <div class="back-nav" onclick="showPage('antiyellowmagsafeCaseMenu')">← BACK</div>
+        <h2>antiyellowmagsafeCaseSEARCH<span class="dot">.</span></h2>
+        <div class="search-wrapper">
+            <input type="text" id="antiyellowmagsafeCaseInput" placeholder="TYPE MODEL..." oninput="handleantiyellowmagsafeCaseTyping(this.value)">
+            <button onclick="executeantiyellowmagsafeCaseSearch()" style="background:none; border:none; color:white; cursor:pointer; padding-left:10px;">GO</button>
+            <div id="antiyellowmagsafeCaseSuggBox"></div>
+        </div>
+        <div id="antiyellowmagsafeCaseResultDisplay" class="result-box">
+            <div style="font-size: 10px; opacity: 0.6; margin-bottom: 10px;">USE THIS CASE:</div>
+            <div id="antiyellowmagsafeCaseMainName" style="font-size: 28px; font-weight: 900; color: var(--accent-red);"></div>
+            <div id="antiyellowmagsafeCaseCompatList" style="font-size: 11px; margin-top: 15px; border-top: 1px solid #333; padding-top: 10px; text-transform: none;"></div>
+        </div>
+        <div style="margin-top: 40px;">
+            <h3 style="font-size: 10px; opacity: 0.4; margin-bottom: 15px;">FULL CASE INVENTORY:</h3>
+            <div id="antiyellowmagsafeCaseInventoryContainer"></div>
         </div>
     </div>
 
@@ -221,6 +240,11 @@
             document.getElementById('caseResultDisplay').style.display = 'none';
             document.getElementById('caseInput').value = '';
             renderFullCaseList();
+        }
+        if(id === 'antiyellowmagsafeCasePage') {
+            document.getElementById('antiyellowmagsafeCaseResultDisplay').style.display = 'none';
+            document.getElementById('antiyellowmagsafeCaseInput').value = '';
+            renderFullantiyellowmagsafeCaseList();
         }
     }
 
@@ -304,6 +328,47 @@
         document.getElementById('caseCompatList').innerText = "COMPATIBLE WITH: " + data.models.join(' • ');
         document.getElementById('caseResultDisplay').style.display = 'block';
         document.getElementById('caseResultDisplay').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // --- antiyellowmagsafeCaseData LOGIC ---
+    function renderFullantiyellowmagsafeCaseList() {
+        const container = document.getElementById('antiyellowmagsafeCaseInventoryContainer');
+        if (typeof antiyellowmagsafeCaseData === 'undefined') return;
+        container.innerHTML = antiyellowmagsafeCaseData.map((item, index) => `
+            <div class="inv-item" onclick='selectantiyellowmagsafeCaseFromList(${index})'>
+                <div style="font-weight: bold; color: white;">${item.mainModel}</div>
+                <div style="font-size: 10px; opacity: 0.5; text-transform: none;">Fits: ${item.models.join(', ')}</div>
+            </div>
+        `).join('');
+    }
+
+    function handleantiyellowmagsafeCaseTyping(val) {
+        const box = document.getElementById('antiyellowmagsafeCaseSuggBox');
+        if (!val) { box.style.display = 'none'; return; }
+        const query = val.toString().toUpperCase().replace(/\s/g, '');
+        const matches = antiyellowmagsafeCaseData.filter(item => {
+            const mainName = String(item.mainModel).toUpperCase().replace(/\s/g, '');
+            const modelList = item.models.map(m => String(m).toUpperCase().replace(/\s/g, ''));
+            return mainName.includes(query) || modelList.some(m => m.includes(query));
+        });
+        if (matches.length > 0) {
+            box.style.display = 'block';
+            box.innerHTML = matches.slice(0, 10).map(m => {
+                const dataIndex = antiyellowmagsafeCaseData.indexOf(m);
+                return `<div class="sugg-item" onclick='selectantiyellowmagsafeCaseFromList(${dataIndex})'><strong>${m.mainModel}</strong><br><small>Fits: ${m.models.slice(0,2).join(', ')}...</small></div>`;
+            }).join('');
+        } else { box.style.display = 'none'; }
+    }
+
+    function selectantiyellowmagsafeCaseFromList(index) { selectantiyellowmagsafeCase(antiyellowmagsafeCaseData[index]); }
+    function executeantiyellowmagsafeCaseSearch() { handleantiyellowmagsafeCaseTyping(document.getElementById('antiyellowmagsafeCaseInput').value); }
+    function selectantiyellowmagsafeCase(data) {
+        document.getElementById('antiyellowmagsafeCaseSuggBox').style.display = 'none';
+        document.getElementById('antiyellowmagsafeCaseInput').value = data.mainModel;
+        document.getElementById('antiyellowmagsafeCaseMainName').innerText = data.mainModel;
+        document.getElementById('antiyellowmagsafeCaseCompatList').innerText = "COMPATIBLE WITH: " + data.models.join(' • ');
+        document.getElementById('antiyellowmagsafeCaseResultDisplay').style.display = 'block';
+        document.getElementById('antiyellowmagsafeCaseResultDisplay').scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
     // --- SKIN GALLERY LOGIC ---

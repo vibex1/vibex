@@ -1929,6 +1929,7 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG A01 CORE",
     models: [
+      "a,1,1",
       "SAMSUNG A01 CORE",
       "SAMSUNG M01 CORE",
       "SAMSUNG A03 CORE"
@@ -1937,6 +1938,7 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG A02",
     models: [
+      "a,1,2",
       "SAMSUNG A02",
       "SAMSUNG M02"
     ],
@@ -1944,27 +1946,31 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG A03",
     models: [
+      "a,2,1",
       "SAMSUNG A03"
     ],
   },
   {
     mainModel: "SAMSUNG A03 CORE",
     models: [
+      "a,2,2",
       "SAMSUNG A03 CORE"
     ],
   },
   {
     mainModel: "SAMSUNG A04 E",
     models: [
+      "a,3,1",
       "SAMSUNG A04 E",
       "SAMSUNG M04",
       "SAMSUNG F04"
     ],
   },
   {
-    mainModel: "SAMSUNG M24 5G",
+    mainModel: "SAMSUNG A05S",
     models: [
-      "SAMSUNG M24 5G",
+      "a,3,2",
+      "SAMSUNG M14 5G",
       "SAMSUNG A05 S",
       "SAMSUNG F14"
     ],
@@ -1972,6 +1978,7 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG A05 4G",
     models: [
+      "a,4,1",
       "SAMSUNG A05 4G",
       "SAMSUNG F05 4G",
       "SAMSUNG M05 4G"
@@ -1980,18 +1987,21 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG A06 5G",
     models: [
+      "a,4,2",
       "SAMSUNG A06 5G"
     ],
   },
   {
     mainModel: "SAMSUNG A07 4G",
     models: [
+      "a,5,1",
       "SAMSUNG A07 4G"
     ],
   },
   {
-    mainModel: "SAMSUNG M10",
+    mainModel: "SAMSUNG A10",
     models: [
+      "a,5,2",
       "SAMSUNG M10",
       "SAMSUNG A10"
     ],
@@ -1999,6 +2009,7 @@ const backCaseData = [
   {
     mainModel: "A10S",
     models: [
+      "a,6,1",
       "SAMSUNG A10S",
       "SAMSUNG M01S"
     ],
@@ -2006,6 +2017,7 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG A11",
     models: [
+      "a,6,2",
       "SAMSUNG A11",
       "SAMSUNG M11"
     ],
@@ -2013,6 +2025,7 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG A12",
     models: [
+      "a,7,1",
       "SAMSUNG A12",
       "SAMSUNG M12",
       "SAMSUNG F12",
@@ -2022,6 +2035,7 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG A13 5G",
     models: [
+      "a,7,2",
       "SAMSUNG A13 5G",
       "SAMSUNG A04 S"
     ],
@@ -2029,6 +2043,7 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG A13 4G",
     models: [
+      "a,8,1",
       "SAMSUNG A13 4G",
       "SAMSUNG A13 LITE"
     ],
@@ -2036,6 +2051,7 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG A17",
     models: [
+      "a,8,2",
       "SAMSUNG A17",
       "SAMSUNG A26"
     ],
@@ -2043,6 +2059,7 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG A30",
     models: [
+      "a,9,1",
       "SAMSUNG A30",
       "SAMSUNG A20",
       "SAMSUNG A305",
@@ -2052,12 +2069,14 @@ const backCaseData = [
   {
     mainModel: "SMASUNG A20 S",
     models: [
+      "a,9,2",
       "SAMSUNG A20 S"
     ],
   },
   {
     mainModel: "SAMSUNG A21S",
     models: [
+      "a,10,1",
       "SAMSUNG A21 S",
       "SAMSUNG A217F"
     ],
@@ -2065,44 +2084,58 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG A22 4G",
     models: [
+      "a,10,2",
       "SAMSUNG A22 4G"
     ],
   },
   {
     mainModel: "SAMSUNG A22 5G",
     models: [
+      "a,11,1",
       "SAMSUNG A22 5G",
       "SASMUNG F42 5G",
       "SAMSUNG A22 S 5G"
     ],
   },
   {
-    mainModel: "SAMSUNG A32 4G",
+    mainModel: "SAMSUNG A23 4G",
     models: [
-      "SAMSUNG A32 4G"
+      "a,11,2",
+      "SAMSUNG A23 4G"
     ],
   },
   {
-    mainModel: "SAMSUNG A34 5G",
+    mainModel: "SAMSUNG A32 5G",
     models: [
-      "SAMSUNG A34 5G"
+      "a,12,1",
+      "SAMSUNG A32 5G"
+    ],
+  },
+  {
+    mainModel: "SAMSUNG A34",
+    models: [
+      "a,12 2",
+      "SAMSUNG A34",
     ],
   },
   {
     mainModel: "SAMSUNG A35 5G",
     models: [
+      "a,13,1",
       "SAMSUNG A35 5G"
     ],
   },
   {
     mainModel: "SAMSUNG A36 5G",
     models: [
+      "a,13,2",
       "SAMSUNG A36 5G"
     ],
   },
   {
     mainModel: "SAMSUNG A50",
     models: [
+      "a,14,1",
       "SAMSUNG A50",
       "SAMSUNG A30",
       "SAMSUNG A50 S"
@@ -2111,6 +2144,7 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG A51",
     models: [
+      "a,14,2",
       "SAMSUNG A51",
       "SAMSUNG M40 S",
       "SAMSUNG A515F"
@@ -2119,13 +2153,15 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG A70",
     models: [
+      "a,15,1",
       "SAMSUNG A70",
       "SAMSUNG A70 S"
     ],
   },
   {
-    mainModel: "SAMSUNG A03 S",
+    mainModel: "SAMSUNG M02S S",
     models: [
+      "a,15,2",
       "SAMSUNG A03 S",
       "SAMSUNG A02 S",
       "SAMSUNG M02 S"
@@ -2134,6 +2170,7 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG M13 5G",
     models: [
+      "1,16,1",
       "SAMSUNG M13 5G",
       "SAMSUNG A04 4G"
     ],
@@ -2141,6 +2178,7 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG M14 5G",
     models: [
+      "A,16,2",
       "SAMSUNG M14 5G",
       "SAMSUNG A05 S",
       "SAMSUNG F14 4G"
@@ -2149,6 +2187,7 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG M23",
     models: [
+      "A,17,1",
       "SAMSUNG M23",
       "SAMSUNG F23"
     ],
@@ -2156,6 +2195,7 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG M30 S",
     models: [
+      "A,17,2", 
       "SASMUNG M30 S",
       "SAMSUNG M21"
     ],
@@ -2163,6 +2203,7 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG M31",
     models: [
+      "A,18,1",
       "SAMSUNG M31",
       "SAMSUNG M21 S",
       "SAMSUNG F41"
@@ -2171,6 +2212,7 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG M34",
     models: [
+      "A,18,2",
       "SAMSUNG M34",
       "SAMSUNG F34"
     ],
@@ -2178,18 +2220,21 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG M35",
     models: [
+      "A=19=1",
       "SAMSUNG M35"
     ],
   },
   {
     mainModel: "SAMSUNG M51",
     models: [
+      "A=19=2",
       "SAMSUNG M51"
     ],
   },
   {
     mainModel: "SAMSUNG M56",
     models: [
+      "A=20=1",
       "SAMSUNG M56",
       "SAMSUNG F56"
     ],
@@ -2197,6 +2242,7 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG F06",
     models: [
+      "A=20=2",
       "SAMSUNG F06",
       "SAMSUNG M06"
     ],
@@ -2204,6 +2250,7 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG M36",
     models: [
+      "A=21=1",
       "SAMSUNG M36",
       "SAMSUNG MF36"
     ],
@@ -2211,6 +2258,7 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG F14 5G",
     models: [
+      "A=21=1",
       "SAMSUNG F14 5G",
       "SAMSUNG M14 5G",
       "SAMSUNG A05 S" 
@@ -2219,6 +2267,7 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG S20 FE",
     models: [
+      "A=22=1",
       "SAMSUNG S20 FE",
       "SAMSUNG S20 LITE"
     ],
@@ -2226,42 +2275,49 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG S21 FE",
     models: [
+      "A=22=2",
       "SAMSUNG S21 FE"
     ],
   },
   {
     mainModel: "SAMSUNG S22",
     models: [
+      "A=23=1",
       "SAMSUNG S22"
     ],
   },
   {
     mainModel: "SAMSUNG S22 ULTRA",
     models: [
+      "A=23=2",
       "SAMSUNG S22 ULTRA"
     ],
   },
   {
     mainModel: "SAMSUNG S23",
     models: [
+      "A=24=1",
       "SAMSUNG S23"
     ],
   },
   {
     mainModel: "SAMSUNG S23 ULTRA",
     models: [
+      "A=24=2",
       "SAMSUNG S23 ULTRA"
     ],
   },
   {
     mainModel: "SAMSUNG S23 FE",
     models: [
+      "A=25=1",
       "SAMSUNG S23 FE"
     ],
   },
   {
     mainModel: "SAMSUNG S24",
     models: [
+      "A=25=2",
       "SAMSUNG S24",
       "SAMSUNG S25"
     ],
@@ -2269,30 +2325,35 @@ const backCaseData = [
   {
     mainModel: "SAMSUNG S24 ULTRA",
     models: [
+      "A=26=1",
       "SAMSUNG S24 ULTRA"
     ],
   },
   {
     mainModel: "SAMSUNG S25 ULTRA",
     models: [
+      "A=26=2",
       "SAMSUNG S25 ULTRA"
     ],
   },
   {
     mainModel: "SAMSUNG J7 PRIME",
     models: [
+      "A=B=6=1",
       "SAMSUNG J7 PRIME"
     ],
   },
   {
     mainModel: "SAMSUNG A14",
     models: [
+      "A=B=6=2",
       "SAMSUNG A14"
     ],
   },
   {
     mainModel: "VIVO Y02",
     models: [
+      "A=B=9=1",
       "VIVO Y02",
       "VIVO Y11 2023",
       "VIVO Y02 T",
@@ -2302,6 +2363,7 @@ const backCaseData = [
   {
     mainModel: "VIVO Y15 S",
     models: [
+      "A=B=9=2",
       "VIVO Y15 S",
       "VIVO Y15 A 4G",
       "VIVO T1 4G",
@@ -2313,6 +2375,7 @@ const backCaseData = [
   {
     mainModel: "VIVO Y16",
     models: [
+      "A=B=10=1",
       "VIVO Y16",
       "VIVO Y35 5G",
       "IQOO Z7",
@@ -2324,6 +2387,7 @@ const backCaseData = [
   {
     mainModel: "VIOV Y17",
     models: [
+      "A=B=10=2",
       "VIVO Y17",
       "VIVO Y3",
       "VIVO Y15",
@@ -2336,6 +2400,7 @@ const backCaseData = [
   {
     mainModel: "VIVO Y18",
     models: [
+      "A=B=11=1",
       "VIVO Y18",
       "VIVO Y03",
       "VIVO Y18 E",
@@ -2349,6 +2414,7 @@ const backCaseData = [
   {
     mainModel: "VIVO Y19",
     models: [
+      "A=B=11=2",
       "VIVO Y19",
       "VIVO Y5 S",
       "VIVO U3",
@@ -2358,6 +2424,7 @@ const backCaseData = [
   {
     mainModel: "VIVO Y19 5G",
     models: [
+      "A=B=12=1",
       "VIVO Y19 5G",
       "VIVO Y04",
       "VIVO Y29 S",
@@ -2370,6 +2437,7 @@ const backCaseData = [
   {
     mainModel: "VIVO Y20",
     models: [
+      "A=B=12=2",
       "VIVO Y20",
       "VIVO Y20 I",
       "VIVO Y20 S",
@@ -2381,6 +2449,7 @@ const backCaseData = [
   {
     mainModel: "VIVO Y21",
     models: [
+      "A=B=13=1",
       "VIVO Y21",
       "VIVO Y32",
       "VIVO Y33 S",
@@ -2393,12 +2462,14 @@ const backCaseData = [
   {
     mainModel: "VIVO Y27 23",
     models: [
+      "A=B=13=2",
       "VIVO Y27 23"
     ],
   },
   {
     mainModel: "VIVO Y29 5G",
     models: [
+      "A=B=14=1",
       "VIVO Y29 5G",
       "VIVO Y19 S"
     ],
@@ -2406,6 +2477,7 @@ const backCaseData = [
   {
     mainModel: "VIVO Y31",
     models: [
+      "A=B=14=2",
       "VIVO Y31",
       "VIVO 21 D"
     ],
@@ -2413,12 +2485,14 @@ const backCaseData = [
   {
     mainModel: "VIVO Y35",
     models: [
+      "A=B=15=1",
       "VIVO Y35"
     ],
   },
   {
     mainModel: "VIVO Y36",
     models: [
+      "A=B=15=2",
       "VIVO Y36",
       "VIVO Y27 S",
       "VIVO Y78 5G",
@@ -2428,14 +2502,24 @@ const backCaseData = [
   {
     mainModel: "VIVO Y38 5G",
     models: [
+      "A=B=16=1",
       "VIVO Y38 5G",
       "VIVO Y58 5G",
       "VIVO Y200 I"
     ],
   },
   {
+    mainModel: "VIVO Y39",
+    models: [
+      "A=B=16=2",
+      "VIVO Y39 5G",
+      "VIVO Y300 I"
+    ],
+  },
+  {
     mainModel: "VIVO Y51",
     models: [
+      "A=B=17=1",
       "VIVO Y51",
       "VIVO Y51 A",
       "VIVO Y51 S",
@@ -2447,7 +2531,8 @@ const backCaseData = [
   {
     mainModel: "VIVO Y73",
     models: [
-      "VIVO 73",
+      "A=B=17=2",
+      "VIVO Y73",
       "VIVO V20",
       "VIVO V21 E 4G"
     ],
@@ -2455,6 +2540,7 @@ const backCaseData = [
   {
     mainModel: "VIVO Y90",
     models: [
+      "A=B=18=1",
       "VIVO Y90",
       "VIVO Y93",
       "VIVO Y70",
@@ -2465,6 +2551,7 @@ const backCaseData = [
   {
     mainModel: "Y100",
     models: [
+      "A=B=19=1",
       "VIVO Y100",
       "VIVO T2"
     ],
@@ -2472,6 +2559,7 @@ const backCaseData = [
   {
     mainModel: "VIVO Y200",
     models: [
+      "A=B=19=2",  
       "VIVO Y200",
       "VIVO V30 LITE"
     ],
@@ -2479,6 +2567,7 @@ const backCaseData = [
   {
     mainModel: "VIVO Y200 E",
     models: [
+      "A=B=20=1",
       "VIVO Y200 E",
       "VIVO T3",
       "VIVO V40 SE"
@@ -2487,18 +2576,21 @@ const backCaseData = [
   {
     mainModel: "VIVO Y400 PRO",
     models: [
+      "A=B=20=2",
       "VIVO Y400 PRO"
     ],
   },
   {
     mainModel: "VIVO Y400",
     models: [
+      "A=B=21=1",
       "VIVO Y400"
     ],
   },
   {
     mainModel: "VIVO S1",
     models: [
+      "A=B=21=2",
       "VIVO S1",
       "VIVO Z1 X",
       "VIVO V17 NEO",
@@ -2508,6 +2600,7 @@ const backCaseData = [
   {
     mainModel: "VIVO T1 5G",
     models: [
+      "A=C=1=1",
       "VIVO T1 5G",
       "VIVO Y75 5G",
       "VIVO Y55 5G",
@@ -2517,6 +2610,7 @@ const backCaseData = [
   {
     mainModel: "VIVO T1 44W",
     models: [
+      "A=C=1=2",
       "VIVO T1 44W",
       "VIVO Z6 44W",
       "VIVO Y55 4G"
@@ -2525,6 +2619,7 @@ const backCaseData = [
   {
     mainModel: "VIVO T3 X",
     models: [
+      "A=C=2=1",
       "VIVO T3 X",
       "VIVO Y200 I",
       "VIVO Y200 T"
@@ -2533,6 +2628,7 @@ const backCaseData = [
   {
     mainModel: "VIVO T4",
     models: [
+      "A=C=2=2",
       "VIVO T4",
       "VIVO Y300 PRO",
       "VIVO Y300 PRO PLUS",
@@ -2542,6 +2638,7 @@ const backCaseData = [
   {
     mainModel: "VIVO T4 ULTRA",
     models: [
+      "A=C=3=1",
       "VIVO T4 ULTRA",
       "VIVO S20 PRO 5G"
     ],
@@ -2549,6 +2646,7 @@ const backCaseData = [
   {
     mainModel: "VIVO T4 R",
     models: [
+      "A=C=3=2",
       "VIVO T4 R",
       "VIVO V50",
       "VIVO V50 E",
@@ -2558,6 +2656,7 @@ const backCaseData = [
   {
     mainModel: "VIVO T4 X 5G",
     models: [
+      "A=C=4=1",
       "VIVO T4 X",
       "VIVO V29 4G",
       "VIVO Y300 T",
@@ -2567,6 +2666,7 @@ const backCaseData = [
   {
     mainModel: "VIVO Z9 X",
     models :[
+      "A=C=4=2",
       "VIVO Z9 X",
       "VIVO Y37 PRO"
     ],
@@ -2574,12 +2674,14 @@ const backCaseData = [
   {
     mainModel: "IQOO Z9",
     models: [
+      "A=C=5=1",
       "IQOO Z9"
     ],
   },
   {
     mainModel: "IQOO NEO 10",
     models: [
+      "A=C=5=2",
       "IQOO NEO 10",
       "VIVO Y300 GT 5G",
       "VIVO Z10 TURBO",
@@ -2589,6 +2691,7 @@ const backCaseData = [
   {
     mainModel: "VIVO X200 FE",
     models:[
+      "A=C=6=1",
       "VIVO X200 FE",
       "VIVO S30 PRO MINI"
     ],
@@ -2596,18 +2699,21 @@ const backCaseData = [
   {
     mainModel: "VIVO X300 PRO",
     models: [
+      "A=C=6=2",
       "VIVO X300 PRO"
     ],
   },
   {
     mainModel: "VIVO X300",
     models: [
+      "A=C=7=1",
       "VIVO X300"
     ],
   },
   {
     mainModel: "VIVO T2 PRO",
     models: [
+      "A=C=7=2",
       "VIVO T2 PRO",
       "VIVO S17 E"
     ],
@@ -2615,24 +2721,28 @@ const backCaseData = [
   {
     mainModel: "VIVO V15 PRO",
     models: [
+      "A=C=8=1",
       "VIVO V15 PRO"
     ],
   },
   {
     mainModel: "VIVO V19",
     models :[
+      "A=C=8=2",
       "VIVO V19"
     ],
   },
   {
     mainModel: "VIVO V15",
     models: [
+      "A=C=9=1",
       "VIVO V15"
     ],
   },
   {
     mainModel: "VIVO V17",
     models: [
+      "A=C=9=2",
       "VIVO V17",
       "VIVO V19 NEO"
     ],
@@ -2640,6 +2750,7 @@ const backCaseData = [
   {
     mainModel: "VIVO V2O",
     models: [
+      "A=C=10=1",
       "VIVO V20",
       "VIVO V21 E 4G",
       "VIVO Y73 4G"
@@ -2648,6 +2759,7 @@ const backCaseData = [
   {
     mainModel: "VIVO V20 SE",
     models: [
+      "A=C=10=2",
       "VIVO V20 SE",
       "VIVO Y70"
     ],
@@ -2655,6 +2767,7 @@ const backCaseData = [
   {
     mainModel: "VIVO V25",
     models: [
+      "A=C=11=1",
       "VIVO V25",
       "VIVO X80 LITE",
       "VIVO V25 E"
@@ -2663,6 +2776,7 @@ const backCaseData = [
   {
     mainModel: "VIVO V27",
     models: [
+      "A=C=11=2",
       "VIVO V27",
       "VIVO V27 PRO",
       "VIVO S16",
@@ -2672,12 +2786,14 @@ const backCaseData = [
   {
     mainModel: "VIVO V21",
     models: [
+      "A=C=12=1",
       "VIVO V21"
     ],
   },
   {
     mainModel: "VIVO V25 PRO",
     models: [
+      "A=C=12=2",
       "VIVO V25 PRO",
       "VIVO S15 PRO"
     ],
@@ -2685,6 +2801,7 @@ const backCaseData = [
   {
     mainModel: "VIVO V23 E",
     models: [
+      "A=C=13=1",
       "VIVO V23 E",
       "VIVO S10 E",
       "VIVO Y75 4G",
@@ -2694,12 +2811,14 @@ const backCaseData = [
   {
     mainModel: "VIVO V30 E",
     models: [
+      "A=C=13=2",
       "VIVO V30 E"
     ],
   },
   {
     mainModel: "VIVO V30",
     models: [
+      "A=C=14=1",
       "VIVO V30",
       "VIVO V30 PRO",
       "VIVO S18 5G",
@@ -2709,21 +2828,24 @@ const backCaseData = [
   {
     mainModel: "VIVO V40 PRO",
     models: [
+      "A=C=14=2",
       "VIVO V40 PRO",
       "VIVO S19 PRO",
       "VIVO V40"
     ],
   },
   {
-    mainModel: "VIVO V40",
+    mainModel: "VIVO V40 E",
     models: [
-      "VIVO V40",
+      "A=C=15=1",
+      "VIVO V40 E",
       "IQOO Z9S"
     ],
   },
   {
     mainModel: "VIVO V60",
     models:[
+      "A=C=15=2",
       "VIVO V60",
       "VIVO T4 PRO"
     ],
@@ -2731,12 +2853,14 @@ const backCaseData = [
   {
     mainModel: "MI 7A",
     models: [
+      "B=A=1=1",
       "MI 7A"
     ],
   },
   {
     mainModel: "MI 7",
     models: [
+      "B=A=1=2",
       "MI 7",
       "MI Y3"
     ],
@@ -2744,6 +2868,7 @@ const backCaseData = [
   {
     mainModel: "MI 8",
     models: [
+      "B=A=2=1",
       "MI 8",
       "MI 8A"
     ],
@@ -2751,6 +2876,7 @@ const backCaseData = [
   {
     mainModel: "MI 9 POWER",
     models: [
+      "B=A=2=2",
       "MI 9POWER",
       "MI 9 T",
       "MI NOTE 9 4G",
@@ -2760,6 +2886,7 @@ const backCaseData = [
   {
     mainModel: "MI 9A",
     models: [
+      "B=A=3=1",
       "MI 9A",
       "MI 9I",
       "MI 9A T"
@@ -2768,6 +2895,7 @@ const backCaseData = [
   {
     mainModel: "MI 9C",
     models: [
+      "B=A=3=2",
       "MI 9C",
       "MI 9",
       "POCO C3",
@@ -2777,6 +2905,7 @@ const backCaseData = [
   {
     mainModel: "MI 9 PRIME",
     models: [
+      "B=A=4=1",
       "MI 9 PRIME",
       "POCO M2",
       "POCO M2 RELODED"
@@ -2785,6 +2914,7 @@ const backCaseData = [
   {
     mainModel: "MI 10 PRIME",
     models: [
+      "B=A=4=2",
       "MI 10 PRIME",
       "MI 10 "
     ],
@@ -2792,6 +2922,7 @@ const backCaseData = [
   {
     mainModel: "MI 10 C",
     models: [
+      "B=A=5=1",
       "MI 10 C",
       "MI 10 4G"
     ],
@@ -2799,6 +2930,7 @@ const backCaseData = [
   {
     mainModel: "MI 12 5G",
     models: [
+      "B=A=5=2",
       "MI 12 5G",
       "POCO M6 PRO"
     ],
@@ -2806,6 +2938,7 @@ const backCaseData = [
   {
     mainModel: "MI 12 C",
     models: [
+      "B=A=6=1",
       "MI 12 C",
       "POCO C55"
     ],
@@ -2813,6 +2946,7 @@ const backCaseData = [
   {
     mainModel: "MI 13 C 4G",
     models: [
+      "B=A=6=2",
       "MI 13 C 4G",
       "POCO C65 4G"
     ],
@@ -2820,6 +2954,7 @@ const backCaseData = [
   {
     mainModel: "MI 13 5G",
     models: [
+      "B=A=7=1",
       "MI 13 5G",
       "MI 13 4G",
       "MI NOTE 13 R",
@@ -2830,6 +2965,7 @@ const backCaseData = [
   {
     mainModel: "MI 13 C 5G",
     models: [
+      "B=A=8=1",
       "MI 13 C 5G",
       "MI 13 R 5G",
       "POCO M6 5G"
@@ -2838,6 +2974,7 @@ const backCaseData = [
   {
     mainModel: "MI 15 5G",
     models: [
+      "B=A=8=2",
       "MAIN 15 5G",
       "MI NOTE 15 R"
     ],
@@ -2845,14 +2982,24 @@ const backCaseData = [
   {
     mainModel: "MI A3 4G",
     models: [
+      "B=A=9=1",
       "MI A3 4G",
       "MI A3 X",
       "POCO C61"
     ],
   },
   {
+    mainModel: "MI 15C 5G",
+    models: [
+      "B=A=9=2",
+      "MI 15C 5G",
+      "MI 15C 4G"
+    ],
+  },
+  {
     mainModel: "MI A5 4G",
     models: [
+      "B=A=10=1",
       "MI A5 4G",
       "POCO C71 4G"
     ],
@@ -2860,6 +3007,7 @@ const backCaseData = [
   {
     mainModel: "MI A4 5G",
     models: [
+      "B=A=10=2",
       "MI A4 5G",
       "MI 14 C 5G",
       "MI 14 R 5G",
@@ -2871,6 +3019,7 @@ const backCaseData = [
   {
     mainModel: "MI NOTE 7",
     models: [
+      "B=A=11=1",
       "MI NOTE 7",
       "MI NOTE 7 S",
       "MI NOTE 7 PRO"
@@ -2879,18 +3028,21 @@ const backCaseData = [
   {
     mainModel: "MI NOTE 8",
     models: [
+      "B=A=11=2",
       "MI NOTE 8"
     ],
   },
   {
     mainModel: "MI NOTE 8 PRO",
     models: [
+      "B=B=1=1",
       "MI NOTE 8 PRO"
     ],
   },
   {
     mainModel: "MI NOTE 9",
     models: [
+      "B=B=1=2",
       "MI NOTE 9",
       "MI 10 X"
     ],
@@ -2898,6 +3050,7 @@ const backCaseData = [
   {
     mainModel: "MI NOTE 9 PRO",
     models: [
+      "B=B=2=1",
       "MI NOTE 9 PRO",
       "MI NOTE 9 S",
       "MI NOTE 9 PRO MAX",
@@ -2907,6 +3060,7 @@ const backCaseData = [
   {
     mainModel: "MI NOTE 10 PRO",
     models: [
+      "B=B=2=2",
       "MI NOTE 10 PRO",
       "MI NOTE 10 PRO MAX"
     ],
@@ -2914,6 +3068,7 @@ const backCaseData = [
   {
     mainModel:"MI NOTE 10 4G",
     models: [
+      "B=B=3=1",
       "MI NOTE 10 4G",
       "MI NOTE 10 S",
       "POCO M5S 4G",
@@ -2923,6 +3078,7 @@ const backCaseData = [
   {
     mainModel: "MI NOTE 10 5G",
     models: [
+      "B=B=3=2",
       "MI NOTE 10 5G",
       "POCO M3 PRO",
       "MI NOTE 10 T 5G"
@@ -2931,6 +3087,7 @@ const backCaseData = [
   {
     mainModel: "MI NOTE 11 4G",
     models: [
+      "B=B=4=1",
       "MI NOTE 11 4G",
       "MI NOTE 11 S 4G",
       "MI NOTE 12 S"
@@ -2939,6 +3096,7 @@ const backCaseData = [
   {
     mainModel: "MI NOTE 11 5G",
     models: [
+      "B=B=4=2",
       "MI NOTE 11 5G",
       "POCOC M4 PRO",
       "MI NOTE 11 T 5G",
@@ -2948,24 +3106,28 @@ const backCaseData = [
   {
     mainModel: "NOTE 12 PRO",
     models: [
+      "B=B=5=1",
       "MI NOTE 12 PRO"
     ],
   },
   {
     mainModel: "MI NOTE 13",
     models: [
+      "B=B=5=2",
       "MI NOTE 13"
     ],
   },
   {
     mainModel: "MI NOTE 15 PRO",
     models: [
+      "B=B=6=1",
       "MI NOTE 15 PRO"
     ],
   },
   {
     mainModel: "POCO M5 4G",
     models: [
+      "B=B=6=2",
       "POCOC M5 4G",
       "POCO M4 5G",
       "MI NOTE 11 R"
@@ -2974,6 +3136,7 @@ const backCaseData = [
   {
     mainModel: "MI A1",
     models: [
+      "B=B=7=1",
       "MI A1",
       "MI A2"
     ],
@@ -2981,14 +3144,977 @@ const backCaseData = [
   {
     mainModel: "POCO X4 PRO 4G",
     models: [
+      "B=B=7=2",
       "POCO X4 PRO"
     ],
   },
   {
     mainModel: "MI NOTE 5 PRO",
     models: [
+      "B=B=8=1",
       "MI NOTE 5 PRO",
-      " MI NOTE 5 PRO"
+      "MI NOTE 5 PRO"
+    ],
+  },
+  {
+    mainModel: "1+ NORD CE 2 LITE",
+    models: [
+      "B=B=11=1",
+      "1+ NORD CE 2 LITE",
+      "REALME 9 PRO",
+      "REALME V25"
+    ],
+  },
+  {
+    mainModel: "1+ 9 PRO",
+    models: [
+      "B=C=1=1",
+      "1+ 9 PRO"
+    ],
+  },
+  {
+    mainModel: "1+ 9",
+    models: [
+      "B=C=1=2",
+      "1+ 9"
+    ],
+  },
+  {
+    mainModel: "1+ 9RT",
+    models: [
+      "B=C=2=1",
+      "1+ 9RT"
+    ],
+  },
+  {
+    mainModel: "1+ 10R",
+    models: [
+      "B=C=2=2",
+      "1+ 10R"
+    ],
+  },
+  {
+    mainModel: "1+ 11R",
+    models: [
+      "B=C=3=1",
+      "1+ 11R"
+    ],
+  },
+  {
+    mainModel: "1+ 13T",
+    models: [
+      "B=C=3=2",
+      "1+ 13T",
+      "1+ 13S"
+    ],
+  },
+  {
+    mainModel: "1+ 13",
+    models: [
+      "B=C=4=1",
+      "1+ 13"
+    ],
+  },
+  {
+    mainModel: "1+ 15",
+    models: [
+      "B=C=4=2",
+      "1+ 15"
+    ],
+  },
+  {
+    mainModel: "1+ NORD",
+    models: [
+      "B=C=5=1",
+      "1+ NORD"
+    ],
+  },
+  {
+    mainModel: "1+ NORD 2",
+    models: [
+      "B=C=5=2",
+      "1+ NORD 2"
+    ],
+  },
+  {
+    mainModel: "1+ NORD 4",
+    models: [
+      "B=C=6=1",
+      "1= NORD 4"
+    ],
+  },
+  {
+    mainModel: "1+ NORD 5",
+    models: [
+      "B=C=6=2",
+      "1+ NORD 5"
+    ],
+  },
+  {
+    mainModel: "1+ NORD CE 5G",
+    models: [
+      "B=C=7=1",
+      "1+ NORDE CE 5G"
+    ],
+  },
+  {
+    mainModel: "1+ NORD CE 2",
+    models: [
+      "B=C=7=2",
+      "1+ NORD CE 2"
+    ],
+  },
+  {
+    mainModel: "1+ NORD CE 4",
+    models: [
+      "B=C=8=1",
+      "1+ NORD CE 4",
+      "OPPO K12",
+      "OPPO K12 +"
+    ],
+  },
+  {
+    mainModel: "1+ NORD CE 4 LITE",
+    models: [
+      "B=C=9=1",
+      "1+ NORD CE 4 LITE"
+    ],
+  },
+  {
+    mainModel: "1+ NORD CE 5",
+    models: [
+      "B=C=9=1",
+      "1+ NORD CE 5"
+    ],
+  },
+  {
+    mainModel: "!+ 7",
+    models: [
+      "B=C=10=1",
+      "1+ 7"
+    ],
+  },
+  {
+    mainModel: "1+ 15 R",
+    models: [
+      "B=C=11=1",
+      "1+ 15 R"
+    ],
+  },
+  {
+    mainModel: "1+ NORD 2T",
+    models: [
+      "B=C=11=2",
+      "1+ NORD 2 T"
+    ],
+  }, 
+  {
+    mainModel: "MOTO G34",
+    models: [
+      "B=D=1=1",
+      "MOTO G34",
+      "MOTO G45"
+    ],
+  },
+  {
+    mainModel: "MOTO G64",
+    models: [
+      "B=D=1=2",
+      "MOTO G54 POWER",
+      "MOTO G64",
+      "MOTO G54"
+    ],
+  },
+  {
+    mainModel: "MOTO G67 POWER",
+    models: [
+      "B=D=2=1",
+      "MOTO G67 POWER"
+    ],
+  },
+  {
+    mainModel: "MOTO G84",
+    models: [
+      "B=D=2=2",
+      "MOTO G84"
+    ],
+  },
+  {
+    mainModel: "MOTO G86 POWER",
+    models :[
+      "B=D=3=1",
+      "MOTO G86 POWER"
+    ],
+  },
+  {
+    mainModel: "MOTO EDGE 40 NEO",
+    models: [
+      "B=D=4=1",
+      "MOTO EDGE 40 NEO"
+    ],
+  },
+  {
+    mainModel: "MOTO EDGE 40",
+    models: [
+      "B=D=4=2",
+      "MOTO EDGE 40"
+    ],
+  },
+  {
+    mainModel: "MOTO EDGE 60 PRO",
+    models: [
+      "B=D=5=1",
+      "MOTO EDGE 60 PRO"
+    ],
+  },
+  {
+    mainModel: "MOTO EDGE 60 STYLUS",
+    models: [
+      "B=D=5=2",
+      "MOTO EDGE 60 STYLUS"
+    ],
+  },
+  {
+    mainModel: "MOTO E 13",
+    models: [
+      "B=D=6=1",
+      "MOTO E 13"
+    ],
+  },
+  {
+    mainModel: "MOTO EDGE 70",
+    models: [
+      "B=D=7=1",
+      "MOTO EDGE 70"
+    ],
+  },
+  {
+    mainModel: "NOTHING CMF PHONE 1",
+    models: [
+      "B=D=8=1",
+      "NOTHING CMF PHONE 1"
+    ],
+  },
+  {
+    mainModel: "NOTHING CMF PHONE 2 PRO",
+    models: [
+      "B=D=8=2",
+      "NOTHING CMF PHONE 2 PRO"
+    ],
+  },
+  {
+    mainModel: "NOTHING PHONE 3A",
+    models: [
+      "B=D=9=1",
+      "NOTHING PHONE 3A"
+    ],
+  },
+  {
+    mainModel: "NOTHING PHONE 3A LITE",
+    models: [
+      "B=D=9=2",
+      "NOTHING PHONE 3A LITE"
+    ],
+  },
+  {
+    mainModel: "NOTHING PHONE 3A PRO",
+    models: [
+      "NB=D=10=1",
+      "NOTHING PHONE 3A PRO"
+    ],
+  },
+  {
+    mainModel: "REALME 5 PRO",
+    models: [
+      "B=E=1=1",
+      "REALME 5 PRO"
+    ],
+  },
+  {
+    mainModel: "REALME 6",
+    models: [
+      "B=E=1=2",
+      "REALME 6"
+    ],
+  },
+  {
+    mainModel: "REALME 6 PRO",
+    models: [
+      "B=E=2=1",
+      "REALME 6 PRO"
+    ],
+  },
+  {
+    mainModel: "REALME 7",
+    models: [
+      "B=E=2=2",
+      "REALME 7",
+      "REALME NARZO 20 PRO"
+    ],
+  },
+  {
+    mainModel: "REALME 8 PRO",
+    models: [
+      "B=E=3=1",
+      "REALME 8 PRO",
+      "REALME 8 4G"
+    ],
+  },
+  {
+    mainModel: "REALME 9 PRO +",
+    models: [
+      "B=E=3=2",
+      "REALME 9 4G",
+      "REALME 9 PRO +",
+      "REALME NARZO 50 PRO"
+    ],
+  },
+  {
+    mainModel: "REALME 9I 4G",
+    models: [
+      "B=E=4=1",
+      "REALME 9I 4G",
+      "OPPO K10 4G",
+      "OPPO A96 4G",
+      "OPPO A36 4G",
+      "OPPO A76 4G"
+    ],
+  },
+  {
+    mainModel: "REALME 9I 5G",
+    models: [
+      "B=E=4=2",
+      "REALME 9I 5G",
+      "REALME 10 5G"
+    ],
+  },
+  {
+    mainModel: "REALME 11 PRO +",
+    models: [
+      "B=E=5=1",
+      "REALME 11 PRO 5G",
+      "REALME 11 PRO +"
+    ],
+  },
+  {
+    mainModel: "REALME 11X",
+    models: [
+      "B=E=5=2",
+      "REALME 11 5G",
+      "REALMW 11 X",
+      "REALME NARZO 60 X",
+      "REALME C67"
+    ],
+  },
+  {
+    mainModel: "REALME 12 X",
+    models: [
+      "B=E=6=1",
+      "REALME 12 X",
+      "REALME 12 5G",
+      "REALME C65",
+      "REALME NARZO N65 5G",
+      "REALME NARZO 70 X",
+      "REALME 13 5G"
+    ],
+  },
+  {
+    mainModel: "REALME 12 PRO",
+    models: [
+      "B=E=6=2",
+      "REALME 12 PRO",
+      "REALME P1 PRO",
+      "REALME 12 PRO +"
+    ],
+  },
+  {
+    mainModel: "REALME 14X",
+    models: [
+      "B=E=7=1",
+      "REALME P 3X",
+      "REALME 14 X",
+      "REALME V60 PRO 5G"
+    ],
+  },
+  {
+    mainModel: "REALME 15 T",
+    models: [
+      "B=E=7=2",
+      "REALME 15 T"
+    ],
+  },
+  {
+    mainModel: "REALME 15 PRO",
+    models: [
+      "B=E=9=1",
+      "REALME 15 5G",
+      "REALME 15 PRO"
+    ],
+  },
+  {
+    mainModel: "OPPO F31 PRO",
+    models: [
+      "B=E=9=2",
+      "OPPO F31 PRO"
+    ],
+  },
+  {
+    mainModel: "REALME 16 PRO",
+    models: [
+      "B=E=10=1",
+      "REALME 16 PRO"
+    ],
+  },
+  {
+    mainModel: "REALME X7",
+    models: [
+      "B=E=10=2",
+      "REALME X7"
+    ],
+  },
+  {
+    mainModel: "REALME P4X",
+    models: [
+      "B=F=1=1",
+      "REALME P 4X"
+    ],
+  },
+  {
+    mainModel: "REALME NARZO 50 A",
+    models: [
+      "B=F=1=2",
+      "EWALME NARZO 50 A"
+    ],
+  },
+  {
+    mainModel: "REALME C3",
+    models :[
+      "B=F=2=1",
+      "REALME C3"
+    ],
+  },
+  {
+    mainModel: "REALME C1",
+    models: [
+      "B=F=2=2",
+      "OPPO A3S",
+      "OPPO A5",
+      "REALME C1",
+      "OPPO A12"
+    ],
+  },
+  {
+    mainModel: "REALME C11",
+    models: [
+      "B=F=3=1",
+      "REALME C11"
+    ],
+  },
+  {
+    mainModel: "REALME C20",
+    models: [
+      "B=F=3=2",
+      "REALME C20",
+      "REALME C11"
+    ],
+  },
+  {
+    mainModel: "REALME C21 Y",
+    models: [
+      "B=F=4=2",
+      "REALME C21 Y",
+      "REALME C25 Y"
+    ],
+  },
+  {
+    mainModel: "REALME C25",
+    models: [
+      "B=F=4=2",
+      "REALME C25",
+      "REALME C25 S"
+    ],
+  },
+  {
+    mainModel: "REALME C30",
+    models: [
+      "B=F=5=1",
+      "REALME C30",
+      "REALME NARZO 50 I PRIME",
+      "REALME C30S"
+    ],
+  },
+  {
+    mainModel: "REALME C35",
+    models: [
+      "B=F=5=2",
+      "REALME C35",
+      "REALME NARZO 50 A PRIME "
+    ],
+  },
+];
+
+const antiyellowmagsafeCaseData = [
+  {
+    mainModel: "IPHONE 11",
+    models: [
+      "IPHONE 11"
+    ],
+  },
+  {
+    mainModel: "IPHONE 11 PRO",
+    models: [
+      "IPHONE 11 PRO"
+    ],
+  },
+  {
+    mainModel: "IPHONE 11 PRO MAX",
+    models: [
+      "IPHONE 11 PRO MAX"
+    ],
+  },
+  {
+    mainModel: "IPHONE 12",
+    models: [
+      "IPHONE 12",
+      "IPHONE 12 PRO"
+    ],
+  },
+  {
+    mainModel: "IPHONE 12 PRO MAX",
+    models: [
+      "IPHONE 12 PRO MAX"
+    ],
+  },
+  {
+    mainModel: "IPHONE 13 MINI",
+    models: [
+      "IPHONE 13 MINI",
+      "IPHONE 12 MINI"
+    ],
+  },
+  {
+    mainModel: "IPHONE 13",
+    models: [
+      "IPHONE 13",
+      "IPHONE 14"
+    ],
+  },
+  {
+    mainModel: "IPHONE 13 PRO",
+    models: [
+      "IPHONE 13 PRO"
+    ],
+  },
+  {
+    mainModel: "IPHONE 13 PRO MAX",
+    models: [
+      "IPHONE 13 PRO MAX"
+    ],
+  },
+  {
+    mainModel: "IPHONE 14 PLUS",
+    models: [
+      "IPHONE 14 PLUS",
+      "IPHONE 15 PLUS"
+    ],
+  },
+  {
+    mainModel: "IPHONE 14 PRO",
+    models: [
+      "IPHONE 14 PRO"
+    ],
+  },
+  {
+    mainModel: "IPHONE 14 PRO MAX",
+    models: [
+      "IPHONE 14 PRO MAX",
+    ],
+  },
+  {
+    mainModel: "IPHONE 15",
+    models: [
+      "IPHONE 15"
+    ],
+  },
+  {
+    mainModel: "IPHONE 15 PRO",
+    models: [
+      "IPHONE 15 PRO"
+    ],
+  },
+  {
+    mainModel: "IPHONE 15 PRO MAX",
+    models: [
+      "IPHONE 15 PRO MAX"
+    ],
+  },
+  {
+    mainModel: "IPHONE 16E",
+    models: [
+      "IPHONE 16E"
+    ],
+  },
+  {
+    mainModel: "IPHONE 16",
+    models: [
+      "IPHONE 16"
+    ],
+  },
+  {
+    mainModel: "IPHONE 16 PLUS",
+    models: [
+      "IPHONE 16 PLUS"
+    ],
+  },
+  {
+    mainModel: "IPHONE 16 PRO",
+    models: [
+      "IPHONE 16 PRO"
+    ],
+  },
+  {
+    mainModel: "IPHONE 16 PRO MAX",
+    models: [
+      "IPHONE 16 PRO MAX"
+    ],
+  },
+  {
+    mainModel: "IPHONE 17 AIR",
+    models: [
+      "IPHONE 17 AIR"
+    ],
+  },
+  {
+    mainModel: "IPHONE 17",
+    models: [
+      "IPHONE 17"
+    ],
+  },
+  {
+    mainModel: "IPHONE 17 PRO",
+    models: [
+      "IPHONE 17 PRO"
+    ],
+  },
+  {
+    mainModel: "IPHONE 17 PRO MAX",
+    models: [
+      "IPHONE 17 PRO MAX"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS NORD CE",
+    models: [
+      "ONEPLUS NORD CE"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS NORD CE 2",
+    models: [
+      "ONEPLUS NORD CE 2"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS NORD CE 2 LITE",
+    models: [
+      "ONEPLUS NORD CE 2 LITE"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS NORD CE 3",
+    models: [
+      "ONEPLUS NORD CE 3"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS NORD CE 3 LITE",
+    models: [
+      "ONEPLUS NORD CE 3 LITE"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS NORD CE 4",
+    models: [
+      "ONEPLUS NORD CE 4"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS NORD CE 4 LITE",
+    models: [
+      "ONEPLUS NORD CE 4 LITE"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS NORD CE 5",
+    models: [
+      "ONEPLUS NORD CE 5"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS NORD CE 6 LITE",
+    models: [
+      "ONEPLUS NORD CE 6 LITE"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS NORD",
+    models: [
+      "ONEPLUS NORD"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS NORD 2T",
+    models: [
+      "ONEPLUS NORD 2T"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS NORD 2",
+    models: [
+      "ONEPLUS NORD 2"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS NORD 3",
+    models: [
+      "ONEPLUS NORD 3"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS NORD 4",
+    models: [
+      "ONEPLUS NORD 4"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS NORD 5",
+    models: [
+      "ONEPLUS NORD 5"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS NORD 6",
+    models: [
+      "ONEPLUS NORD 6"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS OPEN",
+    models: [
+      "ONEPLUS OPEN"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS 6T",
+    models: [
+      "ONEPLUS 6T"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS 6",
+    models: [
+      "ONEPLUS 6"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS 7PRO",
+    models: [
+      "ONEPLUS 7 PRO"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS 7T PRO",
+    models: [
+      "ONEPLUS 7T PRO"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS 7T",
+    models: [
+      "ONEPLUS 7T"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS 7",
+    models: [
+      "ONEPLUS 7"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS 8 PRO",
+    models: [
+      "ONEPLUS 8 PRO"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS 8T",
+    models: [
+      "ONEPLUS 8T",
+      "ONEPLUS 9R"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS 8",
+    models: [
+      "ONEPLUS 8"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS 9 PRO",
+    models: [
+      "ONEPLUS 9 PRO"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS 9RT",
+    models: [
+      "ONEPLUS 9RT"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS 9",
+    models: [
+      "ONEPLUS 9"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS 10 PRO",
+    models: [
+      "ONEPLUS 10 PRO"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS 10T",
+    models: [
+      "ONEPLUS 10T"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS 10R",
+    models: [
+      "ONEPLUS 10R"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS 11R",
+    models: [
+      "ONEPLUS 11R"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS 11",
+    models: [
+      "ONEPLUS 11"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS 12R",
+    models: [
+      "ONEPLUS 12R"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS 12",
+    models: [
+      "ONEPLUS 12"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS 13S",
+    models: [
+      "ONEPLUS 13S",
+      "ONEPLUS 13T"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS 13R",
+    models: [
+      "ONEPLUS 13R"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS 13",
+    models: [
+      "ONEPLUS 13"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS 15R",
+    models: [
+      "ONEPLUS 15R"
+    ],
+  },
+  {
+    mainModel: "ONEPLUS 15",
+    models: [
+      "ONEPLUS 15"
+    ],
+  },
+  {
+    mainModel: "CMF PHONE 1",
+    models: [
+      "CMF PHONE 1"
+    ],
+  },
+  {
+    mainModel: "CMF PHONE 2 PRO",
+    models: [
+      "CMF PHONE 2 PRO"
+    ],
+  },
+  {
+    mainModel: "NOTHING PHONE 1",
+    models: [
+      "NOTHING PHONE 1"
+    ],
+  },
+  {
+    mainModel: "CMF PHONE 2",
+    models: [
+      "NOTHING PHONE 2"
+    ],
+  },
+  {
+    mainModel: "CMF PHONE 2A",
+    models: [
+      "NOTHING PHONE 2A",
+      "NOTHING PHONE 2A PLUS"
+    ],
+  },
+  {
+    mainModel: "NOTHING PHONE 3A LITE",
+    models: [
+      "NOTHING PHONE 3A LITE"
+    ],
+  },
+  {
+    mainModel: "NOTHNG PHONE 3A",
+    models: [
+      "NOTHING PHONE 3A"
+    ],
+  },
+  {
+    mainModel: "NOTHING PHONE 3A PRO",
+    models: [
+      "NOTHING PHONE 3A PRO"
+    ],
+  },
+  {
+    mainModel: "NOTHING PHONE 3",
+    models: [
+      "NOTHING PHONE 3"
+    ],
+  },
+  {
+    mainModel: "NOTHING PHONE 4A",
+    models: [
+      "NOTHING PHONE 4A"
+    ],
+  },
+  {
+    mainModel: "NOTHING PHONE 4A PRO",
+    models: [
+      "NOTHING PHONE 4A PRO"
     ],
   },
 ];
