@@ -725,7 +725,7 @@ const temperedGlassData = [
   ],
 },
 {
-  models: "OPPO F29",
+  mainModel: "OPPO F29",
   models: [
     "OPPO F29"
   ],
@@ -962,7 +962,7 @@ const temperedGlassData = [
   ],
 },
 {
-  models: "MI 13 5G",
+  mainModel: "MI 13 5G",
   models: [
     "MI 12 4G",
     "MI 12 5G",
